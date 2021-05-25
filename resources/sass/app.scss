@@ -1,0 +1,16 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.btn-brand-border{
+    background: #eb5d1e;
+    color: #fff;
+    padding: 10px 25px;
+    margin-left: 30px;
+    border-radius: 20px;
+}
