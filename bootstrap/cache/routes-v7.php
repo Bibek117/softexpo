@@ -277,13 +277,52 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/api/company' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'api.show_all_company',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/api/company/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'api.new_company',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/' => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::sJEDJO7Gm8wlUepe',
+            '_route' => 'generated::8gzb4apuGwhOQI5E',
           ),
           1 => NULL,
           2 => 
@@ -305,7 +344,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/oauth/(?|tokens/([^/]++)(*:32)|clients/([^/]++)(?|(*:58))|personal\\-access\\-tokens/([^/]++)(*:99))|/home(?:/([^/]++))?(*:126)|/vendor(?:/([^/]++))?(*:155))/?$}sDu',
+      0 => '{^(?|/oauth/(?|tokens/([^/]++)(*:32)|clients/([^/]++)(?|(*:58))|personal\\-access\\-tokens/([^/]++)(*:99))|/api/company/(?|show/([^/]++)(*:136)|update/([^/]++)(*:159)|delete/([^/]++)(*:182))|/home(?:/([^/]++))?(*:210)|/vendor(?:/([^/]++))?(*:239))/?$}sDu',
     ),
     3 => 
     array (
@@ -394,13 +433,80 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      126 => 
+      136 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::A5EIBHbpT443NJ0h',
+            '_route' => 'api.show_one_company',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      159 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'api.update_company',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      182 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'api.delete_company',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      210 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::hVFC0lcUo7Mi0bsF',
             'path' => NULL,
           ),
           1 => 
@@ -418,13 +524,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      155 => 
+      239 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::RP0kdwP9JisrkkFZ',
+            '_route' => 'generated::lRCxubtp2oEtxfzD',
             'path' => NULL,
           ),
           1 => 
@@ -1103,7 +1209,184 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::sJEDJO7Gm8wlUepe' => 
+    'api.show_all_company' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'api/company',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'api',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Api\\CompanyprofileController@index',
+        'controller' => 'App\\Http\\Controllers\\Api\\CompanyprofileController@index',
+        'as' => 'api.show_all_company',
+        'namespace' => NULL,
+        'prefix' => 'api',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'api.show_one_company' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'api/company/show/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'api',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Api\\CompanyprofileController@show',
+        'controller' => 'App\\Http\\Controllers\\Api\\CompanyprofileController@show',
+        'as' => 'api.show_one_company',
+        'namespace' => NULL,
+        'prefix' => 'api',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'api.new_company' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'api/company/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'api',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Api\\CompanyprofileController@create',
+        'controller' => 'App\\Http\\Controllers\\Api\\CompanyprofileController@create',
+        'as' => 'api.new_company',
+        'namespace' => NULL,
+        'prefix' => 'api',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'api.update_company' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+      ),
+      'uri' => 'api/company/update/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'api',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Api\\CompanyprofileController@update',
+        'controller' => 'App\\Http\\Controllers\\Api\\CompanyprofileController@update',
+        'as' => 'api.update_company',
+        'namespace' => NULL,
+        'prefix' => 'api',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'api.delete_company' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'api/company/delete/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'api',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Api\\CompanyprofileController@destroy',
+        'controller' => 'App\\Http\\Controllers\\Api\\CompanyprofileController@destroy',
+        'as' => 'api.delete_company',
+        'namespace' => NULL,
+        'prefix' => 'api',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'generated::8gzb4apuGwhOQI5E' => 
     array (
       'methods' => 
       array (
@@ -1129,7 +1412,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::sJEDJO7Gm8wlUepe',
+        'as' => 'generated::8gzb4apuGwhOQI5E',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1146,7 +1429,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::A5EIBHbpT443NJ0h' => 
+    'generated::hVFC0lcUo7Mi0bsF' => 
     array (
       'methods' => 
       array (
@@ -1160,15 +1443,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":264:{@G+DZAHHRrAqpr/RTcjeE7dMsZKL0iWfhhrT4FTsc+UE=.a:5:{s:3:"use";a:0:{}s:8:"function";s:52:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":266:{@MsN/JQ1en7jLV8HQfOCetVPxXQ3T789rHydFsWtkb9w=.a:5:{s:3:"use";a:0:{}s:8:"function";s:54:"function () {
         return \\view(\'welcome\');
-    }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000052f1aeb70000000067edc264";}}',
+    }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000001c751e570000000041abd4b4";}}',
         'namespace' => NULL,
         'prefix' => '/home',
         'where' => 
         array (
         ),
-        'as' => 'generated::A5EIBHbpT443NJ0h',
+        'as' => 'generated::hVFC0lcUo7Mi0bsF',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1183,7 +1466,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::RP0kdwP9JisrkkFZ' => 
+    'generated::lRCxubtp2oEtxfzD' => 
     array (
       'methods' => 
       array (
@@ -1198,15 +1481,15 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'vendor',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":263:{@n6lUxfD92CxZi1HJJAHGhNJs2WUpnQEG5SkDYt6D+ak=.a:5:{s:3:"use";a:0:{}s:8:"function";s:51:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":265:{@6fmVxDxjNWyTHraCqzmzWYqtOvAQYXM9MDYPGbELU1E=.a:5:{s:3:"use";a:0:{}s:8:"function";s:53:"function () {
         return \\view(\'vendor\');
-    }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000052f1aeb10000000067edc264";}}',
+    }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000001c751e510000000041abd4b4";}}',
         'namespace' => NULL,
         'prefix' => '/vendor',
         'where' => 
         array (
         ),
-        'as' => 'generated::RP0kdwP9JisrkkFZ',
+        'as' => 'generated::lRCxubtp2oEtxfzD',
       ),
       'fallback' => false,
       'defaults' => 
