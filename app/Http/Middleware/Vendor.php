@@ -17,7 +17,7 @@ class Vendor extends Middleware
      * @return mixed
      */
   
-    public function handle($request, Closure $next)
+   public function handle($request, Closure $next, ...$guards)
     {
         session_start();
         // dd(Auth::guard('vendor')->hasUser());
