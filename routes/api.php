@@ -12,10 +12,15 @@ Route::group(['as' => 'api.'], function () {
 
     Route::post('admin_login', [App\Http\Controllers\Admins\LoginController::class, 'register'])->name('admin_register');
 
-    Route::group(['middleware' => ['auth:api']], function () {
+    Route::get('test',[App\Http\Controllers\Vendors\LoginController::class, 'test'])->name('test');
+    
+    Route::post('test',[App\Http\Controllers\Vendors\LoginController::class, 'newtest'])->name('test');
+    
+    
+    // Route::group(['middleware' => ['auth:api']], function () {
 
-        //code here
+    //     //code here
 
-    });
+    // });
 
 });
