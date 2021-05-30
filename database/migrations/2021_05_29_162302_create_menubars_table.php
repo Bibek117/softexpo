@@ -16,8 +16,8 @@ class CreateMenubarsTable extends Migration
         Schema::create('menubars', function (Blueprint $table) {
             $table->id();
             $table->string('item');
-            $table->boolean('ischild');
-            $table->integer('parent_id');
+            $table->boolean('ischild')->nullable();
+            $table->integer('parent_id')->nullable();
             $table->string('link');
             $table->string('created_by');
             $table->timestamps();

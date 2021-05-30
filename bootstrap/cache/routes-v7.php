@@ -336,13 +336,32 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/api/menubar/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'api.add_menu',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/' => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::8kjXmAYP6JYZw70e',
+            '_route' => 'generated::d9xayljLZkwHrocH',
           ),
           1 => NULL,
           2 => 
@@ -364,7 +383,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/oauth/(?|tokens/([^/]++)(*:32)|clients/([^/]++)(?|(*:58))|personal\\-access\\-tokens/([^/]++)(*:99))|/api/company/(?|show/([^/]++)(*:136)|update/([^/]++)(*:159)|delete/([^/]++)(*:182))|/home(?:/([^/]++))?(*:210)|/vendor(?:/([^/]++))?(*:239))/?$}sDu',
+      0 => '{^(?|/oauth/(?|tokens/([^/]++)(*:32)|clients/([^/]++)(?|(*:58))|personal\\-access\\-tokens/([^/]++)(*:99))|/api/(?|company/(?|show/([^/]++)(*:139)|update/([^/]++)(*:162)|delete/([^/]++)(*:185))|menubar/(?|delete/([^/]++)(*:220)|show/([^/]++)(*:241)|update/([^/]++)(*:264)))|/home(?:/([^/]++))?(*:293)|/vendor(?:/([^/]++))?(*:322))/?$}sDu',
     ),
     3 => 
     array (
@@ -453,7 +472,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      136 => 
+      139 => 
       array (
         0 => 
         array (
@@ -476,7 +495,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      159 => 
+      162 => 
       array (
         0 => 
         array (
@@ -498,7 +517,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      182 => 
+      185 => 
       array (
         0 => 
         array (
@@ -520,13 +539,80 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      210 => 
+      220 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::dRiUOYqBKDb8mLUM',
+            '_route' => 'api.delete',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      241 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'api.show_one_menu',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      264 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'api.update_menubar',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      293 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::160SJUMsO1boln3U',
             'path' => NULL,
           ),
           1 => 
@@ -544,13 +630,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      239 => 
+      322 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::vCkk7UhHdeLYNrGX',
+            '_route' => 'generated::TlR8rEB4MdT14ueb',
             'path' => NULL,
           ),
           1 => 
@@ -1420,8 +1506,8 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'api',
         ),
-        'uses' => 'App\\Http\\Controllers\\Api\\menubarcontroller@index',
-        'controller' => 'App\\Http\\Controllers\\Api\\menubarcontroller@index',
+        'uses' => 'App\\Http\\Controllers\\Api\\MenubarController@index',
+        'controller' => 'App\\Http\\Controllers\\Api\\MenubarController@index',
         'as' => 'api.show_menu',
         'namespace' => NULL,
         'prefix' => 'api',
@@ -1442,7 +1528,148 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::8kjXmAYP6JYZw70e' => 
+    'api.add_menu' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'api/menubar/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'api',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Api\\MenubarController@create',
+        'controller' => 'App\\Http\\Controllers\\Api\\MenubarController@create',
+        'as' => 'api.add_menu',
+        'namespace' => NULL,
+        'prefix' => 'api',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'api.delete' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'api/menubar/delete/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'api',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Api\\MenubarController@destroy',
+        'controller' => 'App\\Http\\Controllers\\Api\\MenubarController@destroy',
+        'as' => 'api.delete',
+        'namespace' => NULL,
+        'prefix' => 'api',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'api.show_one_menu' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'api/menubar/show/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'api',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Api\\MenubarController@show',
+        'controller' => 'App\\Http\\Controllers\\Api\\MenubarController@show',
+        'as' => 'api.show_one_menu',
+        'namespace' => NULL,
+        'prefix' => 'api',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'api.update_menubar' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+      ),
+      'uri' => 'api/menubar/update/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'api',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Api\\MenubarController@update',
+        'controller' => 'App\\Http\\Controllers\\Api\\MenubarController@update',
+        'as' => 'api.update_menubar',
+        'namespace' => NULL,
+        'prefix' => 'api',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'generated::d9xayljLZkwHrocH' => 
     array (
       'methods' => 
       array (
@@ -1468,7 +1695,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::8kjXmAYP6JYZw70e',
+        'as' => 'generated::d9xayljLZkwHrocH',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1485,7 +1712,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::dRiUOYqBKDb8mLUM' => 
+    'generated::160SJUMsO1boln3U' => 
     array (
       'methods' => 
       array (
@@ -1499,15 +1726,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":266:{@NzkxF572ru7mkBL//QN11zcym4YZ31R2xodhJh04LuA=.a:5:{s:3:"use";a:0:{}s:8:"function";s:54:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":266:{@KgA+RPQv1Kptc3cTNGjT+ryuO7gcJSMHrJMaVzG0adg=.a:5:{s:3:"use";a:0:{}s:8:"function";s:54:"function () {
         return \\view(\'welcome\');
-    }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000002a379d8c000000006b48d0b9";}}',
+    }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000036372a970000000010b362c7";}}',
         'namespace' => NULL,
         'prefix' => '/home',
         'where' => 
         array (
         ),
-        'as' => 'generated::dRiUOYqBKDb8mLUM',
+        'as' => 'generated::160SJUMsO1boln3U',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1522,7 +1749,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::vCkk7UhHdeLYNrGX' => 
+    'generated::TlR8rEB4MdT14ueb' => 
     array (
       'methods' => 
       array (
@@ -1537,15 +1764,15 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'vendor',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":265:{@hxffe/jyDAigQeQqYEEC17o5zIyzzBiGIaxo/ansFNA=.a:5:{s:3:"use";a:0:{}s:8:"function";s:53:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":265:{@bo7WNDQzOApuqjDGoY3nEeX5tbIQ/gKpS5C+U6jOGSo=.a:5:{s:3:"use";a:0:{}s:8:"function";s:53:"function () {
         return \\view(\'vendor\');
-    }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000002a379d8e000000006b48d0b9";}}',
+    }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000036372a950000000010b362c7";}}',
         'namespace' => NULL,
         'prefix' => '/vendor',
         'where' => 
         array (
         ),
-        'as' => 'generated::vCkk7UhHdeLYNrGX',
+        'as' => 'generated::TlR8rEB4MdT14ueb',
       ),
       'fallback' => false,
       'defaults' => 
