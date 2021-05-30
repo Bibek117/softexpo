@@ -15,7 +15,11 @@ Route::group(['as' => 'api.'], function () {
     Route::group(['middleware' => ['auth:api']], function () {
 
         //code here
+       
+
+
 
     });
+    Route::get('test' , [App\Http\Controllers\Api\menubarcontroller::class , 'test'])->name('test');
 
 });
