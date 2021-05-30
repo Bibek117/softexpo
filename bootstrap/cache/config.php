@@ -10,7 +10,12 @@
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
+<<< HEAD
     'key' => 'base64:yHpKvhCPLD0tLg218smk3x771EwBhegNoo8Q5dV+d60=',
+=======
+    'key' => 'base64:PzScJvIqdbED/MJuuPWRfHY6FATa7hafh9ApjOEFOq0=',
+    'key' => 'base64:JYGQ6ecMDr9UWLfbeT49oOloXbtdOxZIRIZkXrRM2u4=',
+>>>>>>> 11f560e9a943ce4d52b443582cbabcdc605863b0
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -183,7 +188,15 @@
       'file' => 
       array (
         'driver' => 'file',
+<<<<<<< HEAD
         'path' => 'C:\\xampp\\htdocs\\Laravel\\softexpo\\storage\\framework/cache/data',
+=======
+<<<<<<< HEAD
+        'path' => 'C:\\xamppp\\htdocs\\softexpo\\storage\\framework/cache/data',
+=======
+        'path' => 'C:\\xampp\\htdocs\\laravel\\softexpo\\storage\\framework/cache/data',
+>>>>>>> 81cc64399c3b406868670441785056e79a9a6530
+>>>>>>> 11f560e9a943ce4d52b443582cbabcdc605863b0
       ),
       'memcached' => 
       array (
@@ -350,12 +363,28 @@
       'local' => 
       array (
         'driver' => 'local',
+<<<<<<< HEAD
         'root' => 'C:\\xampp\\htdocs\\Laravel\\softexpo\\storage\\app',
+=======
+<<<<<<< HEAD
+        'root' => 'C:\\xamppp\\htdocs\\softexpo\\storage\\app',
+=======
+        'root' => 'C:\\xampp\\htdocs\\laravel\\softexpo\\storage\\app',
+>>>>>>> 81cc64399c3b406868670441785056e79a9a6530
+>>>>>>> 11f560e9a943ce4d52b443582cbabcdc605863b0
       ),
       'public' => 
       array (
         'driver' => 'local',
+<<<<<<< HEAD
         'root' => 'C:\\xampp\\htdocs\\Laravel\\softexpo\\storage\\app/public',
+=======
+<<<<<<< HEAD
+        'root' => 'C:\\xamppp\\htdocs\\softexpo\\storage\\app/public',
+=======
+        'root' => 'C:\\xampp\\htdocs\\laravel\\softexpo\\storage\\app/public',
+>>>>>>> 81cc64399c3b406868670441785056e79a9a6530
+>>>>>>> 11f560e9a943ce4d52b443582cbabcdc605863b0
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -372,7 +401,15 @@
     ),
     'links' => 
     array (
+<<<<<<< HEAD
       'C:\\xampp\\htdocs\\Laravel\\softexpo\\public\\storage' => 'C:\\xampp\\htdocs\\Laravel\\softexpo\\storage\\app/public',
+=======
+<<<<<<< HEAD
+      'C:\\xamppp\\htdocs\\softexpo\\public\\storage' => 'C:\\xamppp\\htdocs\\softexpo\\storage\\app/public',
+=======
+      'C:\\xampp\\htdocs\\laravel\\softexpo\\public\\storage' => 'C:\\xampp\\htdocs\\laravel\\softexpo\\storage\\app/public',
+>>>>>>> 81cc64399c3b406868670441785056e79a9a6530
+>>>>>>> 11f560e9a943ce4d52b443582cbabcdc605863b0
     ),
   ),
   'hashing' => 
@@ -406,13 +443,29 @@
       'single' => 
       array (
         'driver' => 'single',
+<<<<<<< HEAD
         'path' => 'C:\\xampp\\htdocs\\Laravel\\softexpo\\storage\\logs/laravel.log',
+=======
+<<<<<<< HEAD
+        'path' => 'C:\\xamppp\\htdocs\\softexpo\\storage\\logs/laravel.log',
+=======
+        'path' => 'C:\\xampp\\htdocs\\laravel\\softexpo\\storage\\logs/laravel.log',
+>>>>>>> 81cc64399c3b406868670441785056e79a9a6530
+>>>>>>> 11f560e9a943ce4d52b443582cbabcdc605863b0
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
+<<<<<<< HEAD
         'path' => 'C:\\xampp\\htdocs\\Laravel\\softexpo\\storage\\logs/laravel.log',
+=======
+<<<<<<< HEAD
+        'path' => 'C:\\xamppp\\htdocs\\softexpo\\storage\\logs/laravel.log',
+=======
+        'path' => 'C:\\xampp\\htdocs\\laravel\\softexpo\\storage\\logs/laravel.log',
+>>>>>>> 81cc64399c3b406868670441785056e79a9a6530
+>>>>>>> 11f560e9a943ce4d52b443582cbabcdc605863b0
         'level' => 'debug',
         'days' => 14,
       ),
@@ -463,7 +516,15 @@
       ),
       'emergency' => 
       array (
+<<<<<<< HEAD
         'path' => 'C:\\xampp\\htdocs\\Laravel\\softexpo\\storage\\logs/laravel.log',
+=======
+<<<<<<< HEAD
+        'path' => 'C:\\xamppp\\htdocs\\softexpo\\storage\\logs/laravel.log',
+=======
+        'path' => 'C:\\xampp\\htdocs\\laravel\\softexpo\\storage\\logs/laravel.log',
+>>>>>>> 81cc64399c3b406868670441785056e79a9a6530
+>>>>>>> 11f560e9a943ce4d52b443582cbabcdc605863b0
       ),
     ),
   ),
@@ -513,14 +574,22 @@
     'from' => 
     array (
       'address' => NULL,
-      'name' => 'Laravel',
+      'name' => '${APP_NAME}',
     ),
     'markdown' => 
     array (
       'theme' => 'default',
       'paths' => 
       array (
+<<<<<<< HEAD
         0 => 'C:\\xampp\\htdocs\\Laravel\\softexpo\\resources\\views/vendor/mail',
+=======
+<<<<<<< HEAD
+        0 => 'C:\\xamppp\\htdocs\\softexpo\\resources\\views/vendor/mail',
+=======
+        0 => 'C:\\xampp\\htdocs\\laravel\\softexpo\\resources\\views/vendor/mail',
+>>>>>>> 81cc64399c3b406868670441785056e79a9a6530
+>>>>>>> 11f560e9a943ce4d52b443582cbabcdc605863b0
       ),
     ),
   ),
@@ -603,7 +672,15 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
+<<<<<<< HEAD
     'files' => 'C:\\xampp\\htdocs\\Laravel\\softexpo\\storage\\framework/sessions',
+=======
+<<<<<<< HEAD
+    'files' => 'C:\\xamppp\\htdocs\\softexpo\\storage\\framework/sessions',
+=======
+    'files' => 'C:\\xampp\\htdocs\\laravel\\softexpo\\storage\\framework/sessions',
+>>>>>>> 81cc64399c3b406868670441785056e79a9a6530
+>>>>>>> 11f560e9a943ce4d52b443582cbabcdc605863b0
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -623,9 +700,21 @@
   array (
     'paths' => 
     array (
+<<<<<<< HEAD
       0 => 'C:\\xampp\\htdocs\\Laravel\\softexpo\\resources\\views',
     ),
     'compiled' => 'C:\\xampp\\htdocs\\Laravel\\softexpo\\storage\\framework\\views',
+=======
+<<<<<<< HEAD
+      0 => 'C:\\xamppp\\htdocs\\softexpo\\resources\\views',
+    ),
+    'compiled' => 'C:\\xamppp\\htdocs\\softexpo\\storage\\framework\\views',
+=======
+      0 => 'C:\\xampp\\htdocs\\laravel\\softexpo\\resources\\views',
+    ),
+    'compiled' => 'C:\\xampp\\htdocs\\laravel\\softexpo\\storage\\framework\\views',
+>>>>>>> 81cc64399c3b406868670441785056e79a9a6530
+>>>>>>> 11f560e9a943ce4d52b443582cbabcdc605863b0
   ),
   'flare' => 
   array (

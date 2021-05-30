@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\AppSettingController;
 
 
 Route::group(['as' => 'api.'], function () {
@@ -38,6 +39,8 @@ Route::group(['as' => 'api.'], function () {
 
 
     });
+
+    Route::apiResource('appsettings', AppSettingController::class);
     
 
     // menubar............................................................
