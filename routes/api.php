@@ -2,17 +2,24 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\AppSettingController;
 
 
 Route::group(['as' => 'api.'], function () {
 
-    Route::post('vendor_login', [App\Http\Controllers\Vendors\LoginController::class, 'login'])->name('login');
+    //Auth
 
+    //login function for vendor -- middleware set
+    Route::post('vendor_login', [App\Http\Controllers\Vendors\LoginController::class, 'login'])->name('login');
+    //register -- middleware done
     Route::post('vendor_register', [App\Http\Controllers\Vendors\RegisterController::class, 'register'])->name('register');
 
+    //rem
     Route::post('admin_login', [App\Http\Controllers\Admins\LoginController::class, 'register'])->name('admin_register');
+    //----------------Auth sudeep
 
-    //Company profiles---------------------------------------
+
+    //Company profiles---------------------------------------Bibek
 
      //show all 
     Route::get('company',[App\Http\Controllers\Api\CompanyprofileController::class,'index'])->name('show_all_company'); 
@@ -28,12 +35,28 @@ Route::group(['as' => 'api.'], function () {
     //-------------------------------------company profiles
 
 
+    //App Settings--Sirjana 
+    Route::apiResource('appsettings', AppSettingController::class);
+    
+
+    // menubar............................................................Sharmila
+
+    //show all
+    Route::get('menubar',[App\Http\Controllers\Api\MenubarController::class,'index'])->name('show_menu');
+
+    //create new menubar
+    Route::post('menubar/create' , [App\Http\Controllers\Api\MenubarController::class , 'create'])->name('add_menu');
+
+    //delete existing menubar
+    Route::delete('menubar/delete/{id}' , [App\Http\Controllers\Api\MenubarController::class , 'destroy'])->name('delete');
+
+    //show only one menubar using id
+    Route::get('menubar/show/{id}',[App\Http\Controllers\Api\MenubarController::class,'show'])->name('show_one_menu'); 
+
+    // update the exiting menubar
+    Route::put('menubar/update/{id}' , [\App\Http\Controllers\Api\MenubarController::class , 'update'])->name('update_menubar');
 
 
-    Route::group(['middleware' => ['auth:api']], function () {
 
-    //     //code here
-
-    });
  
 });

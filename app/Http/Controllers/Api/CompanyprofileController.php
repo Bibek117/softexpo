@@ -29,8 +29,8 @@ class CompanyprofileController extends Controller
      */
     public function create(CompanyRequest $request)
     {
-        Companyprofile::create($request->all());
-        return response()->json(['message'=>'Company profile created successfully','status'=>200]);
+        $data = Companyprofile::create($request->all());
+        return response()->json(['message'=>'Company profile created successfully','status'=>201,'createddata'=>$data]);
     }
 
     /**
@@ -54,8 +54,8 @@ class CompanyprofileController extends Controller
      */
     public function update(CompanyRequest $request, $id)
     {
-        Companyprofile::find($id)->update($request->all());
-         return response()->json(['message'=>'Company profile updated'],200);
+        $isupdated = Companyprofile::find($id)->update($request->all());
+         return response()->json(['message'=>'Company profile updated','isupdated'=>$isupdated],200);
     }
 
     /**
@@ -67,7 +67,7 @@ class CompanyprofileController extends Controller
     public function destroy($id)
     {
         $company = Companyprofile::find($id);
-        $company->delete();
-        return response()->json(['message'=>'Company profile deleted successfully'],200);
+        $isdeleted = $company->delete();
+        return response()->json(['message'=>'Company profile deleted successfully','isdeleted' =>$isdeleted],200);
     }
 }
