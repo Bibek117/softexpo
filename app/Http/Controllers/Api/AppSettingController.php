@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\AppSetting;
 use Illuminate\Http\Request;
+use App\Http\Requests\AppsettingRequest;
 
 class AppSettingController extends Controller
 {
@@ -24,21 +25,28 @@ class AppSettingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(AppSetting $appsetting)
+    public function create(AppsettingRequest $request)
     {
-        AppSetting::create($appsetting->all());
-        return response()->json(['message' => 'Appsetting created successfully'],200);
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AppsettingRequest $request)
     {
-       
+        $data = AppSetting::all();
+        if(count($data)>0 && count($data)<2)
+        {
+            $appset = AppSetting::create($request->all());
+            return response()->json(['message' => 'Appsetting created successfully', $appset],201);
+        }
+        else
+        {
+            return response()->json(['message' => 'Appsetting already exists']);
+        }
     }
 
     /**
@@ -71,7 +79,7 @@ class AppSettingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AppSetting $appsetting)
+    public function update(AppsettingRequest $request, AppSetting $appsetting)
     {
         AppSetting::find($appsetting->id)->update($request->all());
         return response()->json(['message' => 'App Setting updated successfully'], 200);
@@ -85,8 +93,8 @@ class AppSettingController extends Controller
      */
     public function destroy(AppSetting $appsetting)
     {
-        $asdelete = AppSetting::find($appsetting->id);
-        $asdelete->delete();
+        // $asdelete = AppSetting::find($appsetting->id);
+        $appsetting->delete();
         return response()->json(['message' => 'App setting deleted successfully'], 200);
     }
 }
