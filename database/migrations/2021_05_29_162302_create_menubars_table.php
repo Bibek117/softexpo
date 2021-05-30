@@ -17,7 +17,7 @@ class CreateMenubarsTable extends Migration
             $table->id();
             $table->string('item');
             $table->boolean('ischild');
-            $table->int('parent_id');
+            $table->integer('parent_id');
             $table->string('link');
             $table->string('created_by');
             $table->timestamps();
