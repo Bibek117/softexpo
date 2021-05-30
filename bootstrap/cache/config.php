@@ -4,13 +4,13 @@
     'name' => 'Laravel',
     'env' => 'local',
     'debug' => true,
-    'url' => 'http://localhost',
+    'url' => 'http://project.test',
     'asset_url' => NULL,
     'timezone' => 'UTC',
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:yHpKvhCPLD0tLg218smk3x771EwBhegNoo8Q5dV+d60=',
+    'key' => 'base64:nb8iRgZvjkwVSwUYn2PdVzAN7y6UbnCCmiMf2e7CJCg=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -183,7 +183,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\xampp\\htdocs\\Laravel\\softexpo\\storage\\framework/cache/data',
+        'path' => 'C:\\xampp\\htdocs\\project\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -350,13 +350,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\Laravel\\softexpo\\storage\\app',
+        'root' => 'C:\\xampp\\htdocs\\project\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\Laravel\\softexpo\\storage\\app/public',
-        'url' => 'http://localhost/storage',
+        'root' => 'C:\\xampp\\htdocs\\project\\storage\\app/public',
+        'url' => 'http://project.test/storage',
         'visibility' => 'public',
       ),
       's3' => 
@@ -372,7 +372,7 @@
     ),
     'links' => 
     array (
-      'C:\\xampp\\htdocs\\Laravel\\softexpo\\public\\storage' => 'C:\\xampp\\htdocs\\Laravel\\softexpo\\storage\\app/public',
+      'C:\\xampp\\htdocs\\project\\public\\storage' => 'C:\\xampp\\htdocs\\project\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -406,13 +406,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\xampp\\htdocs\\Laravel\\softexpo\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\project\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\xampp\\htdocs\\Laravel\\softexpo\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\project\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -463,7 +463,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\xampp\\htdocs\\Laravel\\softexpo\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\project\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -520,7 +520,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\xampp\\htdocs\\Laravel\\softexpo\\resources\\views/vendor/mail',
+        0 => 'C:\\xampp\\htdocs\\project\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -603,7 +603,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\xampp\\htdocs\\Laravel\\softexpo\\storage\\framework/sessions',
+    'files' => 'C:\\xampp\\htdocs\\project\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -623,9 +623,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\Laravel\\softexpo\\resources\\views',
+      0 => 'C:\\xampp\\htdocs\\project\\resources\\views',
     ),
-    'compiled' => 'C:\\xampp\\htdocs\\Laravel\\softexpo\\storage\\framework\\views',
+    'compiled' => 'C:\\xampp\\htdocs\\project\\storage\\framework\\views',
   ),
   'flare' => 
   array (

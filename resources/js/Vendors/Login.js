@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
+import { useHistory } from 'react-router';
 import { RegisterUser } from '../Controllers/RegisterController';
 import { validator, redirectApp} from '../utils';
 export default function Login() {
@@ -8,6 +9,7 @@ export default function Login() {
     const [Remail, setRemail] = useState('');
     const [Rname, setRname] = useState('');
     const [Rpassword, setRpassword] = useState('');
+    const history = useHistory();
 
     const formData = {
         "name": Rname,
@@ -19,24 +21,24 @@ export default function Login() {
         setRegister(!register);
     }
 
-    const validation = (data) =>{
+    const validation = async (data) =>{
       const rules = {
         "name":"required",
         "email":"required",
         "password":"required",
       }
-      return validator(data,rules);
+      return await validator(data,rules);
     }
 
     
 
-    const sendRegisterRequest = async(e) =>{
+    const sendRegisterRequest = (e) =>{
         e.preventDefault()
-       if(await validation(formData)){
+       if(validation(formData)){
         axios.post('/api/vendor_register', formData).then((response)=>{
             if (response.status==200) {
               if(RegisterUser(response)){
-                redirectApp('/vendor/dashboard');
+                history.push('/vendor/dashboard');
               }
             }
         })
@@ -77,7 +79,7 @@ export default function Login() {
               <div className="mt-3 col-md-8">
               <span className="d-inline"> 
                   <button type="submit" className="btn btn-brand-border" onClick={(e)=>sendRegisterRequest(e)}>Register</button>
-                    <button className="btn ml-3 btn-info" onClick={(e)=>showLoginform(e)}>Already have an account? Login</button>
+                    <button className="btn ml-3" onClick={(e)=>showLoginform(e)}>Already have an account? Login</button>
                     </span>
                   </div>
             </form>

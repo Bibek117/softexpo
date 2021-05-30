@@ -76,6 +76,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _Controllers_RegisterController__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Controllers/RegisterController */ "./resources/js/Controllers/RegisterController.js");
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils */ "./resources/js/utils.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
@@ -96,6 +97,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]); if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -124,6 +126,7 @@ function Login() {
       Rpassword = _useState8[0],
       setRpassword = _useState8[1];
 
+  var history = (0,react_router__WEBPACK_IMPORTED_MODULE_6__.useHistory)();
   var formData = {
     "name": Rname,
     "email": Remail,
@@ -135,42 +138,25 @@ function Login() {
     setRegister(!register);
   };
 
-  var validation = function validation(data) {
-    var rules = {
-      "name": "required",
-      "email": "required",
-      "password": "required"
-    };
-    return (0,_utils__WEBPACK_IMPORTED_MODULE_4__.validator)(data, rules);
-  };
-
-  var sendRegisterRequest = /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(e) {
+  var validation = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(data) {
+      var rules;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              e.preventDefault();
+              rules = {
+                "name": "required",
+                "email": "required",
+                "password": "required"
+              };
               _context.next = 3;
-              return validation(formData);
+              return (0,_utils__WEBPACK_IMPORTED_MODULE_4__.validator)(data, rules);
 
             case 3:
-              if (!_context.sent) {
-                _context.next = 5;
-                break;
-              }
+              return _context.abrupt("return", _context.sent);
 
-              axios__WEBPACK_IMPORTED_MODULE_1___default().post('/api/vendor_register', formData).then(function (response) {
-                if (response.status == 200) {
-                  if ((0,_Controllers_RegisterController__WEBPACK_IMPORTED_MODULE_3__.RegisterUser)(response)) {
-                    (0,_utils__WEBPACK_IMPORTED_MODULE_4__.redirectApp)('/vendor/dashboard');
-                  }
-                }
-              })["catch"](function (error) {
-                console.log(error);
-              })["finally"](function () {});
-
-            case 5:
+            case 4:
             case "end":
               return _context.stop();
           }
@@ -178,10 +164,26 @@ function Login() {
       }, _callee);
     }));
 
-    return function sendRegisterRequest(_x) {
+    return function validation(_x) {
       return _ref.apply(this, arguments);
     };
   }();
+
+  var sendRegisterRequest = function sendRegisterRequest(e) {
+    e.preventDefault();
+
+    if (validation(formData)) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().post('/api/vendor_register', formData).then(function (response) {
+        if (response.status == 200) {
+          if ((0,_Controllers_RegisterController__WEBPACK_IMPORTED_MODULE_3__.RegisterUser)(response)) {
+            history.push('/vendor/dashboard');
+          }
+        }
+      })["catch"](function (error) {
+        console.log(error);
+      })["finally"](function () {});
+    }
+  };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("section", {
     id: "auth",
@@ -268,7 +270,7 @@ function Login() {
                       },
                       children: "Register"
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-                      className: "btn ml-3 btn-info",
+                      className: "btn ml-3",
                       onClick: function onClick(e) {
                         return showLoginform(e);
                       },

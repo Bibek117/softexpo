@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { isVendorLogin } from '../Controllers/AuthController';
 import { redirectApp } from '../utils';
 

@@ -1,7 +1,6 @@
-import React, { lazy } from 'react';
+import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom';
 const Home = lazy(()=> import('./Pages/Home'));
-import PublicRoutes from '../components/PublicRoutes'
 import VendorRoutes from '../components/VendorRoutes'
 import { BrowserRouter, Switch } from 'react-router-dom';
 
@@ -9,10 +8,9 @@ import { BrowserRouter, Switch } from 'react-router-dom';
 function Example() {
     return (
         <BrowserRouter>
-        <Switch>
-          <VendorRoutes restricted={false} component={Home} path="/vendor/" exact />
-          <VendorRoutes restricted={false} component={Home} path="/vendor/dashboard" exact />
-        </Switch>
+         <Suspense fallback={<div>loading...........</div>}>
+           <Home />
+        </Suspense>
       </BrowserRouter>
     );
 }
