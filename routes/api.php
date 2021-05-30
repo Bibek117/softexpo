@@ -36,7 +36,7 @@ Route::group(['as' => 'api.'], function () {
 
 
     //App Settings--Sirjana 
-    Route::apiResource('appsettings', AppSettingController::class);
+    Route::resources('appsettings', AppSettingController::class);
     
 
     // menubar............................................................Sharmila

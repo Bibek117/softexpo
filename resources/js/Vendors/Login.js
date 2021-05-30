@@ -38,7 +38,7 @@ export default function Login() {
         axios.post('/api/vendor_register', formData).then((response)=>{
             if (response.status==200) {
               if(RegisterUser(response)){
-                history.push('/vendor/dashboard');
+                redirectApp('/vendor/dashboard');
               }
             }
         })

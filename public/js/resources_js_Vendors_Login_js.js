@@ -176,7 +176,7 @@ function Login() {
       axios__WEBPACK_IMPORTED_MODULE_1___default().post('/api/vendor_register', formData).then(function (response) {
         if (response.status == 200) {
           if ((0,_Controllers_RegisterController__WEBPACK_IMPORTED_MODULE_3__.RegisterUser)(response)) {
-            history.push('/vendor/dashboard');
+            (0,_utils__WEBPACK_IMPORTED_MODULE_4__.redirectApp)('/vendor/dashboard');
           }
         }
       })["catch"](function (error) {

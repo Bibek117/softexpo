@@ -38,6 +38,7 @@ class AppSettingController extends Controller
     public function store(AppsettingRequest $request)
     {
         $data = AppSetting::all();
+        dd($data);
         if(count($data)>0 && count($data)<2)
         {
             $appset = AppSetting::create($request->all());
