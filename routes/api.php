@@ -34,9 +34,33 @@ Route::group(['as' => 'api.'], function () {
     Route::group(['middleware' => ['auth:api']], function () {
 
         //code here
+       
+
+
 
     });
 
     Route::apiResource('appsettings', AppSettingController::class);
+    
+
+    // menubar............................................................
+
+    //show all
+    Route::get('menubar',[App\Http\Controllers\Api\MenubarController::class,'index'])->name('show_menu');
+
+    //create new menubar
+    Route::post('menubar/create' , [App\Http\Controllers\Api\MenubarController::class , 'create'])->name('add_menu');
+
+    //delete existing menubar
+    Route::delete('menubar/delete/{id}' , [App\Http\Controllers\Api\MenubarController::class , 'destroy'])->name('delete');
+
+    //show only one menubar using id
+    Route::get('menubar/show/{id}',[App\Http\Controllers\Api\MenubarController::class,'show'])->name('show_one_menu'); 
+
+    // update the exiting menubar
+    Route::put('menubar/update/{id}' , [\App\Http\Controllers\Api\MenubarController::class , 'update'])->name('update_menubar');
+
+
+
  
 });
