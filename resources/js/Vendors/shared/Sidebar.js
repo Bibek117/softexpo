@@ -119,7 +119,7 @@ class Sidebar extends Component {
             </div>
             <Collapse in={ this.state.basicUiMenuOpen }>
               <ul className="nav flex-column sub-menu">
-                <li className="nav-item"> <Link className={ this.isPathActive('/basic-ui/buttons') ? 'nav-link active' : 'nav-link' } to="/basic-ui/buttons"><>Buttons</></Link></li>
+                <li className="nav-item"> <Link className={ this.isPathActive('/basic-ui/buttons') ? 'nav-link active' : 'nav-link' } to="/vendors/basic-ui/buttons"><>Buttons</></Link></li>
                 <li className="nav-item"> <Link className={ this.isPathActive('/basic-ui/dropdowns') ? 'nav-link active' : 'nav-link' } to="/basic-ui/dropdowns"><>Dropdowns</></Link></li>
               </ul>
             </Collapse>
