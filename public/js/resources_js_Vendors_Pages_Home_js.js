@@ -5118,7 +5118,7 @@ var Sidebar = /*#__PURE__*/function (_Component) {
                   className: "nav-item",
                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
                     className: this.isPathActive('/basic-ui/buttons') ? 'nav-link active' : 'nav-link',
-                    to: "/basic-ui/buttons",
+                    to: "/vendors/basic-ui/buttons",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
                       children: "Buttons"
                     })

@@ -8,7 +8,7 @@ import { BrowserRouter, Switch } from 'react-router-dom';
 function Example() {
     return (
         <BrowserRouter>
-         <Suspense fallback={<div>loading...........</div>}>
+         <Suspense fallback={<div>loading.</div>}>
            <Home />
         </Suspense>
       </BrowserRouter>
