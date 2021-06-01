@@ -36,7 +36,7 @@ Route::group(['as' => 'api.'], function () {
 
 
     //App Settings--Sirjana 
-    Route::resources('appsettings', AppSettingController::class);
+    //Route::resources('appsettings', AppSettingController::class);
     
 
     // menubar............................................................Sharmila
@@ -57,6 +57,32 @@ Route::group(['as' => 'api.'], function () {
     Route::put('menubar/update/{id}' , [\App\Http\Controllers\Api\MenubarController::class , 'update'])->name('update_menubar');
 
 
+    // software------------------------------------------------------------Bibek
+      //show all 
+    Route::get('software',[App\Http\Controllers\Api\SoftwareController::class,'index'])->name('show_all_software'); 
+    // id required and show individual       
+    Route::get('software/show/{id}',[App\Http\Controllers\Api\SoftwareController::class,'show'])->name('show_one_software'); 
+     //add new software
+    Route::post('software/create',[App\Http\Controllers\Api\SoftwareController::class,'create'])->name('new_software');  
+    //update existing software and id required
+    Route::put('software/update/{id}',[App\Http\Controllers\Api\SoftwareController::class,'update'])->name('update_software'); 
+    //delete existing software and id required
+    Route::delete('software/delete/{id}',[App\Http\Controllers\Api\SoftwareController::class,'destroy'])->name('delete_software');
 
+    //-------------------------------------------------------------software
+
+
+    //software_media-------------------------------------------------------Bibek
+      //show all 
+      Route::get('softwaremedia',[App\Http\Controllers\Api\SoftwaremediaController::class,'index'])->name('showallsoftware_media'); 
+      // id required and show individual       
+      Route::get('softwaremedia/show/{id}',[App\Http\Controllers\Api\SoftwaremediaController::class,'show'])->name('showonesoftware_media'); 
+       //add new software_media
+      Route::post('softwaremedia/create',[App\Http\Controllers\Api\SoftwaremediaController::class,'create'])->name('newsoftware_media');  
+      //update existing software_media and id required
+      Route::put('softwaremedia/update/{id}',[App\Http\Controllers\Api\SoftwaremediaController::class,'update'])->name('updatesoftware_media'); 
+      //delete existing software_nedia and id required
+      Route::delete('softwaremedia/delete/{id}',[App\Http\Controllers\Api\SoftwaremediaController::class,'destroy'])->name('deletesoftware_media');
+    //------------------------------------------------------------software_media  
  
 });
