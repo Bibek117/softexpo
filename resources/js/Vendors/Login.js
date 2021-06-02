@@ -30,7 +30,7 @@ export default function Login() {
       return await validator(data,rules);
     }
 
-    
+
 
     const sendRegisterRequest = (e) =>{
         e.preventDefault()
@@ -70,14 +70,14 @@ export default function Login() {
                   <label for="name">Your Email</label>
                   <input type="email" className="form-control" name="email" id="email" placeholder="Your Email" onChange={(e)=>setRemail(e.target.value)} required />
                 </div>
-              
+
               <div className="form-group col-md-8 mt-3">
                 <label for="name">Password</label>
                 <input type="password" className="form-control" name="password" id="password" placeholder="********" onChange={(e)=>setRpassword(e.target.value)} required />
               </div>
               </div>
               <div className="mt-3 col-md-8">
-              <span className="d-inline"> 
+              <span className="d-inline">
                   <button type="submit" className="btn btn-brand-border" onClick={(e)=>sendRegisterRequest(e)}>Register</button>
                     <button className="btn ml-3" onClick={(e)=>showLoginform(e)}>Already have an account? Login</button>
                     </span>
@@ -99,7 +99,7 @@ export default function Login() {
                    </div>
                  </div>
                  <div className="mt-3">
-                 <span className="d-inline"> 
+                 <span className="d-inline">
                      <button type="submit" className="btn btn-brand-border">Login</button>
                        <button className="btn ml-3 btn-info" onClick={(e)=>showLoginform(e)}>Don't have an account? Signup</button>
                        </span>
@@ -108,7 +108,7 @@ export default function Login() {
                    </div>
                 )
 }
-                
+
               </div>
             </div>
           </div>

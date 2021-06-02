@@ -57,6 +57,9 @@ Route::group(['as' => 'api.'], function () {
     Route::put('menubar/update/{id}' , [\App\Http\Controllers\Api\MenubarController::class , 'update'])->name('update_menubar');
 
 
+    Route::middleware(['vendor'])->prefix('vendor')->group(function () {
+        Route::get('/check_vendor_company',[App\Http\Controllers\Api\CompanyprofileController::class,'check_vendor_company']);
+    });
 
 
 });
