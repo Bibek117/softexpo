@@ -23,14 +23,14 @@ Route::group(['as' => 'api.'], function () {
 
     //Company profiles---------------------------------------Bibek
 
-     //show all 
-    Route::get('company',[App\Http\Controllers\Api\CompanyprofileController::class,'index'])->name('show_all_company'); 
-    // id required and show individual       
-    Route::get('company/show/{id}',[App\Http\Controllers\Api\CompanyprofileController::class,'show'])->name('show_one_company'); 
+     //show all
+    Route::get('company',[App\Http\Controllers\Api\CompanyprofileController::class,'index'])->name('show_all_company');
+    // id required and show individual
+    Route::get('company/show/{id}',[App\Http\Controllers\Api\CompanyprofileController::class,'show'])->name('show_one_company');
      //create new company profile
-    Route::post('company/create',[App\Http\Controllers\Api\CompanyprofileController::class,'create'])->name('new_company');  
+    Route::post('company/create',[App\Http\Controllers\Api\CompanyprofileController::class,'create'])->name('new_company');
     //update existing company profile and id required
-    Route::put('company/update/{id}',[App\Http\Controllers\Api\CompanyprofileController::class,'update'])->name('update_company'); 
+    Route::put('company/update/{id}',[App\Http\Controllers\Api\CompanyprofileController::class,'update'])->name('update_company');
     //delete existing company profile and id required
     Route::delete('company/delete/{id}',[App\Http\Controllers\Api\CompanyprofileController::class,'destroy'])->name('delete_company');
 
@@ -38,6 +38,7 @@ Route::group(['as' => 'api.'], function () {
 
 
     //App Settings--Sirjana 
+
     Route::apiResource('appsettings', AppSettingController::class);
     
 
@@ -53,7 +54,7 @@ Route::group(['as' => 'api.'], function () {
     Route::delete('menubar/delete/{id}' , [App\Http\Controllers\Api\MenubarController::class , 'destroy'])->name('delete');
 
     //show only one menubar using id
-    Route::get('menubar/show/{id}',[App\Http\Controllers\Api\MenubarController::class,'show'])->name('show_one_menu'); 
+    Route::get('menubar/show/{id}',[App\Http\Controllers\Api\MenubarController::class,'show'])->name('show_one_menu');
 
     // update the exiting menubar
     Route::put('menubar/update/{id}' , [\App\Http\Controllers\Api\MenubarController::class , 'update'])->name('update_menubar');
@@ -87,4 +88,11 @@ Route::group(['as' => 'api.'], function () {
 
     // -------------- software pricing
  
+
 });
+
+    Route::middleware(['vendor'])->prefix('vendor')->group(function () {
+        Route::get('/check_vendor_company',[App\Http\Controllers\Api\CompanyprofileController::class,'check_vendor_company']);
+    });
+
+

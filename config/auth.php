@@ -15,7 +15,7 @@ return [
 
         'vendor' => [
             'driver' => 'passport',
-            'provider' => 'users',
+            'provider' => 'vendors',
             'hash' => false,
         ],
 
@@ -27,11 +27,31 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+        'vendors' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Vendor::class,
+        ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
     ],
 
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'vendors' => [
+            'provider' => 'vendors',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'admins' => [
+            'provider' => 'admins',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
