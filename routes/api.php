@@ -3,7 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AppSettingController;
-
+use App\Http\Controllers\Api\SoftwarepricingController;
+use App\Http\Controllers\Api\SoftwarespecificationsController;
+use App\Models\Softwarespecification;
 
 Route::group(['as' => 'api.'], function () {
 
@@ -36,7 +38,7 @@ Route::group(['as' => 'api.'], function () {
 
 
     //App Settings--Sirjana 
-    Route::resources('appsettings', AppSettingController::class);
+    Route::apiResource('appsettings', AppSettingController::class);
     
 
     // menubar............................................................Sharmila
@@ -57,6 +59,32 @@ Route::group(['as' => 'api.'], function () {
     Route::put('menubar/update/{id}' , [\App\Http\Controllers\Api\MenubarController::class , 'update'])->name('update_menubar');
 
 
+    // Software Specification-----
+    // show all data
+    Route::get('software_specification', [SoftwarespecificationsController::class, 'index']);
+    // software specification data create
+    Route::post('software_specification/store', [SoftwarespecificationsController::class, 'store']);
+    // show specific data of the software specification
+    Route::get('software_specification/show/{id}', [SoftwarespecificationsController::class, 'show']);
+    // update existing data of the software specification
+    Route::put('software_specification/update/{id}', [SoftwarespecificationsController::class, 'update']);
+    // delete specific data of the software specification
+    Route::delete('software_specification/delete/{id}', [SoftwarespecificationsController::class, 'destroy']);
 
+    // -------------- software specification
+
+    // Software pricing-----
+    // show all data
+    Route::get('software_pricing', [SoftwarepricingController::class, 'index']);
+    // software pricing data create
+    Route::post('software_pricing/store', [SoftwarepricingController::class, 'store']);
+    // show specific data of the software pricing
+    Route::get('software_pricing/show/{id}', [SoftwarepricingController::class, 'show']);
+    // update existing data of the software pricing
+    Route::put('software_pricing/update/{id}', [SoftwarepricingController::class, 'update']);
+    // delete specific data of the software pricing
+    Route::delete('software_pricing/delete/{id}', [SoftwarepricingController::class, 'destroy']);
+
+    // -------------- software pricing
  
 });

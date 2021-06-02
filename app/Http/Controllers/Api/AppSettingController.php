@@ -42,7 +42,7 @@ class AppSettingController extends Controller
         if(count($data)>0 && count($data)<2)
         {
             $appset = AppSetting::create($request->all());
-            return response()->json(['message' => 'Appsetting created successfully', $appset],201);
+            return response()->json(['message' => 'Appsetting created successfully', 'appsettingdata' => $appset],201);
         }
         else
         {
