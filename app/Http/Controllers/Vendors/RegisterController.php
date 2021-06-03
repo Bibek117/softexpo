@@ -4,14 +4,15 @@ namespace App\Http\Controllers\Vendors;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\Models\User;
+use App\Models\Vendor;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 /**
  * @group Auth endpoints
@@ -31,7 +32,7 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
-   
+
 
     /**
      * Where to redirect users after registration.
@@ -73,7 +74,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        return Vendor::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -90,14 +91,20 @@ class RegisterController extends Controller
     protected function registered(Request $request, $user)
     {
         session_start();
-        $token = $user->createToken($request->input('device_name'))->accessToken;
+        $user->accessToken = $user->createToken($request->input('device_name'))->accessToken;
         $_SESSION["vendor_loggedin"] = true;
-        $_SESSION["vender_token"] = $token;
-        $_SESSION["vendor_user"] = $request->user('vendor');
+        $_SESSION["vender_token"] = $user->accessToken;
+        $_SESSION["vendor_user"] = $user;
+        $token = Request::create(
+            'oauth/token',
+            'POST'
+        );
+        $res = Route::dispatch($token);
         return response()->json([
-            'token'    => $token,
-            'user'     => $request->user($this->guard),
+            'token'    => $user->accessToken,
+            'user'     => $user,
             'role'     => $this->guard,
+            'res'       => $res
         ]);
     }
 
@@ -134,13 +141,13 @@ class RegisterController extends Controller
      */
     public function register(Request $request)
     {
-       
+
         $this->validator($request->all())->validate();
 
         event(new Registered($user = $this->create($request->all())));
 
         Auth::guard('vendor')->setUser($user);
-        
+
         if ($response = $this->registered($request, $user)) {
             return $response;
         }

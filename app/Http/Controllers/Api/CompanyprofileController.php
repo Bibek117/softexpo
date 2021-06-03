@@ -3,13 +3,18 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Traits\AuthTrait;
 use App\Http\Requests\CompanyRequest;
 use Illuminate\Http\Request;
 use App\Models\Companyprofile;
+use App\Models\Vendor;
 use Illuminate\Support\Facades\Validator;
+use Auth;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class CompanyprofileController extends Controller
 {
+    use AuthTrait;
     /**
      * Display a listing of the resource.
      *
@@ -69,5 +74,12 @@ class CompanyprofileController extends Controller
         $company = Companyprofile::find($id);
         $isdeleted = $company->delete();
         return response()->json(['message'=>'Company profile deleted successfully','isdeleted' =>$isdeleted],200);
+    }
+
+    public function check_vendor_company(){
+        $user = $this->get_current_user_passport("vendor");
+        dd($user);
+        // $data = Vendor::where('access_token',$token)->first()->comapny();
+        // return response()->json($data,200);
     }
 }

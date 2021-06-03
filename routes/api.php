@@ -86,6 +86,9 @@ Route::group(['as' => 'api.'], function () {
 
     Route::get('software',[App\Http\Controllers\Api\SoftwarecategoryController::class,'index'])->name('show_software');
     Route::post('software/store',[App\Http\Controllers\Api\SoftwarecategoryController::class,'store'])->name('store_software');
+    Route::get('software/show/{id}',[App\Http\Controllers\Api\SoftwarecategoryController::class,'show'])->name('show_software');
+    Route::put('software/update/{id}' , [\App\Http\Controllers\Api\SoftwarecategoryController::class , 'update'])->name('update_software');
+    Route::delete('software/delete/{id}',[App\Http\Controllers\Api\SoftwarecategoryController::class,'destroy'])->name('delete_software');
 
 
 

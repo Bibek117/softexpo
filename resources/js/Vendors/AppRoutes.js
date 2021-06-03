@@ -2,6 +2,7 @@ import React, { Component,Suspense, lazy } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import VendorRoutes from '../components/VendorRoutes';
 
+
 import Spinner from './shared/Spinner';
 
 const Dashboard = lazy(() => import('./dashboard/Dashboard'));
@@ -22,6 +23,7 @@ const Error500 = lazy(() => import('./error-pages/Error500'));
 
 const Login = lazy(() => import('./user-pages/Login'));
 const Register1 = lazy(() => import('./user-pages/Register'));
+const Company = lazy(()=>import('./Pages/Company/index'))
 
 
 class AppRoutes extends Component {
@@ -34,12 +36,14 @@ class AppRoutes extends Component {
           <VendorRoutes path="/basic-ui/dropdowns" component={ Dropdowns } />
           <VendorRoutes path="/vendor/form-Elements" component={ BasicElements } />
           <VendorRoutes path="/vendor/tables/basic-table" component={ BasicTable } />
-          <VendorRoutes path="/icons/mdi" component={ Mdi } />
-          <VendorRoutes path="/charts/chart-js" component={ ChartJs } />
-          <VendorRoutes path="/user-pages/login-1" component={ Login } />
-          <VendorRoutes path="/user-pages/register-1" component={ Register1 } />
-          <VendorRoutes path="/error-pages/error-404" component={ Error404 } />
-          <VendorRoutes path="/error-pages/error-500" component={ Error500 } />
+          <VendorRoutes path="/vendor/icons/mdi" component={ Mdi } />
+          <VendorRoutes path="/vendor/charts/chart-js" component={ ChartJs } />
+          <VendorRoutes path="/vendor/user-pages/login-1" component={ Login } />
+          <VendorRoutes path="/vendor/user-pages/register-1" component={ Register1 } />
+          <VendorRoutes path="/vendor/error-pages/error-404" component={ Error404 } />
+          <VendorRoutes path="/vendor/error-pages/error-500" component={ Error500 } />
+          <VendorRoutes path="/vendor/company" component={ Company } />
+
           <Redirect to="/vendor/dashboard" />
         </Switch>
       </Suspense>

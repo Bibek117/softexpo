@@ -49,7 +49,8 @@ class SoftwarecategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Softwarecategories::find($id);
+        return response()->json($data,200);
     }
 
     /**
@@ -72,7 +73,8 @@ class SoftwarecategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $result = Softwarecategories::find($id)->update($request->all());
+        return response()->json($result, 200);
     }
 
     /**
@@ -83,6 +85,8 @@ class SoftwarecategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $result = Softwarecategories::find($id);
+        $result->delete();
+        return response()->json(['message' =>'data is deleted'] , 200 );
     }
 }
