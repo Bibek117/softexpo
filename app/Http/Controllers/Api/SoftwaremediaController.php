@@ -88,7 +88,7 @@ class SoftwaremediaController extends Controller
        }
           $path_arrray = [];
        } 
-       return $alldata;
+       return response()->json(['$alldata',200]);
     }
 
     /**
@@ -118,8 +118,7 @@ class SoftwaremediaController extends Controller
         }else{
             $filename = $screenshots->getClientOriginalName();
             $screenshots->storeAs('public/screenshots/',$filename);
-            $screenshots = $filename;
-            $software_media->screenshots = $screenshots;
+            $software_media->screenshots = $filename;
            }
         }
 
@@ -142,8 +141,7 @@ class SoftwaremediaController extends Controller
            }else{
             $filename = $request->ebooks->getClientOriginalName();
             $request->ebooks->storeAs('public/ebooks/',$filename);
-            $request->ebooks = $filename;
-            $software_media->ebooks = $request->ebooks;
+            $software_media->ebooks =$filename;
             }
           }
     
@@ -165,8 +163,7 @@ class SoftwaremediaController extends Controller
         }else{
             $filename = $request->whitepapers->getClientOriginalName();
             $request->whitepapers->storeAs('public/whitepapers/',$filename);
-            $request->whitepapers = $filename;
-            $software_media->whitepapers = $request->whitepapers;
+            $software_media->whitepapers = $filename;
            }
         }
 
@@ -187,8 +184,7 @@ class SoftwaremediaController extends Controller
         }else{
             $filename = $request->pdf->getClientOriginalName();
             $request->pdf->storeAs('public/pdf/',$filename);
-           $request->pdf = $filename;
-            $software_media->pdf = $request->pdf;
+            $software_media->pdf = $filename;
            }
         }
         //guides
@@ -198,7 +194,7 @@ class SoftwaremediaController extends Controller
             if((is_array($request->guides))==1){
                 $temp5 =[];
                 foreach($request->guides as $guide){
-                    $filename = $ebook->getClientOriginalName();
+                    $filename = $guide->getClientOriginalName();
                    $guide->storeAs('public/guides/',$filename);
                    $temp5[]= $filename;
                 }
@@ -207,8 +203,7 @@ class SoftwaremediaController extends Controller
         }else{
             $filename = $request->guides->getClientOriginalName();
             $request->guides->storeAs('public/guides/',$filename);
-            $request->guides = $filename;
-            $software_media->guides = $request->guides;
+            $software_media->guides = $filename;
            }
         }
         $software_media->save();
@@ -302,10 +297,179 @@ class SoftwaremediaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SoftwaremediaRequest $request, $id)
     {
-        
+        $data = SoftwareMedia::find($id);
+        $data->software_id = $request->input('software_id');
+        if($request->hasFile('screenshots')){
+            $value = $data->screenshots; 
+
+            //delete file
+            if(strpos($value, "+") !== false){
+                $data->screenshots = (explode("+",$value));
+                foreach($data->screenshots as $one){
+                   unlink(storage_path('app/public/screenshots/'.$one));
+                }
+            }else{
+                   unlink(storage_path('app/public/screenshots/'.$value));
+            }
+
+             //upload file
+            $screenshots = $request->screenshots;
+            if(is_array($screenshots) == 1){
+                $temp1 =[];
+                foreach($screenshots as $screenshot){
+                    $filename = $screenshot->getClientOriginalName();
+                   $screenshot->storeAs('public/screenshots/',$filename);
+                   $temp1[] = $filename;
+                }
+                $stringForm= (implode("+",$temp1));
+                $data->screenshots = $stringForm;
+        }else{
+            $filename = $screenshots->getClientOriginalName();
+            $screenshots->storeAs('public/screenshots/',$filename);
+            $data->screenshots = $filename;
+           }
+        } 
+
+        $data->video_link = $request->input('video_link');
+        $data->brochure_link =$request->input('brochure_link');
+         
+
+        //ebooks
+        if($request->hasFile('ebooks')){
+            if($data->ebooks != null){
+                $value = $data->ebooks; 
+                if(strpos($value, "+") !== false){
+                    $data->ebooks = (explode("+",$value));
+                    foreach($data->ebooks as $ebook){
+                       unlink(storage_path('app/public\ebooks/'.$ebook));
+                    }
+                }else{
+                 unlink(storage_path('app/public/ebooks/'.$value));
+                }
+               }
+               if($request->ebooks == null){
+                $data->ebooks = $request->input('ebooks');
+            }else{
+                if((is_array($request->ebooks))==1){
+                    $temp2 = [];
+                    foreach($request->ebooks as $ebook){
+                        $filename = $ebook->getClientOriginalName();
+                       $ebook->storeAs('public/ebooks/',$filename);
+                       $temp2[] = $filename;
+                    }
+                    $stringForm= (implode("+",$temp2));
+                    $data->ebooks = $stringForm;
+               }else{
+                $filename = $request->ebooks->getClientOriginalName();
+                $request->ebooks->storeAs('public/ebooks/',$filename);
+                $data->ebooks = $filename;
+                }
+              }
+        }
+        //whitepapers
+        if($request->hasFile('whitepapers')){
+            if($data->whitepapers != null){
+                $value = $data->whitepapers; 
+                if(strpos($value, "+") !== false){
+                    $data->whitepapers = (explode("+",$value));
+                    foreach($data->whitepapers as $whitepaper){
+                       unlink(storage_path('app/public/whitepapers/'.$whitepaper));
+                    }
+                }else{
+                 unlink(storage_path('app/public/whitepapers/'.$value));
+                }
+               }
+               if($request->whitepapers == null){
+                $data->whitepapers = $request->input('whitepapers');
+            }else{
+                if((is_array($request->whitepapers))==1){
+                    $temp3 =[];
+                    foreach($request->whitepapers as $whitepaper){
+                        $filename = $whitepaper->getClientOriginalName();
+                       $whitepaper->storeAs('public/whitepapers/',$filename);
+                       $temp3[] = $filename;
+                    }
+                    $stringForm= (implode("+",$temp3));
+                    $data->whitepapers = $stringForm;
+            }else{
+                $filename = $request->whitepapers->getClientOriginalName();
+                $request->whitepapers->storeAs('public/whitepapers/',$filename);
+                $data->whitepapers = $filename;
+               }
+            }
+      }
+
+      //pdf
+      if($request->hasFile('pdf')){
+        if($data->pdf != null){
+            $value = $data->pdf; 
+            if(strpos($value, "+") !== false){
+                $data->pdf = (explode("+",$value));
+                foreach($data->pdf as $one){
+                   unlink(storage_path('app/public/pdf/'.$one));
+                }
+            }else{
+             unlink(storage_path('app/public/pdf/'.$value));
+            }
+          }
+             
+        if($request->pdf == null){
+            $data->pdf = $request->input('pdf');
+        }else{
+            if((is_array($request->pdf))==1){
+                $temp4 = [];
+                foreach($request->pdf as $pdfs){
+                    $filename = $pdfs->getClientOriginalName();
+                   $pdfs->storeAs('public/pdf/',$filename);
+                   $temp4[] = $filename;
+                }
+                $stringForm= (implode("+",$temp4));
+               $data->pdf = $stringForm;
+        }else{
+            $filename = $request->pdf->getClientOriginalName();
+            $request->pdf->storeAs('public/pdf/',$filename);
+            $data->pdf = $filename;
+           }
+        }
     }
+      
+    //guides
+    if($data->guides != null){
+        $value = $data->guides; 
+        if(strpos($value, "+") !== false){
+            $data->guides = (explode("+",$value));
+            foreach($data->guides as $guide){
+               unlink(storage_path('app/public/guides/'.$guide));
+            }
+        }else{
+         unlink(storage_path('app/public/guides/'.$value));
+        }
+       }
+       if($request->guides == null){
+        $data->guides = $request->input('guides');
+    }else{
+        if((is_array($request->guides))==1){
+            $temp5 =[];
+            foreach($request->guides as $guide){
+                $filename = $guide->getClientOriginalName();
+               $guide->storeAs('public/guides/',$filename);
+               $temp5[]= $filename;
+            }
+            $stringForm= (implode("+",$temp5));
+            $data->guides = $stringForm;
+    }else{
+        $filename = $request->guides->getClientOriginalName();
+        $request->guides->storeAs('public/guides/',$filename);
+        $data->guides = $filename;
+       }
+    }
+    $data->save();
+    return response()->json(['message'=>'Software media successfully updated','status'=>200,'UpdatedData'=>$data]);
+
+       
+  }
 
     /**
      * Remove the specified resource from storage.
