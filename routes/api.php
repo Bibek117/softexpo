@@ -36,7 +36,7 @@ Route::group(['as' => 'api.'], function () {
 
 
     //App Settings--Sirjana 
-    Route::resources('appsettings', AppSettingController::class);
+    // Route::resources('appsettings', AppSettingController::class);
     
 
     // menubar............................................................Sharmila
@@ -58,5 +58,36 @@ Route::group(['as' => 'api.'], function () {
 
 
 
+
+    //mobilesoftwareios---------------------------------------------------------------------
+
+    Route::get('mobile',[App\Http\Controllers\Api\MobilesoftwareiosController::class,'index'])->name('show_mobile');
+    Route::post('mobile/store',[App\Http\Controllers\Api\MobilesoftwareiosController::class,'store'])->name('store_mobile');
+    Route::get('mobile/show/{id}',[App\Http\Controllers\Api\MobilesoftwareiosController::class,'show'])->name('show_mobile');
+    Route::put('mobile/update/{id}' , [\App\Http\Controllers\Api\MobilesoftwareiosController::class , 'update'])->name('update_mobile');
+
+    Route::delete('mobile/delete/{id}',[App\Http\Controllers\Api\MobilesoftwareiosController::class,'destroy'])->name('delete_mobile');
  
+    //.........................................................................................................mobilesoftwareios
+
+
+
+    //mobilesoftwareandroid------------------------------------------------------------------------------------------------
+    Route::get('android',[App\Http\Controllers\Api\MobilesoftwareandroidController::class,'index'])->name('show_android');
+    Route::post('android/store',[App\Http\Controllers\Api\MobilesoftwareandroidController::class,'store'])->name('store_android');
+    Route::get('android/show/{id}',[App\Http\Controllers\Api\MobilesoftwareandroidController::class,'show'])->name('show_android');
+    Route::put('android/update/{id}' , [\App\Http\Controllers\Api\MobilesoftwareandroidController::class , 'update'])->name('update_android');
+    Route::delete('android/delete/{id}',[App\Http\Controllers\Api\MobilesoftwareandroidController::class,'destroy'])->name('delete_android');
+
+    //--------------------------------------------------------------------------------------------------------mobilesoftwareandroid
+
+
+    //softwarecategory----------------------------------------------------------------------------------------------
+
+    Route::get('software',[App\Http\Controllers\Api\SoftwarecategoryController::class,'index'])->name('show_software');
+    Route::post('software/store',[App\Http\Controllers\Api\SoftwarecategoryController::class,'store'])->name('store_software');
+
+
+
+    //-----------------------------------------------------------------------------------------softwarecategory
 });
