@@ -1,9 +1,10 @@
 import axios from '../../axios';
 import React from 'react'
+import venodrAxios from '../../axios';
 
 async function getCompanydetails() {
 
-    const data = await axios.get("/oauth/clients").then((response) => {
+    const data = await venodrAxios.get("check_vendor_company").then((response) => {
         return response.data }).catch((err)=>{
             alert(err.message);
         })
@@ -16,8 +17,6 @@ function getCurrentVendorId(){
     return token;
 }
 
-function toggleProBanner() {
-    return document.querySelector('.proBanner').classList.toggle("hide");
-  }
 
-export  {getCompanydetails,getCurrentVendorId,toggleProBanner}
+
+export  {getCompanydetails,getCurrentVendorId}

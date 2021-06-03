@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const venodrAxios = axios.create({
-    baseURL:"http://localhost:8000/" //dev
+    baseURL:"http://localhost:8000/api/vendor" //dev
     // baseURL:"https://gchatapplication.herokuapp.com/" //production
 })
 

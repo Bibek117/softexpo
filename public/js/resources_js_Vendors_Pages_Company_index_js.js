@@ -21,8 +21,7 @@ module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "getCompanydetails": () => (/* binding */ getCompanydetails),
-/* harmony export */   "getCurrentVendorId": () => (/* binding */ getCurrentVendorId),
-/* harmony export */   "toggleProBanner": () => (/* binding */ toggleProBanner)
+/* harmony export */   "getCurrentVendorId": () => (/* binding */ getCurrentVendorId)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
@@ -33,6 +32,7 @@ __webpack_require__.r(__webpack_exports__);
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 
 
 
@@ -49,7 +49,7 @@ function _getCompanydetails() {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return _axios__WEBPACK_IMPORTED_MODULE_1__.default.get("/oauth/clients").then(function (response) {
+            return _axios__WEBPACK_IMPORTED_MODULE_1__.default.get("check_vendor_company").then(function (response) {
               return response.data;
             })["catch"](function (err) {
               alert(err.message);
@@ -72,10 +72,6 @@ function _getCompanydetails() {
 function getCurrentVendorId() {
   var token = localStorage.getItem('access_token');
   return token;
-}
-
-function toggleProBanner() {
-  return document.querySelector('.proBanner').classList.toggle("hide");
 }
 
 
@@ -121,9 +117,14 @@ function index() {
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     (0,_Helpers_HelperFunction__WEBPACK_IMPORTED_MODULE_1__.getCompanydetails)().then(function (response) {
-      setCompanyDetails();
+      setCompanyDetails(response.data);
     });
   }, []);
+
+  var toggleProBanner = function toggleProBanner() {
+    return document.querySelector('.proBanner').classList.toggle("hide");
+  };
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     children: CompanyDetails ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "row proBanner",
@@ -141,9 +142,7 @@ function index() {
             children: "Check Pro Version"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
             className: "mdi mdi-close bannerClose",
-            onClick: function onClick() {
-              return _Helpers_HelperFunction__WEBPACK_IMPORTED_MODULE_1__.toggleProBanner;
-            }
+            onClick: toggleProBanner
           })]
         })
       })
@@ -170,7 +169,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
 var venodrAxios = axios__WEBPACK_IMPORTED_MODULE_0___default().create({
-  baseURL: "http://localhost:8000/" //dev
+  baseURL: "http://localhost:8000/api/vendor" //dev
   // baseURL:"https://gchatapplication.herokuapp.com/" //production
 
 });

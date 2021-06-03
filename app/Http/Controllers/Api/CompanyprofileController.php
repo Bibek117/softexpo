@@ -77,9 +77,12 @@ class CompanyprofileController extends Controller
     }
 
     public function check_vendor_company(){
-        $user = $this->get_current_user_passport("vendor");
-        dd($user);
-        // $data = Vendor::where('access_token',$token)->first()->comapny();
-        // return response()->json($data,200);
+        // dd($user);
+
+        $vendor = $this->get_current_user_passport("vendor");
+        $data = Vendor::find($vendor->id)->with('CompanyModel');
+        return response()->json(['message'=>"1",'data'=>$data],200);
     }
+
+
 }
