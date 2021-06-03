@@ -24,6 +24,8 @@ class Vendor extends Authenticatable
         'password',
     ];
 
+    protected $guard = 'vendor';
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -43,7 +45,7 @@ class Vendor extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function companyprofile(){
+    public function company(){
         return $this->hasOne(Companyprofile::class,'vendor_id','id');
     }
 }

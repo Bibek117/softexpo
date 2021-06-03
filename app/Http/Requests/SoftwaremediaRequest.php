@@ -24,7 +24,7 @@ class SoftwaremediaRequest extends FormRequest
     public function rules()
     {
         return [
-            'software_id'=>'integer|required',
+            'software_id'=>'integer|required', 
             'screenshots'=>'required',
             'video_link'=>'nullable|url|string',
             'brochure_link'=>'nullable|url|string',

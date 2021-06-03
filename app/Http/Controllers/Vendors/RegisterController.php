@@ -11,7 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 /**
  * @group Auth endpoints
@@ -90,14 +91,20 @@ class RegisterController extends Controller
     protected function registered(Request $request, $user)
     {
         session_start();
-        $token = $user->createToken($request->input('device_name'))->accessToken;
+        $user->accessToken = $user->createToken($request->input('device_name'))->accessToken;
         $_SESSION["vendor_loggedin"] = true;
-        $_SESSION["vender_token"] = $token;
-        $_SESSION["vendor_user"] = $request->user('vendor');
+        $_SESSION["vender_token"] = $user->accessToken;
+        $_SESSION["vendor_user"] = $user;
+        $token = Request::create(
+            'oauth/token',
+            'POST'
+        );
+        $res = Route::dispatch($token);
         return response()->json([
-            'token'    => $token,
-            'user'     => $request->user($this->guard),
+            'token'    => $user->accessToken,
+            'user'     => $user,
             'role'     => $this->guard,
+            'res'       => $res
         ]);
     }
 

@@ -48,8 +48,8 @@ class Sidebar extends Component {
         this.setState({[obj.state] : true})
       }
     }));
- 
-  } 
+
+  }
   render () {
     return (
       <nav className="sidebar sidebar-offcanvas" id="sidebar">
@@ -71,7 +71,7 @@ class Sidebar extends Component {
                       <p className="profile-name">Allen Moreno</p>
                       <p className="designation">Premium user</p>
                     </div>
-                    
+
                   </div>
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="preview-list navbar-dropdown">
@@ -104,15 +104,15 @@ class Sidebar extends Component {
               </Dropdown>
             </div>
           </li>
-      
+
           <li className={ this.isPathActive('/vendor/dashboard') ? 'nav-item active' : 'nav-item' }>
             <Link className="nav-link" to="/vendor/dashboard">
               <i className="mdi mdi-television menu-icon"></i>
               <span className="menu-title"><>Dashboard</></span>
             </Link>
           </li>
-          <li className={ this.isPathActive('/vendor/dashboard') ? 'nav-item active' : 'nav-item' }>
-            <Link className="nav-link" to="/vendor/dashboard">
+          <li className={ this.isPathActive('/vendor/company') ? 'nav-item active' : 'nav-item' }>
+            <Link className="nav-link" to="/vendor/company/">
               <i className="mdi mdi-television menu-icon"></i>
               <span className="menu-title"><>Company Profile</></span>
             </Link>
@@ -162,7 +162,7 @@ class Sidebar extends Component {
             </div>
             <Collapse in={ this.state.iconsMenuOpen }>
               <ul className="nav flex-column sub-menu">
-                <li className="nav-item"> <Link className={ this.isPathActive('/vendor/icons/mdi') ? 'nav-link active' : 'nav-link' } to="vendor/icons/mdi">Material</Link></li>
+                <li className="nav-item"> <Link className={ this.isPathActive('/vendor/icons/mdi') ? 'nav-link active' : 'nav-link' } to="/vendor/icons/mdi">Material</Link></li>
               </ul>
             </Collapse>
           </li>
@@ -224,7 +224,7 @@ class Sidebar extends Component {
     // add className 'hover-open' to sidebar navitem while hover in sidebar-icon-only menu
     const body = document.querySelector('body');
     document.querySelectorAll('.sidebar .nav-item').forEach((el) => {
-      
+
       el.addEventListener('mouseover', function() {
         if(body.classList.contains('sidebar-icon-only')) {
           el.classList.add('hover-open');

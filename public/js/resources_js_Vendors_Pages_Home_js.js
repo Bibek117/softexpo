@@ -3426,6 +3426,9 @@ var Login = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function ()
 var Register1 = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_Vendors_user-pages_Register_js").then(__webpack_require__.bind(__webpack_require__, /*! ./user-pages/Register */ "./resources/js/Vendors/user-pages/Register.js"));
 });
+var Company = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+  return __webpack_require__.e(/*! import() */ "resources_js_Vendors_Pages_Company_index_js").then(__webpack_require__.bind(__webpack_require__, /*! ./Pages/Company/index */ "./resources/js/Vendors/Pages/Company/index.js"));
+});
 
 var AppRoutes = /*#__PURE__*/function (_Component) {
   _inherits(AppRoutes, _Component);
@@ -3461,23 +3464,26 @@ var AppRoutes = /*#__PURE__*/function (_Component) {
             path: "/vendor/tables/basic-table",
             component: BasicTable
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
-            path: "/icons/mdi",
+            path: "/vendor/icons/mdi",
             component: Mdi
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
-            path: "/charts/chart-js",
+            path: "/vendor/charts/chart-js",
             component: ChartJs
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
-            path: "/user-pages/login-1",
+            path: "/vendor/user-pages/login-1",
             component: Login
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
-            path: "/user-pages/register-1",
+            path: "/vendor/user-pages/register-1",
             component: Register1
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
-            path: "/error-pages/error-404",
+            path: "/vendor/error-pages/error-404",
             component: Error404
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
-            path: "/error-pages/error-500",
+            path: "/vendor/error-pages/error-500",
             component: Error500
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+            path: "/vendor/company",
+            component: Company
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Redirect, {
             to: "/vendor/dashboard"
           })]
@@ -3704,19 +3710,19 @@ var Footer = /*#__PURE__*/function (_Component) {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
               className: "text-muted text-center text-sm-left d-block d-sm-inline-block",
               children: ["Copyright \xA9 ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-                href: "https://www.bootstrapdash.com/",
+                href: "#",
                 target: "_blank",
                 rel: "noopener noreferrer",
-                children: "bootstrapdash.com "
+                children: "Saletancy"
               }), "2020"]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
               className: "float-none float-sm-right d-block mt-1 mt-sm-0 text-center",
-              children: ["Free ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-                href: "https://www.bootstrapdash.com/react-admin-templates/",
+              children: ["For ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+                href: "#",
                 target: "_blank",
                 rel: "noopener noreferrer",
-                children: " react admin "
-              }), " templates from BootstrapDash.com.  "]
+                children: "Support"
+              })]
             })]
           })
         })
@@ -5092,6 +5098,20 @@ var Sidebar = /*#__PURE__*/function (_Component) {
                 })
               })]
             })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+            className: this.isPathActive('/vendor/company') ? 'nav-item active' : 'nav-item',
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+              className: "nav-link",
+              to: "/vendor/company/",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+                className: "mdi mdi-television menu-icon"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                className: "menu-title",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
+                  children: "Company Profile"
+                })
+              })]
+            })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
             className: this.isPathActive('/basic-ui') ? 'nav-item active' : 'nav-item',
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -5229,7 +5249,7 @@ var Sidebar = /*#__PURE__*/function (_Component) {
                   className: "nav-item",
                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
                     className: this.isPathActive('/vendor/icons/mdi') ? 'nav-link active' : 'nav-link',
-                    to: "vendor/icons/mdi",
+                    to: "/vendor/icons/mdi",
                     children: "Material"
                   })]
                 })

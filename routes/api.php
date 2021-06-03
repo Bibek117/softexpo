@@ -86,5 +86,8 @@ Route::group(['as' => 'api.'], function () {
     //------------------------------------------------------------software_media  
  
 });
+    Route::middleware(['vendor'])->prefix('vendor')->group(function () {
+        Route::get('/check_vendor_company',[App\Http\Controllers\Api\CompanyprofileController::class,'check_vendor_company']);
+    });
 
 
