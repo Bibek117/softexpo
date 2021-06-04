@@ -186,8 +186,8 @@ class Sidebar extends Component {
             </div>
             <Collapse in={ this.state.userPagesMenuOpen }>
               <ul className="nav flex-column sub-menu">
-                <li className="nav-item"> <Link className={ this.isPathActive('/user-pages/login-1') ? 'nav-link active' : 'nav-link' } to="/user-pages/login-1"><>Login</></Link></li>
-                <li className="nav-item"> <Link className={ this.isPathActive('/user-pages/register-1') ? 'nav-link active' : 'nav-link' } to="/user-pages/register-1"><>Register</></Link></li>
+                <li className="nav-item"> <Link className={ this.isPathActive('/user-pages/login-1') ? 'nav-link active' : 'nav-link' } to="/vendor/user-pages/login-1"><>Login</></Link></li>
+                <li className="nav-item"> <Link className={ this.isPathActive('/user-pages/register-1') ? 'nav-link active' : 'nav-link' } to="/vendor/user-pages/register-1"><>Register</></Link></li>
               </ul>
             </Collapse>
           </li>
@@ -199,8 +199,8 @@ class Sidebar extends Component {
             </div>
             <Collapse in={ this.state.errorPagesMenuOpen }>
               <ul className="nav flex-column sub-menu">
-                <li className="nav-item"> <Link className={ this.isPathActive('/error-pages/error-404') ? 'nav-link active' : 'nav-link' } to="/error-pages/error-404">404</Link></li>
-                <li className="nav-item"> <Link className={ this.isPathActive('/error-pages/error-500') ? 'nav-link active' : 'nav-link' } to="/error-pages/error-500">500</Link></li>
+                <li className="nav-item"> <Link className={ this.isPathActive('/error-pages/error-404') ? 'nav-link active' : 'nav-link' } to="/vendor/error-pages/error-404">404</Link></li>
+                <li className="nav-item"> <Link className={ this.isPathActive('/error-pages/error-500') ? 'nav-link active' : 'nav-link' } to="/vendor/error-pages/error-500">500</Link></li>
               </ul>
             </Collapse>
           </li>

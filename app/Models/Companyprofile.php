@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Http\Middleware\Vendor;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -27,7 +26,7 @@ class Companyprofile extends Model
         'YOE',
         'logo'
     ];
-    
+
     public function vendor(){
         return $this->belongsTo(Vendor::class, 'vendor_id', 'id');
     }

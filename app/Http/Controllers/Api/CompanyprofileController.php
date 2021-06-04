@@ -34,8 +34,11 @@ class CompanyprofileController extends Controller
      */
     public function create(CompanyRequest $request)
     {
-        $data = Companyprofile::create($request->all());
-        return response()->json(['message'=>'Company profile created successfully','status'=>201,'createddata'=>$data]);
+        $formData = $request->all();
+        $formData["vendor_id"] = $this->get_current_user_passport("vendor")->id;
+        $formData["logo"] = "https://www.tutorialspoint.com/android/images/logo.png";
+        $data = Companyprofile::create($formData);
+        return response()->json(['message'=>'Company profile created successfully','data'=>$data],201);
     }
 
     /**
@@ -78,10 +81,12 @@ class CompanyprofileController extends Controller
 
     public function check_vendor_company(){
         // dd($user);
-
         $vendor = $this->get_current_user_passport("vendor");
-        $data = Vendor::find($vendor->id)->with('CompanyModel');
-        return response()->json(['message'=>"1",'data'=>$data],200);
+        $data = Companyprofile::where('vendor_id',$vendor->id)->first();
+        if($data){
+        return response()->json($data,200);
+        }
+        return null;
     }
 
 

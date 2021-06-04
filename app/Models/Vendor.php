@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+use App\Models\Companyprofile;
 
 
 class Vendor extends Authenticatable
@@ -46,6 +47,6 @@ class Vendor extends Authenticatable
     ];
 
     public function CompanyModel(){
-        return $this->hasOne(Companyprofile::class,'vendor_id','id');
+        return $this->belongsTo(Companyprofile::class,'vendor_id','id');
     }
 }

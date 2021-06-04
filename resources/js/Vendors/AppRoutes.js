@@ -1,6 +1,7 @@
 import React, { Component,Suspense, lazy } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import VendorRoutes from '../components/VendorRoutes';
+import AddCompany from './Pages/Company/AddCompany';
 
 
 import Spinner from './shared/Spinner';
@@ -42,8 +43,8 @@ class AppRoutes extends Component {
           <VendorRoutes path="/vendor/user-pages/register-1" component={ Register1 } />
           <VendorRoutes path="/vendor/error-pages/error-404" component={ Error404 } />
           <VendorRoutes path="/vendor/error-pages/error-500" component={ Error500 } />
-          <VendorRoutes path="/vendor/company" component={ Company } />
-
+          <VendorRoutes path="/vendor/company" component={ Company }  />
+          <VendorRoutes path="/vendor/addCompany" component={ AddCompany } />
           <Redirect to="/vendor/dashboard" />
         </Switch>
       </Suspense>
