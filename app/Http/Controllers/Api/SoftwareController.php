@@ -51,7 +51,7 @@ class SoftwareController extends Controller
         $software->summary = $request->input('summary');
         $software->description = $request->input('description');
         $software->save();
-        return response()->json(['message'=>'New software successfully added','status'=>201,'CreatedData'=>$software]);
+        return response()->json(['message'=>'New software successfully added','CreatedData'=>$software],201);
     }
     /**
      * Display the specified resource.
@@ -95,7 +95,7 @@ class SoftwareController extends Controller
         $software->summary = $request->input('summary');
         $software->description = $request->input('description');
         $software->save();
-        return response()->json(['message'=>'Software successfully updated','status'=>200,'CreatedData'=>$software]);
+        return response()->json(['message'=>'Software successfully updated','CreatedData'=>$software],200);
     }
 
     /**

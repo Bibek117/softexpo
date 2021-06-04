@@ -99,6 +99,10 @@ class CompanyprofileController extends Controller
 
     public function logo(Request $request){
         // dd($request);
+        $request->validate([
+            'id'=>'required',
+            'file'=>'mimes:png,jpg|max:1024|required'
+        ]);
         if(($request->hasFile('file')) && ($request->id != null)){
             $file = $request->file;
             $id = $request->id;

@@ -466,7 +466,7 @@ class SoftwaremediaController extends Controller
        }
     }
     $data->save();
-    return response()->json(['message'=>'Software media successfully updated','status'=>200,'UpdatedData'=>$data]);
+    return response()->json(['message'=>'Software media successfully updated','UpdatedData'=>$data],200);
 
        
   }
@@ -537,7 +537,7 @@ class SoftwaremediaController extends Controller
         }
        }
        if($isDeleted == true){
-           return response()->json(['message'=>'Deleted successfully','status'=>200,'isdeleted'=>$isDeleted]);
+           return response()->json(['message'=>'Deleted successfully','isdeleted'=>$isDeleted],200);
        }else{
            return response()->json(['message'=>'Cannot delete something went wrong']);
        }  
