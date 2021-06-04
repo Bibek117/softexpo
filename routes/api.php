@@ -34,7 +34,7 @@ Route::group(['as' => 'api.'], function () {
     //delete existing company profile and id required
     Route::delete('company/delete/{id}',[App\Http\Controllers\Api\CompanyprofileController::class,'destroy'])->name('delete_company');
 
-    Route::post('company/handlelogo',[App\Http\Controllers\Api\CompanyprofileController::class,'logo'])->name('handle_logo');
+    Route::post('company/handlelogo',[App\Http\Controllers\Api\CompanyprofileController::class,'logo'])->name('handle_lo');
 
 
     //-------------------------------------company profiles
@@ -125,5 +125,4 @@ Route::group(['as' => 'api.'], function () {
     Route::middleware(['vendor'])->prefix('vendor')->group(function () {
         Route::get('/check_vendor_company',[App\Http\Controllers\Api\CompanyprofileController::class,'check_vendor_company']);
     });
-
 
