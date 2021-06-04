@@ -26,7 +26,27 @@ function index() {
               <i className="mdi mdi-close bannerClose" onClick={toggleProBanner}></i>
             </span>
           </div>
-        </div>:""}
+        </div>:
+        <div>
+            <div className="row">
+            <div className="col-12 grid-margin">
+            <div className="card">
+              <div className="card-body">
+                <h3 className="card-title">Company Details</h3>
+                <div className="row">
+                    <div className="col-md-6">
+                        <span className="d-flex align-items-baseline">
+                        <h4 className="text-bold mr-sm-1 mr-lg-1"> Company's Name: </h4>
+                        <p>{CompanyDetails.name}</p>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        }
         </div>
     )
 }
