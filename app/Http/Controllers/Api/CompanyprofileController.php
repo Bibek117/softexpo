@@ -90,4 +90,19 @@ class CompanyprofileController extends Controller
     }
 
 
+    public function logo(Request $request){
+        if(($request->hasFile('file')) && ($request->id != null)){
+            $file = $request->file;
+            $id = $request->id;
+            $filename = $file->getClientOriginalName();
+            $file->storeAs('public/logo/',$filename);
+
+            $data = Companyprofile::find($id);
+            $data->logo = storage_path('app/public/logo'.$filename);
+            $data->save();
+            return response()->json(['message'=>'file saved']);
+        }else{
+            return response()->json(['message'=>'please input file and id']);
+        }
+    }
 }
