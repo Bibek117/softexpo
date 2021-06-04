@@ -11,6 +11,8 @@ use App\Models\Vendor;
 use Illuminate\Support\Facades\Validator;
 use Auth;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
+use Illuminate\Support\Facades\Storage;
+use Config;
 
 class CompanyprofileController extends Controller
 {
@@ -104,7 +106,7 @@ class CompanyprofileController extends Controller
             $data = Companyprofile::find($id);
             $filename = $data->name."_".time().".png";
             $file->storeAs('public/logo/',$filename);
-            $data->logo = storage_path('app/public/logo'.$filename);
+            $data->logo = Config::get('app.url').'/storage/logo/'.$filename;
             $data->save();
             return response()->json(['message'=>'file saved']);
         }else{
