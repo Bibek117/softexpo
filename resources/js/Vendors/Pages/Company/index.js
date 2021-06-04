@@ -41,6 +41,13 @@ function index() {
                         </span>
                         </div>
                     </div>
+                    <div className="col-md-6">
+
+                        <h4 className="text-bold mr-sm-1 mr-lg-1"> Company's Logo: </h4>
+                        <img src={CompanyDetails.logo} />
+
+
+                    </div>
                 </div>
                 </div>
             </div>

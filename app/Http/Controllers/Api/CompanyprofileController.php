@@ -36,9 +36,14 @@ class CompanyprofileController extends Controller
     {
         $formData = $request->all();
         $formData["vendor_id"] = $this->get_current_user_passport("vendor")->id;
-        $formData["logo"] = "https://www.tutorialspoint.com/android/images/logo.png";
-        $data = Companyprofile::create($formData);
-        return response()->json(['message'=>'Company profile created successfully','data'=>$data],201);
+        $allReadyCompany = Companyprofile::where('vendor_id', $formData["vendor_id"])->first();
+        if(!$allReadyCompany){
+            $formData["logo"] = "https://www.tutorialspoint.com/android/images/logo.png";
+                $data = Companyprofile::create($formData);
+                return response()->json(['message'=>'Company profile created successfully','data'=>$data],201);
+        }
+        return response()->json(['message'=>'Company profile already exist']);
+
     }
 
     /**
@@ -91,13 +96,14 @@ class CompanyprofileController extends Controller
 
 
     public function logo(Request $request){
+        // dd($request);
         if(($request->hasFile('file')) && ($request->id != null)){
             $file = $request->file;
             $id = $request->id;
-            $filename = $file->getClientOriginalName();
-            $file->storeAs('public/logo/',$filename);
 
             $data = Companyprofile::find($id);
+            $filename = $data->name."_".time().".png";
+            $file->storeAs('public/logo/',$filename);
             $data->logo = storage_path('app/public/logo'.$filename);
             $data->save();
             return response()->json(['message'=>'file saved']);

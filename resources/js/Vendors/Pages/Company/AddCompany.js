@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import bsCustomFileInput from 'bs-custom-file-input';
 import venodrAxios from '../../../axios';
 import { useHistory } from 'react-router';
+import { getCompanydetails } from '../../Helpers/HelperFunction';
 
 function AddCompany() {
 
@@ -23,6 +24,14 @@ function AddCompany() {
     const [HSC, setHSC] = useState('');
     const [Logo, setLogo] = useState('');
     const history = useHistory()
+
+    useEffect(() => {
+    getCompanydetails().then((response)=>{
+       if(response){
+           history.push('/vendor/company');
+       }
+    })
+    }, [])
 
 
     const handleChange = date => {
@@ -53,17 +62,20 @@ function AddCompany() {
             YOE:YOE,
             logo: Logo,
         }
-        console.log(data);
+        // console.log(data);
         const fileData = new FormData();
         fileData.append('file',Logo);
 
 
         venodrAxios.post('/company/create',data).then((result)=>{
             if (result.status==201) {
+                console.log(result)
             const config = { headers: { 'Content-Type': 'multipart//form-data' } };
-            fileData.append('id',result.data.id)
-            venodrAxios.post('/company/logoHandle',fileData,config).then((res)=>{
-                console.log(res)
+            fileData.append('id',result.data.data.id)
+            venodrAxios.post('/company/handlelogo',fileData,config).then((res)=>{
+                if(res){
+                    history.push('/vendor/company')
+                }
             })
             }
         })
