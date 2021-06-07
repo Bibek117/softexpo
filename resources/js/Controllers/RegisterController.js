@@ -11,7 +11,7 @@ function RegisterUser({data}) {
         const expires_at = now()+1500;
         const remember_me = false;
         const user = data.user;
-        axios.post('/oauth/clients',data.token).then((res)=>{
+        axios.post('api/oauth/clients',{'name':user}).then((res)=>{
             console.log(res);
         })
 

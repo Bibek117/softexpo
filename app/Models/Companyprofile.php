@@ -26,4 +26,8 @@ class Companyprofile extends Model
         'YOE',
         'logo'
     ];
+
+    public function vendor(){
+        return $this->belongsTo(Vendor::class, 'vendor_id', 'id');
+    }
 }

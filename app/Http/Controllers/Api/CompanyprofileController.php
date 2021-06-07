@@ -11,6 +11,8 @@ use App\Models\Vendor;
 use Illuminate\Support\Facades\Validator;
 use Auth;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
+use Illuminate\Support\Facades\Storage;
+use Config;
 
 class CompanyprofileController extends Controller
 {
@@ -34,8 +36,16 @@ class CompanyprofileController extends Controller
      */
     public function create(CompanyRequest $request)
     {
-        $data = Companyprofile::create($request->all());
-        return response()->json(['message'=>'Company profile created successfully','status'=>201,'createddata'=>$data]);
+        $formData = $request->all();
+        $formData["vendor_id"] = $this->get_current_user_passport("vendor")->id;
+        $allReadyCompany = Companyprofile::where('vendor_id', $formData["vendor_id"])->first();
+        if(!$allReadyCompany){
+            $formData["logo"] = "https://www.tutorialspoint.com/android/images/logo.png";
+                $data = Companyprofile::create($formData);
+                return response()->json(['message'=>'Company profile created successfully','data'=>$data],201);
+        }
+        return response()->json(['message'=>'Company profile already exist']);
+
     }
 
     /**
@@ -77,9 +87,34 @@ class CompanyprofileController extends Controller
     }
 
     public function check_vendor_company(){
-        $user = $this->get_current_user_passport("vendor");
-        dd($user);
-        // $data = Vendor::where('access_token',$token)->first()->comapny();
-        // return response()->json($data,200);
+        // dd($user);
+        $vendor = $this->get_current_user_passport("vendor");
+        $data = Companyprofile::where('vendor_id',$vendor->id)->first();
+        if($data){
+        return response()->json($data,200);
+        }
+        return null;
+    }
+
+
+    public function logo(Request $request){
+        // dd($request);
+        $request->validate([
+            'id'=>'required',
+            'file'=>'mimes:png,jpg|max:1024|required'
+        ]);
+        if(($request->hasFile('file')) && ($request->id != null)){
+            $file = $request->file;
+            $id = $request->id;
+
+            $data = Companyprofile::find($id);
+            $filename = $data->name."_".time().".png";
+            $file->storeAs('public/logo/',$filename);
+            $data->logo = Config::get('app.url').'/storage/logo/'.$filename;
+            $data->save();
+            return response()->json(['message'=>'file saved']);
+        }else{
+            return response()->json(['message'=>'please input file and id']);
+        }
     }
 }

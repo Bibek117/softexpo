@@ -95,16 +95,16 @@ class RegisterController extends Controller
         $_SESSION["vendor_loggedin"] = true;
         $_SESSION["vender_token"] = $user->accessToken;
         $_SESSION["vendor_user"] = $user;
-        $token = Request::create(
-            'oauth/token',
-            'POST'
-        );
-        $res = Route::dispatch($token);
+        // $token = Request::create(
+        //     'oauth/token',
+        //     'POST'
+        // );
+        // $res = Route::dispatch($token);
         return response()->json([
             'token'    => $user->accessToken,
             'user'     => $user,
             'role'     => $this->guard,
-            'res'       => $res
+            // 'res'       => $res
         ]);
     }
 

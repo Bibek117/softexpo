@@ -26,7 +26,6 @@ class CompanyRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'website'=>'required|string',
-            'vendor_id'=>'required|string',
             'country'=>'required|string',
             'email' => 'required|string|email|max:255',
             'state'=>'required|string',
@@ -39,7 +38,7 @@ class CompanyRequest extends FormRequest
             'RC'=>'required|string',
             'HSC'=>'required|string',
             'YOE'=>'required|string',
-             'logo'=>'required|string',
+            // 'logo'=>'required|file',
         ];
     }
 }
