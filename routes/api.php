@@ -38,7 +38,7 @@ Route::group(['as' => 'api.'], function () {
     Route::delete('company/delete/{id}',[App\Http\Controllers\Api\CompanyprofileController::class,'destroy'])->name('delete_company');
 
     Route::get('check_vendor_company',[App\Http\Controllers\Api\CompanyprofileController::class,'check_vendor_company']);
-    Route::post('company/handlelogo',[App\Http\Controllers\Api\CompanyprofileController::class,'logo'])->name('handle_lo');
+    Route::post('company/handlelogo',[App\Http\Controllers\Api\CompanyprofileController::class,'logo'])->name('handle_logo');
 
 
     //-------------------------------------company profiles
@@ -140,7 +140,7 @@ Route::group(['as' => 'api.'], function () {
 
 
     //mobilesoftwareandroid------------------------------------------------------------------------------------------------
-    Route::get('android',[App\Http\Controllers\Api\MobilesoftwareandroidController::class,'index'])->name('ndroid');
+    Route::get('android',[App\Http\Controllers\Api\MobilesoftwareandroidController::class,'index'])->name('android');
     Route::post('android/store',[App\Http\Controllers\Api\MobilesoftwareandroidController::class,'store'])->name('store_android');
     Route::get('android/show/{id}',[App\Http\Controllers\Api\MobilesoftwareandroidController::class,'show'])->name('show_android');
     Route::put('android/update/{id}' , [\App\Http\Controllers\Api\MobilesoftwareandroidController::class , 'update'])->name('update_android');
@@ -154,10 +154,32 @@ Route::group(['as' => 'api.'], function () {
     Route::get('software',[App\Http\Controllers\Api\SoftwarecategoryController::class,'index'])->name('software');
     Route::post('software/store',[App\Http\Controllers\Api\SoftwarecategoryController::class,'store'])->name('store_software');
     Route::get('software/show/{id}',[App\Http\Controllers\Api\SoftwarecategoryController::class,'show'])->name('show_software');
-    Route::put('software/update/{id}' , [\App\Http\Controllers\Api\SoftwarecategoryController::class , 'update'])->name('update_software');
-    Route::delete('software/delete/{id}',[App\Http\Controllers\Api\SoftwarecategoryController::class,'destroy'])->name('delete_software');
+    Route::put('software/update/{id}' , [\App\Http\Controllers\Api\SoftwarecategoryController::class , 'update'])->name('update_software_category');
+    Route::delete('software/delete/{id}',[App\Http\Controllers\Api\SoftwarecategoryController::class,'destroy'])->name('delete_software_category');
 
 
+    //Industry Type -----------------------------------------------------------------
+    Route::get('industry',[App\Http\Controllers\Admin\IndustryTypeController::class,'index'])->name('show_all_industry');
+    Route::get('industry/show/{id}',[App\Http\Controllers\Admin\IndustryTypeController::class,'show'])->name('show_one_industry');
+    Route::post('industry/store',[App\Http\Controllers\Admin\IndustryTypeController::class,'store'])->name('new_industry');
+    Route::put('industry/update/{id}',[App\Http\Controllers\Admin\IndustryTypeController::class,'update'])->name('update_industry');
+    Route::delete('industry/delete/{id}',[App\Http\Controllers\Admin\IndustryTypeController::class,'destroy'])->name('delete_industry');
+
+
+    //Average hourly rate---------------------------------------------
+    Route::get('hourly_rate',[App\Http\Controllers\Admin\AvgHourlyRateController::class,'index'])->name('show_all_rate');
+    Route::get('hourly_rate/show/{id}',[App\Http\Controllers\Admin\AvgHourlyRateController::class,'show'])->name('show_one_rate');
+    Route::post('hourly_rate/store',[App\Http\Controllers\Admin\AvgHourlyRateController::class,'store'])->name('new_rate');
+    Route::put('hourly_rate/update/{id}',[App\Http\Controllers\Admin\AvgHourlyRateController::class,'update'])->name('update_rate');
+    Route::delete('hourly_rate/delete/{id}',[App\Http\Controllers\Admin\AvgHourlyRateController::class,'destroy'])->name('delete_rate');
+
+
+    //Service types------------------------------------------------------
+    Route::get('service_type',[App\Http\Controllers\Admin\ServiceTypeController::class,'index'])->name('all_service_type');
+    Route::get('service_type/show/{id}',[App\Http\Controllers\Admin\ServiceTypeController::class,'show'])->name('one_service_type');
+    Route::post('service_type/store',[App\Http\Controllers\Admin\ServiceTypeController::class,'store'])->name('new_service_type');
+    Route::put('service_type/update/{id}',[App\Http\Controllers\Admin\ServiceTypeController::class,'update'])->name('update_service_type');
+    Route::delete('service_type/delete/{id}',[App\Http\Controllers\Admin\ServiceTypeController::class,'destroy'])->name('delete_service_type');
 
 
 });

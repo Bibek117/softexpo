@@ -537,7 +537,7 @@ class SoftwaremediaController extends Controller
         }
        }
        if($isDeleted == true){
-           return response()->json(['message'=>'Deleted successfully','isdeleted'=>$isDeleted],200);
+           return response()->json(['message'=>'Deleted successfully','isdeleted'=>$isDeleted],200 );
        }else{
            return response()->json(['message'=>'Cannot delete something went wrong']);
        }  
