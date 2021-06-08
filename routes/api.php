@@ -7,6 +7,8 @@ use App\Http\Controllers\Api\AppSettingController;
 use App\Http\Controllers\Api\SoftwarepricingController;
 use App\Http\Controllers\Api\SoftwarespecificationsController;
 use App\Http\Controllers\Admin\AnnualEstimatedRevenueController;
+use App\Http\Controllers\Admin\CompanyTypeController;
+use App\Http\Controllers\Admin\ServiceUserController;
 use App\Models\Softwarespecification;
 
 Route::group(['as' => 'api.'], function () {
@@ -128,7 +130,7 @@ Route::group(['as' => 'api.'], function () {
   // -------------- software pricing
 
 
-  //mobilesoftwareios---------------------------------------------------------------------
+  //mobilesoftwareios---------------------------------------------------------------------sharmila
 
   Route::get('mobile', [App\Http\Controllers\Api\MobilesoftwareiosController::class, 'index'])->name('mobile');
   Route::post('mobile/store', [App\Http\Controllers\Api\MobilesoftwareiosController::class, 'store'])->name('store_mobile');
@@ -141,7 +143,7 @@ Route::group(['as' => 'api.'], function () {
 
 
 
-    //mobilesoftwareandroid------------------------------------------------------------------------------------------------
+    //mobilesoftwareandroid---------------------------------------------------------------------------------sharmila
     Route::get('android',[App\Http\Controllers\Api\MobilesoftwareandroidController::class,'index'])->name('android');
     Route::post('android/store',[App\Http\Controllers\Api\MobilesoftwareandroidController::class,'store'])->name('store_android');
     Route::get('android/show/{id}',[App\Http\Controllers\Api\MobilesoftwareandroidController::class,'show'])->name('show_android');
@@ -151,7 +153,7 @@ Route::group(['as' => 'api.'], function () {
   //--------------------------------------------------------------------------------------------------------mobilesoftwareandroid
 
 
-  //softwarecategory----------------------------------------------------------------------------------------------
+  //softwarecategory----------------------------------------------------------------------------------------------sharmila
 
     Route::get('software',[App\Http\Controllers\Api\SoftwarecategoryController::class,'index'])->name('software');
     Route::post('software/store',[App\Http\Controllers\Api\SoftwarecategoryController::class,'store'])->name('store_software');
@@ -208,6 +210,30 @@ Route::group(['as' => 'api.'], function () {
   // delete specific data of the service category
   Route::delete('service_category/delete/{id}', [ServiceCategoryController::class, 'destroy']);
   // ----------------------------------------ServiveCategory
+
+
+
+
+
+
+  //ServiceUser.......................................................................sharmila
+
+ Route::get('serviceuser',[App\Http\Controllers\Admin\ServiceUserController::class,'index'])->name('serviceuser');
+ Route::post('serviceuser/store',[App\Http\Controllers\Admin\ServiceUserController::class,'store'])->name('store_serviceuser');
+ Route::get('serviceuser/show/{id}',[App\Http\Controllers\Admin\ServiceUserController::class,'show'])->name('show_serviceuser');
+ Route::put('serviceuser/update/{id}',[App\Http\Controllers\Admin\ServiceUserController::class,'update'])->name('update_serviceuser');
+ Route::delete('serviceuser/delete/{id}',[App\Http\Controllers\Admin\ServiceUserController::class,'destroy'])->name('destroy_serviceuser');
+
+//  -----------------------------------------------------------------------------serviceuser
+
+
+
+// Companytype...............................................................................................sharmila
+Route::get('companytype',[App\Http\Controllers\Admin\CompanyTypeController::class,'index'])->name('companytype');
+Route::post('companytype/store',[App\Http\Controllers\Admin\CompanyTypeController::class,'store'])->name('store_companytype');
+Route::get('companytype/show/{id}',[App\Http\Controllers\Admin\CompanyTypeController::class,'show'])->name('show_companytype');
+Route::put('companytype/update/{id}',[App\Http\Controllers\Admin\CompanyTypeController::class,'update'])->name('update_companytype');
+Route::delete('companytype/delete/{id}',[App\Http\Controllers\Admin\CompanyTypeController::class,'destroy'])->name('destroy_companytype');
 
 
 });
