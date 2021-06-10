@@ -54,7 +54,7 @@ export default function Login() {
                             if (Object.hasOwnProperty.call(errors, key)) {
                                 const element = errors[key][0];
                                 console.log(element);
-                                toast('🦄'+element, {
+                                toast.error('🦄'+element, {
                                     position: "top-left",
                                     autoClose: 5000,
                                     hideProgressBar: false,
@@ -120,15 +120,15 @@ export default function Login() {
                                 <div className="col-md-8 m-auto mt-lg-5" data-aos="fade-up" data-aos-delay="50">
                                     <i className="bx bx-receipt"></i>
                                     <h4>Login to add your product/Services</h4><br />
-                                    <form action="forms/contact.php" method="post" role="form" className="php-email-form">
+                                    <form action="" method="post" role="form" className="php-email-form">
                                         <div className="row">
                                             <div className="form-group col-md-12">
                                                 <label htmlFor="name">Your Email</label>
-                                                <input type="text" name="name" className="form-control" id="name" placeholder="Your Name" required />
+                                                <input type="email" name="email" className="form-control" id="name" placeholder="Email" required />
                                             </div>
                                             <div className="form-group col-md-12 mt-3">
                                                 <label for="name">Your Password</label>
-                                                <input type="email" className="form-control" name="email" id="email" placeholder="Your Email" required />
+                                                <input type="password" className="form-control" name="password" id="password" placeholder="************" required />
                                             </div>
                                         </div>
                                         <div className="mt-3">

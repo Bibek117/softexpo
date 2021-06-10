@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 use Auth;
 
-class Admin extends Midlleware
+class Admin extends Middleware
 {
     /**
      * Handle an incoming request.
@@ -16,12 +16,12 @@ class Admin extends Midlleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next){
+    public function handle($request, Closure $next,...$guards){
      if (Auth::guard('admin') && Auth::guard('admin')->user()) {
             return $next($request);
      }
 
-    return response()->json(['Not authorized', 401]);
+    return redirect('/home/adminlogin');
 }
 
 }

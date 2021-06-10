@@ -5,7 +5,7 @@ import VendorRoutes from '../components/VendorRoutes'
 import { BrowserRouter, Switch } from 'react-router-dom';
 
 
-function Example() {
+function VendorApp() {
     return (
         <BrowserRouter>
          <Suspense fallback={<div>loading..</div>}>
@@ -15,8 +15,8 @@ function Example() {
     );
 }
 
-export default Example;
+export default VendorApp;
 
 if (document.getElementById('vendorApp')) {
-    ReactDOM.render(<Example />, document.getElementById('vendorApp'));
+    ReactDOM.render(<VendorApp />, document.getElementById('vendorApp'));
 }

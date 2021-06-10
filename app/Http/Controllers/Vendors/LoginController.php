@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Auth;
 
 /**
  * @group Auth endpoints
@@ -26,7 +27,7 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    
+
 
     /**
      * Where to redirect users after login.
@@ -76,8 +77,12 @@ class LoginController extends Controller
      */
     public function logout(Request $request)
     {
-        $request->user()->token()->revoke();
-
+        // return dd($request);
+        // $request->user("vendor")->token()->revoke();
+        $_SESSION["vendor_loggedin"] = false;
+        unset($_SESSION["vender_token"]);
+        unset($_SESSION["vendor_user"] );
+        // Auth::guard('vendor')->get
         return $request->wantsJson()
             ? new Response('', 204)
             : redirect('/');

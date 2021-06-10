@@ -28,7 +28,7 @@ function getCurrentData(){
         role: localStorage.getItem('user_role'),
         expiry: localStorage.getItem('expires_at'),
         slot: localStorage.getItem('slot'),
-        user: localStorage.getItem('user')  
+        user: localStorage.getItem('user')
     }
     return data;
 }
@@ -39,5 +39,14 @@ function checkTokenExpiry(){
     return true;
 }
 
-export { isVendorLogin }
+async function logoutJS(){
+    localStorage.removeItem('access_token')
+    localStorage.removeItem('user_role');
+    localStorage.removeItem('expires_at');
+    localStorage.removeItem('remember_me' );
+    localStorage.removeItem('user');
+    localStorage.removeItem('slot');
+}
+
+export { isVendorLogin,logoutJS }
 

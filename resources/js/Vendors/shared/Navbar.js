@@ -1,15 +1,29 @@
 import React, { Component } from 'react';
 import { Dropdown } from 'react-bootstrap';
 import { Trans } from 'react-i18next';
+import venodrAxios from '../../axios';
+import { logoutJS } from '../../Controllers/AuthController';
+import { redirectApp } from '../../utils';
 
-class Navbar extends Component {
-  toggleOffcanvas() {
+function Navbar(){
+  const toggleOffcanvas = ()=> {
     document.querySelector('.sidebar-offcanvas').classList.toggle('active');
   }
-  toggleRightSidebar() {
+  const toggleRightSidebar = () => {
     document.querySelector('.right-sidebar').classList.toggle('open');
   }
-  render () {  
+
+  const Signout = (evt)=>{
+      evt.preventDefault()
+      venodrAxios.post('/logout').then((response)=>{
+          if(response.status==204){
+              logoutJS().then(()=>{
+                 redirectApp('/home');
+              })
+          }
+      })
+
+  }
     return (
       <nav className="navbar col-lg-12 col-12 p-lg-0 fixed-top d-flex flex-row">
         <div className="navbar-menu-wrapper d-flex align-items-center justify-content-between">
@@ -148,8 +162,8 @@ class Navbar extends Component {
                 </Dropdown.Menu>
               </Dropdown>
             </li>
-            
-            
+
+
             <li className="nav-item  nav-profile border-0">
               <Dropdown>
                 <Dropdown.Toggle className="nav-link count-indicator bg-transparent">
@@ -178,20 +192,20 @@ class Navbar extends Component {
                   <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center border-0" onClick={evt =>evt.preventDefault()}>
                     <Trans>Check Inbox</Trans>
                   </Dropdown.Item>
-                  <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center border-0" onClick={evt =>evt.preventDefault()}>
+                  <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center border-0" onClick={evt =>Signout(evt)}>
                     <Trans>Sign Out</Trans>
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </li>
           </ul>
-          <button className="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" onClick={this.toggleOffcanvas}>
+          <button className="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" onClick={()=>toggleOffcanvas}>
             <span className="mdi mdi-menu"></span>
           </button>
         </div>
       </nav>
     );
   }
-}
+
 
 export default Navbar;

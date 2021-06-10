@@ -18,6 +18,11 @@ return [
             'provider' => 'vendors',
             'hash' => false,
         ],
+        'admin' => [
+            'driver' => 'passport',
+            'provider' => 'admins',
+            'hash' => false,
+        ],
 
 
     ],

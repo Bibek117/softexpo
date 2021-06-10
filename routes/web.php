@@ -21,3 +21,8 @@ Route::middleware(['vendor'])->prefix('vendor')->group(function () {
     });
 });
 
+Route::middleware(['admin'])->prefix('appAdmin')->group(function () {
+    Route::get('/{path?}', function () {
+        return view('admin');
+    });
+});

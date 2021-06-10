@@ -1638,6 +1638,10 @@ Lots taken from Flatly (MIT): https://bootswatch.com/4/flatly/bootstrap.css
   animation-name: Toastify__slideOutDown;
 }
 @charset "UTF-8";
+.left-0 {
+  left: auto !important;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

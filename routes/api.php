@@ -24,6 +24,8 @@ Route::group(['as' => 'api.'], function () {
 
     // vendor routes
     Route::middleware(['vendor'])->prefix('vendor')->group(function () {
+        //logout
+    Route::post('/logout',[App\Http\Controllers\Vendors\LoginController::class, 'logout']);
     //Company profiles---------------------------------------Bibek
     //show all
      //show all

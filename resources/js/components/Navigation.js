@@ -1,40 +1,34 @@
-import React from 'react'
-import { Link, NavLink, Router } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Dropdown } from 'react-bootstrap';
+import { Trans } from 'react-i18next';
 
-
-export default function Navigation() {
+function Navbar(){
     return (
-      
-  <header id="header" className="fixed-top d-flex align-items-center">
-    <div className="container d-flex align-items-center justify-content-between">
-
-      <div className="logo">
-        <h1 className="text-light"><a href="/"><span>Ninestars</span></a></h1>
-       
-       {/* <a href="index.html"><img src="assets/img/logo.png" alt="" className="img-fluid"></a> */}
-      </div>
-
-      <nav id="navbar" className="navbar">
-        <ul>
-          <li><a className="nav-link scrollto active" href="/">Home</a></li>
-         
-          <li className="dropdown">
-            <a className="scrollto categories" href="#">
-            <span>Categories</span> <i className="bi bi-chevron-down"></i>
-            </a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
+      <nav className="navbar col-lg-12 left-0 col-12 p-lg-0 fixed-top d-flex flex-row">
+        <div className="navbar-menu-wrapper w-100 d-flex align-items-center justify-content-between">
+        <a className="navbar-brand brand-logo-mini align-self-center d-lg-none" href="!#" onClick={evt =>evt.preventDefault()}><img src="/assets/images/logo-mini.svg" alt="logo" /></a>
+          <ul className="navbar-nav navbar-nav-left header-links align-self-center">
+            <li className="nav-item font-weight-semibold d-none  d-md-flex">Brand Name</li>
+           </ul>
+          <form className="ml-auto search-form d-none d-md-block" action="#">
+            <div className="form-group">
+              <input type="search" className="form-control" placeholder="Search Here" />
+            </div>
+          </form>
+          <ul className="navbar-nav navbar-nav-right">
+          <li className="nav-item  nav-profile border-0 pl-4">
+          <a className="align-self-center nav-link" href="/vendor/dashboard">For Vendors</a>
             </li>
-          <li><a className="getstarted " href="/vendor/dashboard" >Vendor Portal</a></li>
-        </ul>
-        <i className="bi bi-list mobile-nav-toggle"></i>
+            <li className="nav-item  nav-profile border-0">
+            </li>
+          </ul>
+          <button className="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" onClick={()=>toggleOffcanvas}>
+            <span className="mdi mdi-menu"></span>
+          </button>
+        </div>
       </nav>
-    </div>
-  </header>
+    );
+  }
 
-    )
-}
+
+export default Navbar;

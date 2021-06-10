@@ -16,12 +16,12 @@ class Vendor extends Middleware
      * @param  \Closure  $next
      * @return mixed
      */
-  
+
    public function handle($request, Closure $next, ...$guards)
     {
         session_start();
         // dd(Auth::guard('vendor')->hasUser());
-         if (isset($_SESSION["vendor_loggedin"])) {
+         if (isset($_SESSION["vendor_loggedin"]) && $_SESSION["vendor_loggedin"]==true) {
                 return $next($request);
          }
 
