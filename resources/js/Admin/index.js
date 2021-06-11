@@ -1,24 +1,22 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom';
+const Home = lazy(()=> import('./Pages/Home'));
+import { BrowserRouter } from 'react-router-dom';
 
-function index() {
+
+function AdminApp() {
     return (
-        <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-md-8">
-                    <div className="card">
-                        <div className="card-header">Example Component</div>
-
-                        <div className="card-body">I'm an example component!</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <BrowserRouter>
+         <Suspense fallback={<div>loading..</div>}>
+           <Home />
+        </Suspense>
+      </BrowserRouter>
     );
 }
 
-export default index;
+export default AdminApp;
+
 
 if (document.getElementById('adminApp')) {
-    ReactDOM.render(<index />, document.getElementById('adminApp'));
+    ReactDOM.render(<AdminApp />, document.getElementById('adminApp'));
 }

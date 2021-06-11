@@ -120,6 +120,33 @@ class Sidebar extends Component {
           <li className={ this.isPathActive('/basic-ui') ? 'nav-item active' : 'nav-item' }>
             <div className={ this.state.basicUiMenuOpen ? 'nav-link menu-expanded' : 'nav-link' } onClick={ () => this.toggleMenuState('basicUiMenuOpen') } data-toggle="collapse">
               <i className="mdi mdi-crosshairs-gps menu-icon"></i>
+              <span className="menu-title"><>Softwares</></span>
+              <i className="menu-arrow"></i>
+            </div>
+            <Collapse in={ this.state.basicUiMenuOpen }>
+              <ul className="nav flex-column sub-menu">
+                <li className="nav-item"> <Link className={ this.isPathActive('/basic-ui/buttons') ? 'nav-link active' : 'nav-link' } to="/vendors/basic-ui/buttons"><>Add New</></Link></li>
+                <li className="nav-item"> <Link className={ this.isPathActive('/basic-ui/dropdowns') ? 'nav-link active' : 'nav-link' } to="/basic-ui/dropdowns"><>Manage</></Link></li>
+              </ul>
+            </Collapse>
+          </li>
+          <li className={ this.isPathActive('/basic-ui') ? 'nav-item active' : 'nav-item' }>
+            <div className={ this.state.basicUiMenuOpen ? 'nav-link menu-expanded' : 'nav-link' } onClick={ () => this.toggleMenuState('basicUiMenuOpen') } data-toggle="collapse">
+              <i className="mdi mdi-crosshairs-gps menu-icon"></i>
+              <span className="menu-title"><>Services</></span>
+              <i className="menu-arrow"></i>
+            </div>
+            <Collapse in={ this.state.basicUiMenuOpen }>
+              <ul className="nav flex-column sub-menu">
+                <li className="nav-item"> <Link className={ this.isPathActive('/basic-ui/buttons') ? 'nav-link active' : 'nav-link' } to="/vendors/basic-ui/buttons"><>Add New</></Link></li>
+                <li className="nav-item"> <Link className={ this.isPathActive('/basic-ui/dropdowns') ? 'nav-link active' : 'nav-link' } to="/basic-ui/dropdowns"><>Manage</></Link></li>
+              </ul>
+            </Collapse>
+          </li>
+
+          <li className={ this.isPathActive('/basic-ui') ? 'nav-item active' : 'nav-item' }>
+            <div className={ this.state.basicUiMenuOpen ? 'nav-link menu-expanded' : 'nav-link' } onClick={ () => this.toggleMenuState('basicUiMenuOpen') } data-toggle="collapse">
+              <i className="mdi mdi-crosshairs-gps menu-icon"></i>
               <span className="menu-title"><>Basic UI Elements</></span>
               <i className="menu-arrow"></i>
             </div>

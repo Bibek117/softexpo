@@ -5309,38 +5309,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
+var Home = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+  return __webpack_require__.e(/*! import() */ "resources_js_Admin_Pages_Home_js").then(__webpack_require__.bind(__webpack_require__, /*! ./Pages/Home */ "./resources/js/Admin/Pages/Home.js"));
+});
 
 
 
-function index() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "container",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "row justify-content-center",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "col-md-8",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "card",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "card-header",
-            children: "Example Component"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "card-body",
-            children: "I'm an example component!"
-          })]
-        })
-      })
+function AdminApp() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.BrowserRouter, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
+      fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        children: "loading.."
+      }),
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Home, {})
     })
   });
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (index);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AdminApp);
 
 if (document.getElementById('adminApp')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("index", {}), document.getElementById('adminApp'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(AdminApp, {}), document.getElementById('adminApp'));
 }
 
 /***/ }),
@@ -79608,7 +79601,7 @@ module.exports = warning;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_Vendors_Pages_Home_js":1,"resources_js_components_Footer_js":1,"resources_js_components_Navigation_js":1,"resources_js_Pages_Home_js":1,"resources_js_Vendors_Login_js":1,"resources_js_Admin_Login_js":1,"resources_js_Vendors_dashboard_Dashboard_js":1,"resources_js_Vendors_basic-ui_Buttons_js":1,"resources_js_Vendors_basic-ui_Dropdowns_js":1,"resources_js_Vendors_form-elements_BasicElements_js":1,"resources_js_Vendors_tables_BasicTable_js":1,"resources_js_Vendors_icons_Mdi_js":1,"resources_js_Vendors_charts_ChartJs_js":1,"resources_js_Vendors_error-pages_Error404_js":1,"resources_js_Vendors_error-pages_Error500_js":1,"resources_js_Vendors_user-pages_Login_js":1,"resources_js_Vendors_user-pages_Register_js":1,"resources_js_Vendors_Pages_Company_index_js":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_Admin_Pages_Home_js":1,"resources_js_Vendors_Pages_Home_js":1,"resources_js_components_Footer_js":1,"resources_js_components_Navigation_js":1,"resources_js_Pages_Home_js":1,"resources_js_Vendors_Login_js":1,"resources_js_Admin_Login_js":1,"resources_js_Admin_dashboard_Dashboard_js":1,"resources_js_Admin_basic-ui_Buttons_js":1,"resources_js_Admin_basic-ui_Dropdowns_js":1,"resources_js_Admin_form-elements_BasicElements_js":1,"resources_js_Admin_tables_BasicTable_js":1,"resources_js_Admin_icons_Mdi_js":1,"resources_js_Admin_charts_ChartJs_js":1,"resources_js_Admin_error-pages_Error404_js":1,"resources_js_Admin_error-pages_Error500_js":1,"resources_js_Admin_user-pages_Login_js":1,"resources_js_Admin_user-pages_Register_js":1,"resources_js_Admin_Pages_Company_index_js":1,"resources_js_Vendors_dashboard_Dashboard_js":1,"resources_js_Vendors_basic-ui_Buttons_js":1,"resources_js_Vendors_basic-ui_Dropdowns_js":1,"resources_js_Vendors_form-elements_BasicElements_js":1,"resources_js_Vendors_tables_BasicTable_js":1,"resources_js_Vendors_icons_Mdi_js":1,"resources_js_Vendors_charts_ChartJs_js":1,"resources_js_Vendors_error-pages_Error404_js":1,"resources_js_Vendors_error-pages_Error500_js":1,"resources_js_Vendors_user-pages_Login_js":1,"resources_js_Vendors_user-pages_Register_js":1,"resources_js_Vendors_Pages_Company_index_js":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

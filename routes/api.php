@@ -21,7 +21,6 @@ Route::group(['as' => 'api.'], function () {
   Route::post('vendor_register', [App\Http\Controllers\Vendors\RegisterController::class, 'register'])->name('register');
 
   //rem
-  Route::post('admin_login', [App\Http\Controllers\Admins\LoginController::class, 'login'])->name('login');
   //----------------Auth sudeep
 
 

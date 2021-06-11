@@ -17,9 +17,11 @@ class Admin extends Middleware
      * @return mixed
      */
     public function handle($request, Closure $next,...$guards){
-     if (Auth::guard('admin') && Auth::guard('admin')->user()) {
-            return $next($request);
-     }
+        session_start();
+        // dd(Auth::guard('vendor')->hasUser());
+         if (isset($_SESSION["admin_loggedin"]) && $_SESSION["admin_loggedin"]==true) {
+                return $next($request);
+         }
 
     return redirect('/home/adminlogin');
 }

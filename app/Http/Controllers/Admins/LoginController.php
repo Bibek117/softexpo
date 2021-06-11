@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Admins;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * @group Auth endpoints
@@ -32,6 +35,8 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
+    public $guard='admin';
+
 
     /**
      * Create a new controller instance.
@@ -43,17 +48,18 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    protected function sendLoginResponse(Request $request)
+    protected function loggedIn(Request $request, $user)
     {
-        $this->clearLoginAttempts($request);
-
-        if ($response = $this->authenticated($request, $this->guard()->user())) {
-            return $response;
-        }
-
+        session_start();
+        $user->accessToken = $user->createToken($request->input('device_name'))->accessToken;
+        $_SESSION["admin_loggedin"] = true;
+        $_SESSION["admin_token"] = $user->accessToken;
+        $_SESSION["admin_user"] = $user;
         return response()->json([
-            'token'    => $request->user()->createToken($request->input('device_name'))->accessToken,
-            'user'     => $request->user()
+            'token'    => $user->accessToken,
+            'user'     => $user,
+            'role'     => $this->guard,
+            // 'res'       => $res
         ]);
     }
 
@@ -111,8 +117,8 @@ class LoginController extends Controller
             return $this->sendLockoutResponse($request);
         }
 
-        if ($this->attemptLogin($request)) {
-            return $this->sendLoginResponse($request);
+        if ($user = $this->attemptLogin($request)) {
+            return $this->loggedIn($request,$user);
         }
 
         // If the login attempt was unsuccessful we will increment the number of attempts
@@ -121,5 +127,18 @@ class LoginController extends Controller
         $this->incrementLoginAttempts($request);
 
         return $this->sendFailedLoginResponse($request);
+    }
+    public function guard(){
+        return Auth::guard('admin');
+    }
+
+    public function attemptLogin(Request $request){
+        $user = Admin::where("email",$request->email)->first();
+        if($user){
+            if($user->password == Hash::check($request->password, $user->password)){
+                return $user;
+            }
+        }
+        // return response()->json(["errors"=>["email"=>["Username/Password Doesn't matches our record"]]],422);
     }
 }
