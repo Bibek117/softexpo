@@ -9,10 +9,11 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
+
 
 /**
  * @group Auth endpoints
@@ -61,7 +62,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:vendors'],
             'password' => ['required', 'string', 'min:8'],
         ]);
     }
@@ -145,9 +146,7 @@ class RegisterController extends Controller
         $this->validator($request->all())->validate();
 
         event(new Registered($user = $this->create($request->all())));
-
-        Auth::guard('vendor')->setUser($user);
-
+        // $this->guard()->attempt($request->all());
         if ($response = $this->registered($request, $user)) {
             return $response;
         }
@@ -160,6 +159,6 @@ class RegisterController extends Controller
     public $guard='vendor';
 
     public function guard(){
-        return Auth::guard('vendor');
+        return FacadesAuth::guard('vendor');
     }
 }

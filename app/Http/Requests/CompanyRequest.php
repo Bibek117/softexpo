@@ -27,7 +27,7 @@ class CompanyRequest extends FormRequest
             'name' => 'required|string|max:255',
             'website'=>'required|string',
             'country'=>'required|string',
-            'email' => 'required|string|email|max:255',
+            'email' => 'required|string|email|max:255|unique:companyprofiles,email',
             'state'=>'required|string',
             'city' => 'required|string',
             'address'=>'required|string',

@@ -38,7 +38,10 @@ function Navbar() {
         className: "navbar-nav navbar-nav-left header-links align-self-center",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
           className: "nav-item font-weight-semibold d-none  d-md-flex",
-          children: "Brand Name"
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+            src: "/images/logo-sample.jpg",
+            width: "75%"
+          })
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("form", {
         className: "ml-auto search-form d-none d-md-block",

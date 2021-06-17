@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Dropdown } from 'react-bootstrap';
 import { Trans } from 'react-i18next';
-import venodrAxios from '../../axios';
+import { venodrAxios } from '../../axios';
 import { logoutJS } from '../../Controllers/AuthController';
 import { redirectApp } from '../../utils';
 
 function Navbar(){
   const toggleOffcanvas = ()=> {
     document.querySelector('.sidebar-offcanvas').classList.toggle('active');
+    // toggleRightSidebar();
   }
   const toggleRightSidebar = () => {
     document.querySelector('.right-sidebar').classList.toggle('open');
@@ -199,7 +200,7 @@ function Navbar(){
               </Dropdown>
             </li>
           </ul>
-          <button className="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" onClick={()=>toggleOffcanvas}>
+          <button className="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" onClick={toggleOffcanvas}>
             <span className="mdi mdi-menu"></span>
           </button>
         </div>

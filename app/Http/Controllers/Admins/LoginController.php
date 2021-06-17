@@ -77,7 +77,11 @@ class LoginController extends Controller
      */
     public function logout(Request $request)
     {
-        $request->user()->token()->revoke();
+        // $request->user()->token()->revoke();
+        unset($_SESSION["admin_loggedin"]);
+        unset($_SESSION["admin_token"]);
+        unset($_SESSION["admin_user"]);
+
         return $request->wantsJson()
             ? new Response('', 204)
             : redirect('/');

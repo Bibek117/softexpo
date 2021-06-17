@@ -1,7 +1,10 @@
-import React, { Component } from 'react';
+import { Button } from 'bootstrap';
+import { escape, isEmpty } from 'lodash-es';
+import React, { Component, useEffect, useState } from 'react';
 import { Dropdown } from 'react-bootstrap';
 import { Trans } from 'react-i18next';
-import venodrAxios from '../../axios';
+import { Link, withRouter } from 'react-router-dom';
+import { AdminAxios } from '../../axios';
 import { logoutJS } from '../../Controllers/AuthController';
 import { redirectApp } from '../../utils';
 
@@ -15,15 +18,29 @@ function Navbar(){
 
   const Signout = (evt)=>{
       evt.preventDefault()
-      venodrAxios.post('/logout').then((response)=>{
+      AdminAxios.post('/logout').then((response)=>{
           if(response.status==204){
-              logoutJS().then(()=>{
-                 redirectApp('/home');
+                logoutJS().then(()=>{
+                redirectApp('/home');
               })
           }
       })
 
   }
+  const [Notifications, setNotifications] = useState([]);
+  useEffect(() => {
+      AdminAxios.get('/getUnreadNotifications').then((res)=>{
+          setNotifications(res.data)
+      })
+  }, [])
+
+  const MarkAllAsRead = ( id ) =>{
+      if(id){
+        AdminAxios.get(`/notification/done/${id}`);
+      }
+  }
+
+
     return (
       <nav className="navbar col-lg-12 col-12 p-lg-0 fixed-top d-flex flex-row">
         <div className="navbar-menu-wrapper d-flex align-items-center justify-content-between">
@@ -31,93 +48,36 @@ function Navbar(){
           <button className="navbar-toggler navbar-toggler align-self-center" type="button" onClick={ () => document.body.classList.toggle('sidebar-icon-only') }>
             <i className="mdi mdi-menu"></i>
           </button>
-          <ul className="navbar-nav navbar-nav-left header-links align-self-center">
-            <li className="nav-item font-weight-semibold d-none  d-md-flex">Help : +050 2992 709</li>
-            <li className="nav-item dropdown language-dropdown">
-            <Dropdown>
-                <Dropdown.Toggle className="nav-link count-indicator p-0 toggle-arrow-hide bg-transparent">
-                  <div className="d-inline-flex mr-0 mr-md-3">
-                    <div className="flag-icon-holder">
-                      <i className="flag-icon flag-icon-us"></i>
-                    </div>
-                  </div>
-                  <span className="profile-text font-weight-medium d-none d-md-block">English</span>
-                </Dropdown.Toggle>
-                <Dropdown.Menu className="navbar-dropdown preview-list">
-                  <Dropdown.Item className="dropdown-item  d-flex align-items-center" href="!#" onClick={evt =>evt.preventDefault()}>
-                    <div className="flag-icon-holder">
-                      <i className="flag-icon flag-icon-us"></i>
-                    </div>English
-                  </Dropdown.Item>
-                  <div className="dropdown-divider"></div>
-                  <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center" href="!#" onClick={evt =>evt.preventDefault()}>
-                    <div className="flag-icon-holder">
-                      <i className="flag-icon flag-icon-fr"></i>
-                    </div>French
-                  </Dropdown.Item>
-                  <div className="dropdown-divider"></div>
-                  <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center" href="!#" onClick={evt =>evt.preventDefault()}>
-                    <div className="flag-icon-holder">
-                      <i className="flag-icon flag-icon-ae"></i>
-                    </div>Arabic
-                  </Dropdown.Item>
-                  <div className="dropdown-divider"></div>
-                  <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center" href="!#" onClick={evt =>evt.preventDefault()}>
-                    <div className="flag-icon-holder">
-                      <i className="flag-icon flag-icon-ru"></i>
-                    </div>Russian
-                  </Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-            </li>
-          </ul>
-          <form className="ml-auto search-form d-none d-md-block" action="#">
-            <div className="form-group">
-              <input type="search" className="form-control" placeholder="Search Here" />
-            </div>
-          </form>
           <ul className="navbar-nav navbar-nav-right">
           <li className="nav-item  nav-profile border-0 pl-4">
               <Dropdown>
                 <Dropdown.Toggle className="nav-link count-indicator p-0 toggle-arrow-hide bg-transparent">
                   <i className="mdi mdi-bell-outline"></i>
-                  <span className="count bg-success">4</span>
+                  <span className="count bg-success">{Notifications.length}</span>
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="navbar-dropdown preview-list">
                   <Dropdown.Item className="dropdown-item py-3 d-flex align-items-center" href="!#" onClick={evt =>evt.preventDefault()}>
-                    <p className="mb-0 font-weight-medium float-left"><Trans>You have</Trans> 4 <Trans>new notifications</Trans> </p>
-                    <span className="badge badge-pill badge-primary float-right">View all</span>
+                    <p className="mb-0 font-weight-medium float-left"><Trans>You have</Trans> {Notifications.length} <Trans>new notifications</Trans> </p>
+                        <Link to="/appAdmin/notifications">
+                        <span className="badge badge-pill badge-primary float-right">View all</span>
+                        </Link>
                   </Dropdown.Item>
-                  <div className="dropdown-divider"></div>
-                  <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center" href="!#" onClick={evt =>evt.preventDefault()}>
+                  {Notifications.map((notification,key)=>{
+                      (notification.length>0) && MarkAllAsRead(notification.id)
+                      return <div key={key}>
+                      <div className="dropdown-divider"></div>
+                    <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center" href="!#" onClick={evt =>evt.preventDefault()}>
                     <div className="preview-thumbnail">
                       <i className="mdi mdi-alert m-auto text-primary"></i>
                     </div>
                     <div className="preview-item-content py-2">
-                      <h6 className="preview-subject font-weight-normal text-dark mb-1"><Trans>Application Error</Trans></h6>
+                      <h6 className="preview-subject font-weight-normal text-dark mb-1">{notification.notification}</h6>
                       <p className="font-weight-light small-text mb-0"> <Trans>Just now</Trans> </p>
+                      <Link to={notification.callback} className="badge badge-danger my-1">{notification.type==0 && "Verify"}</Link>
                     </div>
                   </Dropdown.Item>
-                  <div className="dropdown-divider"></div>
-                  <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center" href="!#" onClick={evt =>evt.preventDefault()}>
-                    <div className="preview-thumbnail">
-                      <i className="mdi mdi-settings m-auto text-primary"></i>
-                    </div>
-                    <div className="preview-item-content py-2">
-                      <h6 className="preview-subject font-weight-normal text-dark mb-1"><Trans>Settings</Trans></h6>
-                      <p className="font-weight-light small-text mb-0"> <Trans>Private message</Trans> </p>
-                    </div>
-                  </Dropdown.Item>
-                  <div className="dropdown-divider"></div>
-                  <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center" href="!#" onClick={evt =>evt.preventDefault()}>
-                    <div className="preview-thumbnail">
-                      <i className="mdi mdi-airballoon m-auto text-primary"></i>
-                    </div>
-                    <div className="preview-item-content py-2">
-                      <h6 className="preview-subject font-weight-normal text-dark mb-1"><Trans>New user registration</Trans></h6>
-                      <p className="font-weight-light small-text mb-0"> 2 <Trans>days ago</Trans> </p>
-                    </div>
-                  </Dropdown.Item>
+                      </div>
+                  })}
                 </Dropdown.Menu>
               </Dropdown>
             </li>
@@ -199,7 +159,7 @@ function Navbar(){
               </Dropdown>
             </li>
           </ul>
-          <button className="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" onClick={()=>toggleOffcanvas}>
+          <button className="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" onClick={toggleOffcanvas}>
             <span className="mdi mdi-menu"></span>
           </button>
         </div>
@@ -208,4 +168,4 @@ function Navbar(){
   }
 
 
-export default Navbar;
+export default withRouter(Navbar);

@@ -14,5 +14,9 @@ trait AuthTrait
         if($guard=="vendor"){
             return $_SESSION["vendor_user"];
         }
+        if($guard=="admin"){
+            return $_SESSION["admin_user"];
+        }
     }
+
 }

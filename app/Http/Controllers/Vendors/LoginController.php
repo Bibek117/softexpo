@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Vendors;
 
 use App\Http\Controllers\Controller;
+use App\Models\Vendor;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Auth;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * @group Auth endpoints
@@ -47,21 +49,34 @@ class LoginController extends Controller
     }
 
     public function guard(){
-        return Auth::guard('vendor');
+        return FacadesAuth::guard('vendor');
     }
-    protected function sendLoginResponse(Request $request)
+    protected function sendLoginResponse(Request $request,$user)
     {
         $this->clearLoginAttempts($request);
 
         if ($response = $this->authenticated($request, $this->guard()->user())) {
             return $response;
         }
-
+        session_start();
+        $user->accessToken = $user->createToken($request->input('device_name'))->accessToken;
+        $_SESSION["vendor_loggedin"] = true;
+        $_SESSION["vender_token"] = $user->accessToken;
+        $_SESSION["vendor_user"] = $user;
+        // $token = Request::create(
+        //     'oauth/token',
+        //     'POST'
+        // );
+        // $res = Route::dispatch($token);
         return response()->json([
-            'token'    => $request->user()->createToken($request->input('device_name'))->accessToken,
-            'user'     => $request->user()
+            'token'    => $user->accessToken,
+            'user'     => $user,
+            'role'     => $this->guard,
+            // 'res'       => $res
         ]);
     }
+
+    public $guard='vendor';
 
     /**
      * Log the user out of the application.
@@ -122,8 +137,8 @@ class LoginController extends Controller
             return $this->sendLockoutResponse($request);
         }
 
-        if ($this->attemptLogin($request)) {
-            return $this->sendLoginResponse($request);
+        if ($user = $this->attemptLogin($request)) {
+            return $this->sendLoginResponse($request,$user);
         }
 
         // If the login attempt was unsuccessful we will increment the number of attempts
@@ -133,4 +148,23 @@ class LoginController extends Controller
 
         return $this->sendFailedLoginResponse($request);
     }
+
+    public function attemptLogin(Request $request){
+        $user = Vendor::where("email",$request->email)->first();
+        if($user){
+            if($user->password == Hash::check($request->password, $user->password)){
+                return $user;
+            }
+        }
+        // return response()->json(["errors"=>["email"=>["Username/Password Doesn't matches our record"]]],422);
+    }
+
+    protected function validateLogin(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|string',
+            'password' => 'required|string',
+        ]);
+    }
+
 }

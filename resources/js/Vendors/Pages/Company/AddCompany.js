@@ -2,9 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { Form } from 'react-bootstrap'
 import DatePicker from "react-datepicker";
 import bsCustomFileInput from 'bs-custom-file-input';
-import venodrAxios from '../../../axios';
+import {venodrAxios} from '../../../axios';
 import { useHistory } from 'react-router';
 import { getCompanydetails } from '../../Helpers/HelperFunction';
+import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
+import { now } from 'lodash-es';
+
 
 function AddCompany() {
 
@@ -23,6 +27,7 @@ function AddCompany() {
     const [YOE, setYOE] = useState('');
     const [HSC, setHSC] = useState('');
     const [Logo, setLogo] = useState('');
+    const [Countries, setCountries] = useState([]);
     const history = useHistory()
 
     useEffect(() => {
@@ -33,9 +38,19 @@ function AddCompany() {
     })
     }, [])
 
+    useEffect(() => {
+        axios.get("https://restcountries.eu/rest/v2/all").then((res)=>{
+            const country = res.data;
+            setCountries(country);
+        })
+     }, [])
+
 
     const handleChange = date => {
-      setYOE(date)
+        const year = new Date(date);
+        // const year = new Date(d).getFullYear()
+        console.log(year);
+        setYOE(year)
       };
 
     useEffect(() => {
@@ -78,11 +93,41 @@ function AddCompany() {
                 }
             })
             }
+        }).catch((error) => {
+            if (error.response && error.response.status == 422) {
+                const errors = error.response.data.errors;
+                for (const key in errors) {
+                    if (Object.hasOwnProperty.call(errors, key)) {
+                        const element = errors[key][0];
+                        console.log(element);
+                        toast.error('🦄'+element, {
+                            position: "top-left",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            });
+                    }
+                }
+            }
         })
     }
 
     return (
         <div className="row">
+             <ToastContainer
+                position="top-left"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
               <div className="col-12 grid-margin">
             <div className="card">
               <div className="card-body">
@@ -121,10 +166,10 @@ function AddCompany() {
                         <label className="col-sm-3 col-form-label">Country</label>
                         <div className="col-sm-9">
                           <select className="form-control" onChange={(e)=>setCountry(e.target.value)} value={Country}>
-                            <option>America</option>
-                            <option>Italy</option>
-                            <option>Russia</option>
-                            <option>Britain</option>
+                            { Countries.map((c,k)=>{
+                                return <option key={k} value={c.name}>{c.name}</option>
+                            }) }
+                            <option value="A">A</option>
                           </select>
                         </div>
                       </Form.Group>
@@ -221,8 +266,10 @@ function AddCompany() {
                         <label className="col-sm-3 col-form-label">Year of Establishment</label>
                         <div className="col-sm-9">
                         <DatePicker className="form-control w-100"
+                            dateFormat="y"
+                            dateFormatCalendar="y"
                           selected={YOE}
-                          onChange={()=> handleChange}
+                          onChange={(e)=> handleChange(e)}
                         />
                         </div>
                       </Form.Group>

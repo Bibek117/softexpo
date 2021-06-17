@@ -8,7 +8,9 @@ function Navbar(){
         <div className="navbar-menu-wrapper w-100 d-flex align-items-center justify-content-between">
         <a className="navbar-brand brand-logo-mini align-self-center d-lg-none" href="!#" onClick={evt =>evt.preventDefault()}><img src="/assets/images/logo-mini.svg" alt="logo" /></a>
           <ul className="navbar-nav navbar-nav-left header-links align-self-center">
-            <li className="nav-item font-weight-semibold d-none  d-md-flex">Brand Name</li>
+            <li className="nav-item font-weight-semibold d-none  d-md-flex">
+                <img src="/images/logo-sample.jpg" width="75%" />
+            </li>
            </ul>
           <form className="ml-auto search-form d-none d-md-block" action="#">
             <div className="form-group">

@@ -5,13 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\AuthTrait;
 use App\Http\Requests\CompanyRequest;
+use App\Models\Admin\CompanyVerify;
 use Illuminate\Http\Request;
 use App\Models\Companyprofile;
-use App\Models\Vendor;
-use Illuminate\Support\Facades\Validator;
-use Auth;
-use Illuminate\Support\Facades\Auth as FacadesAuth;
-use Illuminate\Support\Facades\Storage;
 use Config;
 
 class CompanyprofileController extends Controller
@@ -60,6 +56,18 @@ class CompanyprofileController extends Controller
         return response()->json($data,200);
     }
 
+    public function approve($id)
+    {
+        $data = CompanyVerify::where('company_id',$id)->first();
+        $data->status = 1;
+        $data->verified_by = $this->get_current_user_passport("admin")->id;
+        if($data = $data->save()){
+            return response()->json(["msg"=>"Approved"],200);
+        }
+        return response()->json(["msg"=>"Internal Server Error"],500);
+
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -89,7 +97,8 @@ class CompanyprofileController extends Controller
     public function check_vendor_company(){
         // dd($user);
         $vendor = $this->get_current_user_passport("vendor");
-        $data = Companyprofile::where('vendor_id',$vendor->id)->first();
+        $data = Companyprofile::where('vendor_id',$vendor->id)->with('verified')->first();
+        //dd($data);
         if($data){
         return response()->json($data,200);
         }

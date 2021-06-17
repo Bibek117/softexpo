@@ -134,9 +134,9 @@ class Sidebar extends Component {
               </Link>
           </li>
           <li className={ this.isPathActive('/basic-ui') ? 'nav-item active' : 'nav-item' }>
-            <Link className="nav-link" to="/appAdmin/users">
+            <Link className="nav-link" to="/appAdmin/companies">
               <i className="mdi mdi-crosshairs-gps menu-icon"></i>
-              <span className="menu-title"><>Vendors Managment</></span>
+              <span className="menu-title"><>Company Managment</></span>
               </Link>
           </li>
           <li className={ this.isPathActive('/basic-ui') ? 'nav-item active' : 'nav-item' }>

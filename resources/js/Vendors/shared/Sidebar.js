@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Collapse } from 'react-bootstrap';
 import { Dropdown } from 'react-bootstrap';
+import { getVendorProfile } from '../Helpers/HelperFunction';
 // import {  } from 'react-i18next';
 
 class Sidebar extends Component {
@@ -32,9 +33,11 @@ class Sidebar extends Component {
       this.setState({[i]: false});
     });
 
+
     const dropdownPaths = [
-      {path:'/apps', state: 'appsMenuOpen'},
+      {path:'/vendor/apps', state: 'appsMenuOpen'},
       {path:'/basic-ui', state: 'basicUiMenuOpen'},
+      {path:'/vendor/software', state: 'softwaresOpen'},
       {path:'/form-elements', state: 'formElementsMenuOpen'},
       {path:'/tables', state: 'tablesMenuOpen'},
       {path:'/icons', state: 'iconsMenuOpen'},
@@ -49,6 +52,9 @@ class Sidebar extends Component {
       }
     }));
 
+    const vendorProfile = getVendorProfile();
+    this.setState({user:vendorProfile.user,role:vendorProfile.role})
+
   }
   render () {
     return (
@@ -61,15 +67,15 @@ class Sidebar extends Component {
           <li className="nav-item nav-profile not-navigation-link">
             <div className="nav-link">
               <Dropdown>
-                <Dropdown.Toggle className="nav-link user-switch-dropdown-toggler p-0 toggle-arrow-hide bg-parent border-0 w-100">
+                <Dropdown.Toggle className="nav-link p-lg-2 toggle-arrow-hide bg-parent border-0 w-100">
                   <div className="d-flex justify-content-between align-items-start">
                     <div className="profile-image">
                     <img className="img-xs rounded-circle" src="/assets/images/faces/face8.jpg"alt="profile" />
                       <div className="dot-indicator bg-success"></div>
                     </div>
                     <div className="text-wrapper">
-                      <p className="profile-name">Allen Moreno</p>
-                      <p className="designation">Premium user</p>
+                      <p className="profile-name">{ this.state.user ? this.state.user.name : "" }</p>
+                      <p className="designation">{ this.state.role ? this.state.role : "" }</p>
                     </div>
 
                   </div>
@@ -117,13 +123,13 @@ class Sidebar extends Component {
               <span className="menu-title"><>Company Profile</></span>
             </Link>
           </li>
-          <li className={ this.isPathActive('/basic-ui') ? 'nav-item active' : 'nav-item' }>
-            <div className={ this.state.basicUiMenuOpen ? 'nav-link menu-expanded' : 'nav-link' } onClick={ () => this.toggleMenuState('basicUiMenuOpen') } data-toggle="collapse">
+          <li className={ this.isPathActive('/vendor/software') ? 'nav-item active' : 'nav-item' }>
+            <div className={ this.state.softwaresOpen ? 'nav-link menu-expanded' : 'nav-link' } onClick={ () => this.toggleMenuState('softwaresOpen') } data-toggle="collapse">
               <i className="mdi mdi-crosshairs-gps menu-icon"></i>
               <span className="menu-title"><>Softwares</></span>
               <i className="menu-arrow"></i>
             </div>
-            <Collapse in={ this.state.basicUiMenuOpen }>
+            <Collapse in={ this.state.softwaresOpen }>
               <ul className="nav flex-column sub-menu">
                 <li className="nav-item"> <Link className={ this.isPathActive('/basic-ui/buttons') ? 'nav-link active' : 'nav-link' } to="/vendors/basic-ui/buttons"><>Add New</></Link></li>
                 <li className="nav-item"> <Link className={ this.isPathActive('/basic-ui/dropdowns') ? 'nav-link active' : 'nav-link' } to="/basic-ui/dropdowns"><>Manage</></Link></li>
@@ -248,6 +254,8 @@ class Sidebar extends Component {
 
   componentDidMount() {
     this.onRouteChanged();
+    const vendorProfile = getVendorProfile();
+    this.setState({user:vendorProfile.user,role:vendorProfile.role})
     // add className 'hover-open' to sidebar navitem while hover in sidebar-icon-only menu
     const body = document.querySelector('body');
     document.querySelectorAll('.sidebar .nav-item').forEach((el) => {

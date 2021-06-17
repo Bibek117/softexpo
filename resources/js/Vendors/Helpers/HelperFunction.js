@@ -1,6 +1,5 @@
-import axios from '../../axios';
 import React from 'react'
-import venodrAxios from '../../axios';
+import { venodrAxios } from '../../axios';
 
 async function getCompanydetails() {
 
@@ -9,7 +8,6 @@ async function getCompanydetails() {
             alert(err.message);
         })
     return data;
-
 }
 function getCurrentVendorId(){
 
@@ -17,6 +15,12 @@ function getCurrentVendorId(){
     return token;
 }
 
+function getVendorProfile (){
+    const role = localStorage.getItem('user_role');
+    const user = JSON.parse(localStorage.getItem('user'))
+    return {role, user}
+}
 
 
-export  {getCompanydetails,getCurrentVendorId}
+
+export  {getCompanydetails,getCurrentVendorId, getVendorProfile}

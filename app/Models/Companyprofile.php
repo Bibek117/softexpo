@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Companyprofile extends Model
 {
     use HasFactory;
@@ -29,5 +30,9 @@ class Companyprofile extends Model
 
     public function vendor(){
         return $this->belongsTo(Vendor::class, 'vendor_id', 'id');
+    }
+
+    public function verified(){
+        return $this->hasOne(Admin\CompanyVerify::class, 'company_id', 'id');
     }
 }

@@ -5580,7 +5580,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function Navbar() {
   var toggleOffcanvas = function toggleOffcanvas() {
-    document.querySelector('.sidebar-offcanvas').classList.toggle('active');
+    document.querySelector('.sidebar-offcanvas').classList.toggle('active'); // toggleRightSidebar();
   };
 
   var toggleRightSidebar = function toggleRightSidebar() {
@@ -5589,7 +5589,7 @@ function Navbar() {
 
   var Signout = function Signout(evt) {
     evt.preventDefault();
-    _axios__WEBPACK_IMPORTED_MODULE_1__.default.post('/logout').then(function (response) {
+    _axios__WEBPACK_IMPORTED_MODULE_1__.venodrAxios.post('/logout').then(function (response) {
       if (response.status == 204) {
         (0,_Controllers_AuthController__WEBPACK_IMPORTED_MODULE_2__.logoutJS)().then(function () {
           (0,_utils__WEBPACK_IMPORTED_MODULE_3__.redirectApp)('/home');
@@ -6026,9 +6026,7 @@ function Navbar() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
         className: "navbar-toggler navbar-toggler-right d-lg-none align-self-center",
         type: "button",
-        onClick: function onClick() {
-          return toggleOffcanvas;
-        },
+        onClick: toggleOffcanvas,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
           className: "mdi mdi-menu"
         })
@@ -6077,17 +6075,21 @@ __webpack_require__(/*! ./Guest/index */ "./resources/js/Guest/index.js");
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "venodrAxios": () => (/* binding */ venodrAxios),
+/* harmony export */   "AdminAxios": () => (/* binding */ AdminAxios)
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
 var venodrAxios = axios__WEBPACK_IMPORTED_MODULE_0___default().create({
   baseURL: "http://localhost:8000/api/vendor" //dev
-  // baseURL:"https://gchatapplication.herokuapp.com/" //production
 
 });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (venodrAxios);
+var AdminAxios = axios__WEBPACK_IMPORTED_MODULE_0___default().create({
+  baseURL: "http://localhost:8000/api/appAdmin" //dev
+
+});
+
 
 /***/ }),
 
@@ -79601,7 +79603,7 @@ module.exports = warning;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_Admin_Pages_Home_js":1,"resources_js_Vendors_Pages_Home_js":1,"resources_js_components_Footer_js":1,"resources_js_components_Navigation_js":1,"resources_js_Pages_Home_js":1,"resources_js_Vendors_Login_js":1,"resources_js_Admin_Login_js":1,"resources_js_Admin_dashboard_Dashboard_js":1,"resources_js_Admin_basic-ui_Buttons_js":1,"resources_js_Admin_basic-ui_Dropdowns_js":1,"resources_js_Admin_form-elements_BasicElements_js":1,"resources_js_Admin_tables_BasicTable_js":1,"resources_js_Admin_icons_Mdi_js":1,"resources_js_Admin_charts_ChartJs_js":1,"resources_js_Admin_error-pages_Error404_js":1,"resources_js_Admin_error-pages_Error500_js":1,"resources_js_Admin_user-pages_Login_js":1,"resources_js_Admin_user-pages_Register_js":1,"resources_js_Admin_Pages_Company_index_js":1,"resources_js_Vendors_dashboard_Dashboard_js":1,"resources_js_Vendors_basic-ui_Buttons_js":1,"resources_js_Vendors_basic-ui_Dropdowns_js":1,"resources_js_Vendors_form-elements_BasicElements_js":1,"resources_js_Vendors_tables_BasicTable_js":1,"resources_js_Vendors_icons_Mdi_js":1,"resources_js_Vendors_charts_ChartJs_js":1,"resources_js_Vendors_error-pages_Error404_js":1,"resources_js_Vendors_error-pages_Error500_js":1,"resources_js_Vendors_user-pages_Login_js":1,"resources_js_Vendors_user-pages_Register_js":1,"resources_js_Vendors_Pages_Company_index_js":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_Admin_Pages_Home_js":1,"resources_js_Vendors_Pages_Home_js":1,"resources_js_components_Footer_js":1,"resources_js_components_Navigation_js":1,"resources_js_Pages_Home_js":1,"resources_js_Vendors_Login_js":1,"resources_js_Admin_Login_js":1,"resources_js_Admin_Pages_Notifications_Notifications_js":1,"resources_js_Admin_dashboard_Dashboard_js":1,"resources_js_Admin_Pages_Company_CompanyVerify_js":1,"resources_js_Vendors_Pages_Company_EditCompany_js":1,"resources_js_Vendors_dashboard_Dashboard_js":1,"resources_js_Vendors_basic-ui_Buttons_js":1,"resources_js_Vendors_basic-ui_Dropdowns_js":1,"resources_js_Vendors_form-elements_BasicElements_js":1,"resources_js_Vendors_tables_BasicTable_js":1,"resources_js_Vendors_icons_Mdi_js":1,"resources_js_Vendors_charts_ChartJs_js":1,"resources_js_Vendors_error-pages_Error404_js":1,"resources_js_Vendors_error-pages_Error500_js":1,"resources_js_Vendors_user-pages_Login_js":1,"resources_js_Vendors_user-pages_Register_js":1,"resources_js_Vendors_Pages_Company_index_js":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

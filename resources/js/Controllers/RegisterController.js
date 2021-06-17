@@ -10,8 +10,8 @@ function RegisterUser({data}) {
         const user_role = data.role;
         const expires_at = now()+1500;
         const remember_me = false;
-        const user = data.user;
-        axios.post('api/oauth/clients',{'name':user}).then((res)=>{
+        const user = JSON.stringify(data.user);
+        axios.get('/oauth/authorize',{'access-token':access_token}).then((res)=>{
             console.log(res);
         })
 
