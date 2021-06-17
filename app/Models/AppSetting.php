@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class AppSetting extends Model
 {
     use HasFactory;
-    protected $fillable = ['appname', 'setup', 'address', 'showfooter', 'showtrendingsoftware'];
+    protected $fillable = ['appname', 'setup', 'address', 'showfooter', 'showtrendingsoftware','logo'];
 }

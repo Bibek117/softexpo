@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AppSetting;
 use Illuminate\Http\Request;
 use App\Http\Requests\AppsettingRequest;
+use Config;
 
 class AppSettingController extends Controller
 {
@@ -98,4 +99,26 @@ class AppSettingController extends Controller
         $appsetting->delete();
         return response()->json(['message' => 'App setting deleted successfully'], 200);
     }
+
+    //logo upload
+    public function handleLogo(Request $request)
+    {
+        $request->validate([
+            'logo'=>'nullable|max:1024|mimes:png,jpg|dimensions:max_width:250,max_height:100'
+        ]);
+        if($request->hasFile('logo')){
+            $logo = $request->logo;
+            $data = AppSetting::first();
+
+            $filename = $data->appname."_".time().".".$request->logo->extension();
+            $logo->storeAs('public/logo/',$filename);
+            $data->logo = Config::get('app.url').'/storage/logo/'.$filename;
+            $data->save();
+            return response()->json(['message'=>'logo uploaded']);
+        }else{
+            return response()->json(['message'=>'please input file']);
+        }
+
+    }
+
 }
