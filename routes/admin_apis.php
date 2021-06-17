@@ -12,4 +12,6 @@ Route::middleware(['admin'])->prefix('appAdmin')->group(function () {
     Route::get('/notification/done/{id}',[App\Http\Controllers\Admin\NotificationController::class, 'done']);
     Route::get('company/show/{id}', [App\Http\Controllers\Api\CompanyprofileController::class, 'show'])->name('show_one_company');
     Route::get('company/approve/{id}', [App\Http\Controllers\Api\CompanyprofileController::class, 'approve'])->name('approve');
+    Route::post('appsetting/handleLogo',[App\Http\Controllers\Api\AppSettingController::class,'handleLogo'])->name('handle_appsetting_logo');
 });
+ 

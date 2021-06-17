@@ -15,11 +15,12 @@ class CreateAppSettingsTable extends Migration
     {
         Schema::create('app_settings', function (Blueprint $table) {
             $table->id();
-            $table->string('appname');
-            $table->boolean('setup');
-            $table->string('address');
-            $table->boolean('showfooter');
-            $table->boolean('showtrendingsoftware');
+            $table->string('appname')->nullable();
+            $table->boolean('setup')->nullable();
+            $table->string('address')->nullable();
+            $table->boolean('showfooter')->nullable();
+            $table->boolean('showtrendingsoftware')->nullable();
+            $table->string('logo')->nullable();
             $table->timestamps();
         });
     }
@@ -34,3 +35,5 @@ class CreateAppSettingsTable extends Migration
         Schema::dropIfExists('app_settings');
     }
 }
+
+
