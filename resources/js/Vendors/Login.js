@@ -129,10 +129,11 @@ export default function Login() {
                             }
                         }
                     }
+                    setloading(false)
                 })
                 .finally((res) => {
                     console.log(res);
-                    setloading(false)
+
                 })
         }
     }

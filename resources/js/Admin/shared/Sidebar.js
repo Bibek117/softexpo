@@ -34,6 +34,7 @@ class Sidebar extends Component {
 
     const dropdownPaths = [
       {path:'/apps', state: 'appsMenuOpen'},
+      {path:'/data-entry', state: 'dataEntryOpen'},
       {path:'/basic-ui', state: 'basicUiMenuOpen'},
       {path:'/form-elements', state: 'formElementsMenuOpen'},
       {path:'/tables', state: 'tablesMenuOpen'},
@@ -150,6 +151,19 @@ class Sidebar extends Component {
               <i className="mdi mdi-crosshairs-gps menu-icon"></i>
               <span className="menu-title"><>Services Managment</></span>
               </Link>
+          </li>
+          <li className={ this.isPathActive('/appAdmin/data-entry') ? 'nav-item active' : 'nav-item' }>
+            <div className={ this.state.dataEntryOpen ? 'nav-link menu-expanded' : 'nav-link' } onClick={ () => this.toggleMenuState('dataEntryOpen') } data-toggle="collapse">
+              <i className="mdi mdi-crosshairs-gps menu-icon"></i>
+              <span className="menu-title"><>Data Entry</></span>
+              <i className="menu-arrow"></i>
+            </div>
+            <Collapse in={ this.state.dataEntryOpen }>
+              <ul className="nav flex-column sub-menu">
+                <li className="nav-item"> <Link className={ this.isPathActive('/appAdmin/data-entry-software-categories') ? 'nav-link active' : 'nav-link' } to="/appAdmin/data-entry-software-categories"><>Software Categories</></Link></li>
+                <li className="nav-item"> <Link className={ this.isPathActive('/appAdmin/appSettings/') ? 'nav-link active' : 'nav-link' } to="/appAdmin/appSettings"><>Dropdowns</></Link></li>
+              </ul>
+            </Collapse>
           </li>
         </ul>
       </nav>

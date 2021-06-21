@@ -246,11 +246,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/VendorRoutes */ "./resources/js/components/VendorRoutes.js");
 /* harmony import */ var _Pages_Company_AddCompany__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Pages/Company/AddCompany */ "./resources/js/Vendors/Pages/Company/AddCompany.js");
-/* harmony import */ var _shared_Spinner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./shared/Spinner */ "./resources/js/Vendors/shared/Spinner.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Pages_Software_EditSoftware__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Pages/Software/EditSoftware */ "./resources/js/Vendors/Pages/Software/EditSoftware.js");
+/* harmony import */ var _Pages_Software_Softwares__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Pages/Software/Softwares */ "./resources/js/Vendors/Pages/Software/Softwares.js");
+/* harmony import */ var _shared_Spinner__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./shared/Spinner */ "./resources/js/Vendors/shared/Spinner.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -272,6 +274,8 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
 
 
 
@@ -319,6 +323,9 @@ var Register1 = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(functio
 var Company = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_Vendors_Pages_Company_index_js").then(__webpack_require__.bind(__webpack_require__, /*! ./Pages/Company/index */ "./resources/js/Vendors/Pages/Company/index.js"));
 });
+var AddSoftware = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+  return __webpack_require__.e(/*! import() */ "resources_js_Vendors_Pages_Software_AddSoftware_js").then(__webpack_require__.bind(__webpack_require__, /*! ./Pages/Software/AddSoftware */ "./resources/js/Vendors/Pages/Software/AddSoftware.js"));
+});
 
 var AppRoutes = /*#__PURE__*/function (_Component) {
   _inherits(AppRoutes, _Component);
@@ -334,53 +341,62 @@ var AppRoutes = /*#__PURE__*/function (_Component) {
   _createClass(AppRoutes, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
-        fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_shared_Spinner__WEBPACK_IMPORTED_MODULE_3__.default, {}),
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Switch, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
+        fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_shared_Spinner__WEBPACK_IMPORTED_MODULE_5__.default, {}),
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Switch, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             exact: true,
             path: "/vendor/dashboard",
             component: Dashboard
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             path: "/vendor/basic-ui/buttons",
             component: Buttons
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             path: "/basic-ui/dropdowns",
             component: Dropdowns
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             path: "/vendor/form-Elements",
             component: BasicElements
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             path: "/vendor/tables/basic-table",
             component: BasicTable
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             path: "/vendor/icons/mdi",
             component: Mdi
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             path: "/vendor/charts/chart-js",
             component: ChartJs
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             path: "/vendor/user-pages/login-1",
             component: Login
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             path: "/vendor/user-pages/register-1",
             component: Register1
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             path: "/vendor/error-pages/error-404",
             component: Error404
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             path: "/vendor/error-pages/error-500",
             component: Error500
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             path: "/vendor/company",
             component: Company
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
-            path: "/vendor/addCompany",
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+            path: "/vendor/add-company",
             component: _Pages_Company_AddCompany__WEBPACK_IMPORTED_MODULE_2__.default
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
-            path: "/vendor/editCompany",
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+            path: "/vendor/edit-company",
             component: EditCompany
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Redirect, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+            path: "/vendor/add-software",
+            component: AddSoftware
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+            path: "/vendor/edit-software",
+            component: _Pages_Software_EditSoftware__WEBPACK_IMPORTED_MODULE_3__.default
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+            path: "/vendor/software",
+            component: _Pages_Software_Softwares__WEBPACK_IMPORTED_MODULE_4__.default
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Redirect, {
             to: "/vendor/dashboard"
           })]
         })
@@ -406,7 +422,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "getCompanydetails": () => (/* binding */ getCompanydetails),
 /* harmony export */   "getCurrentVendorId": () => (/* binding */ getCurrentVendorId),
-/* harmony export */   "getVendorProfile": () => (/* binding */ getVendorProfile)
+/* harmony export */   "getVendorProfile": () => (/* binding */ getVendorProfile),
+/* harmony export */   "get_current_auth_id": () => (/* binding */ get_current_auth_id)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
@@ -456,6 +473,11 @@ function _getCompanydetails() {
 function getCurrentVendorId() {
   var token = localStorage.getItem('access_token');
   return token;
+}
+
+function get_current_auth_id() {
+  var user = JSON.parse(localStorage.getItem('user'));
+  return user.id;
 }
 
 function getVendorProfile() {
@@ -688,19 +710,9 @@ function AddCompany() {
     });
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
     className: "row",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_toastify__WEBPACK_IMPORTED_MODULE_7__.ToastContainer, {
-      position: "top-left",
-      autoClose: 5000,
-      hideProgressBar: false,
-      newestOnTop: false,
-      closeOnClick: true,
-      rtl: false,
-      pauseOnFocusLoss: true,
-      draggable: true,
-      pauseOnHover: true
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "col-12 grid-margin",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "card",
@@ -1038,7 +1050,7 @@ function AddCompany() {
           })]
         })
       })
-    })]
+    })
   });
 }
 
@@ -1058,12 +1070,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _AppRoutes_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../AppRoutes.js */ "./resources/js/Vendors/AppRoutes.js");
 /* harmony import */ var _shared_Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/Navbar */ "./resources/js/Vendors/shared/Navbar.js");
 /* harmony import */ var _shared_Sidebar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/Sidebar */ "./resources/js/Vendors/shared/Sidebar.js");
 /* harmony import */ var _shared_SettingsPanel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../shared/SettingsPanel */ "./resources/js/Vendors/shared/SettingsPanel.js");
 /* harmony import */ var _shared_Footer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../shared/Footer */ "./resources/js/Vendors/shared/Footer.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -1091,6 +1104,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
  // import '../../App.scss';
+
 
 
 
@@ -1141,7 +1155,17 @@ var VendorDashboard = /*#__PURE__*/function (_Component) {
             className: "main-panel",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
               className: "content-wrapper",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_AppRoutes_js__WEBPACK_IMPORTED_MODULE_1__.default, {}), SettingsPanelComponent]
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_toastify__WEBPACK_IMPORTED_MODULE_7__.ToastContainer, {
+                position: "top-left",
+                autoClose: 5000,
+                hideProgressBar: false,
+                newestOnTop: false,
+                closeOnClick: true,
+                rtl: false,
+                pauseOnFocusLoss: true,
+                draggable: true,
+                pauseOnHover: true
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_AppRoutes_js__WEBPACK_IMPORTED_MODULE_1__.default, {}), SettingsPanelComponent]
             }), footerComponent]
           })]
         })]
@@ -1190,7 +1214,59 @@ var VendorDashboard = /*#__PURE__*/function (_Component) {
   return VendorDashboard;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router_dom__WEBPACK_IMPORTED_MODULE_7__.withRouter)(VendorDashboard));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router_dom__WEBPACK_IMPORTED_MODULE_8__.withRouter)(VendorDashboard));
+
+/***/ }),
+
+/***/ "./resources/js/Vendors/Pages/Software/EditSoftware.js":
+/*!*************************************************************!*\
+  !*** ./resources/js/Vendors/Pages/Software/EditSoftware.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function EditSoftware() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    children: "edit software"
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (EditSoftware);
+
+/***/ }),
+
+/***/ "./resources/js/Vendors/Pages/Software/Softwares.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/Vendors/Pages/Software/Softwares.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function Softwares() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    children: "software"
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Softwares);
 
 /***/ }),
 
@@ -2182,8 +2258,8 @@ var Sidebar = /*#__PURE__*/function (_Component) {
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
                   className: "nav-item",
                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-                    className: this.isPathActive('/basic-ui/buttons') ? 'nav-link active' : 'nav-link',
-                    to: "/vendors/basic-ui/buttons",
+                    className: this.isPathActive('/vendor/add-software') ? 'nav-link active' : 'nav-link',
+                    to: "/vendor/add-software",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
                       children: "Add New"
                     })
@@ -2191,8 +2267,8 @@ var Sidebar = /*#__PURE__*/function (_Component) {
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
                   className: "nav-item",
                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-                    className: this.isPathActive('/basic-ui/dropdowns') ? 'nav-link active' : 'nav-link',
-                    to: "/basic-ui/dropdowns",
+                    className: this.isPathActive('/vendor/software') ? 'nav-link active' : 'nav-link',
+                    to: "/vendor/software",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
                       children: "Manage"
                     })
@@ -2226,7 +2302,7 @@ var Sidebar = /*#__PURE__*/function (_Component) {
                   className: "nav-item",
                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
                     className: this.isPathActive('/basic-ui/buttons') ? 'nav-link active' : 'nav-link',
-                    to: "/vendors/basic-ui/buttons",
+                    to: "/vendor/basic-ui/buttons",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
                       children: "Add New"
                     })
@@ -2269,7 +2345,7 @@ var Sidebar = /*#__PURE__*/function (_Component) {
                   className: "nav-item",
                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
                     className: this.isPathActive('/basic-ui/buttons') ? 'nav-link active' : 'nav-link',
-                    to: "/vendors/basic-ui/buttons",
+                    to: "/vendor/basic-ui/buttons",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
                       children: "Buttons"
                     })

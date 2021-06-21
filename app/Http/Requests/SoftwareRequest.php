@@ -27,7 +27,6 @@ class SoftwareRequest extends FormRequest
             'vendor_id'=>'required|integer',
             'software_name'=>'required|string',
             'tagline'=>'string|required',
-            'software_logo'=>'string|required|url',
             'category_id'=>'required|integer',
             'software_competitors'=>'required',
             'summary'=>'string|required',

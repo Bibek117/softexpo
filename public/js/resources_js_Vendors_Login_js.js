@@ -270,9 +270,10 @@ function Login() {
             }
           }
         }
+
+        setloading(false);
       })["finally"](function (res) {
         console.log(res);
-        setloading(false);
       });
     }
   };

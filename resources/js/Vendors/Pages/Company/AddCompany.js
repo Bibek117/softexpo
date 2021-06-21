@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Form } from 'react-bootstrap'
 import DatePicker from "react-datepicker";
 import bsCustomFileInput from 'bs-custom-file-input';
-import {venodrAxios} from '../../../axios';
+import { venodrAxios } from '../../../axios';
 import { useHistory } from 'react-router';
 import { getCompanydetails } from '../../Helpers/HelperFunction';
 import axios from 'axios';
@@ -31,19 +31,19 @@ function AddCompany() {
     const history = useHistory()
 
     useEffect(() => {
-    getCompanydetails().then((response)=>{
-       if(response){
-           history.push('/vendor/company');
-       }
-    })
+        getCompanydetails().then((response) => {
+            if (response) {
+                history.push('/vendor/company');
+            }
+        })
     }, [])
 
     useEffect(() => {
-        axios.get("https://restcountries.eu/rest/v2/all").then((res)=>{
+        axios.get("https://restcountries.eu/rest/v2/all").then((res) => {
             const country = res.data;
             setCountries(country);
         })
-     }, [])
+    }, [])
 
 
     const handleChange = date => {
@@ -51,47 +51,47 @@ function AddCompany() {
         // const year = new Date(d).getFullYear()
         console.log(year);
         setYOE(year)
-      };
+    };
 
     useEffect(() => {
         bsCustomFileInput.init()
         setYOE(new Date())
     }, [])
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = (e) => {
         e.preventDefault();
         let data = {
             name: name,
             website: Website,
-            email:Email,
+            email: Email,
             state: State,
-            country:Country,
-            city:City,
+            country: Country,
+            city: City,
             pincode: Pincode,
             address: Address,
-            number_of_employee:NOE,
-            number_of_customers:NOC,
-            GST_IN:GST_IN,
-            RC:RC,
-            HSC:HSC,
-            YOE:YOE,
+            number_of_employee: NOE,
+            number_of_customers: NOC,
+            GST_IN: GST_IN,
+            RC: RC,
+            HSC: HSC,
+            YOE: YOE,
             logo: Logo,
         }
         // console.log(data);
         const fileData = new FormData();
-        fileData.append('file',Logo);
+        fileData.append('file', Logo);
 
 
-        venodrAxios.post('/company/create',data).then((result)=>{
-            if (result.status==201) {
+        venodrAxios.post('/company/create', data).then((result) => {
+            if (result.status == 201) {
                 console.log(result)
-            const config = { headers: { 'Content-Type': 'multipart//form-data' } };
-            fileData.append('id',result.data.data.id)
-            venodrAxios.post('/company/handlelogo',fileData,config).then((res)=>{
-                if(res){
-                    history.push('/vendor/company')
-                }
-            })
+                const config = { headers: { 'Content-Type': 'multipart//form-data' } };
+                fileData.append('id', result.data.data.id)
+                venodrAxios.post('/company/handlelogo', fileData, config).then((res) => {
+                    if (res) {
+                        history.push('/vendor/company')
+                    }
+                })
             }
         }).catch((error) => {
             if (error.response && error.response.status == 422) {
@@ -100,7 +100,7 @@ function AddCompany() {
                     if (Object.hasOwnProperty.call(errors, key)) {
                         const element = errors[key][0];
                         console.log(element);
-                        toast.error('🦄'+element, {
+                        toast.error('🦄' + element, {
                             position: "top-left",
                             autoClose: 5000,
                             hideProgressBar: false,
@@ -108,7 +108,7 @@ function AddCompany() {
                             pauseOnHover: true,
                             draggable: true,
                             progress: undefined,
-                            });
+                        });
                     }
                 }
             }
@@ -117,179 +117,169 @@ function AddCompany() {
 
     return (
         <div className="row">
-             <ToastContainer
-                position="top-left"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
-              <div className="col-12 grid-margin">
-            <div className="card">
-              <div className="card-body">
-                <h4 className="card-title">Add Company Details</h4>
-                <form className="form-sample" onSubmit={(e)=>handleSubmit(e)}>
-                  {/* <p className="card-description"> Personal info </p> */}
-                  <div className="row">
-                    <div className="col-md-6">
-                      <Form.Group className="row">
-                        <label className="col-sm-3 col-form-label">Company Name</label>
-                        <div className="col-sm-9">
-                        <Form.Control  type="text" onChange={(e)=>setname(e.target.value)} value={name} />
-                        </div>
-                      </Form.Group>
-                    </div>
-                    <div className="col-md-6">
-                      <Form.Group className="row">
-                        <label className="col-sm-3 col-form-label">Website</label>
-                        <div className="col-sm-9">
-                        <Form.Control type="text" onChange={(e)=>setWebsite(e.target.value)} value={Website} />
-                        </div>
-                      </Form.Group>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <Form.Group className="row">
-                        <label className="col-sm-3 col-form-label">Email</label>
-                        <div className="col-sm-9">
-                        <Form.Control  type="email" onChange={(e)=>setEmail(e.target.value)} value={Email} />
-                        </div>
-                      </Form.Group>
-                    </div>
-                    <div className="col-md-6">
-                      <Form.Group className="row">
-                        <label className="col-sm-3 col-form-label">Country</label>
-                        <div className="col-sm-9">
-                          <select className="form-control" onChange={(e)=>setCountry(e.target.value)} value={Country}>
-                            { Countries.map((c,k)=>{
-                                return <option key={k} value={c.name}>{c.name}</option>
-                            }) }
-                            <option value="A">A</option>
-                          </select>
-                        </div>
-                      </Form.Group>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <Form.Group className="row">
-                        <label className="col-sm-3 col-form-label">State</label>
-                        <div className="col-sm-9">
-                          <select className="form-control" onChange={(e)=>setState(e.target.value)} value={State}>
-                            <option>Category1</option>
-                            <option>Category2</option>
-                            <option>Category3</option>
-                            <option>Category4</option>
-                          </select>
-                        </div>
-                        </Form.Group>
-                    </div>
-                    <div className="col-md-6">
-                      <Form.Group className="row">
-                        <label className="col-sm-3 col-form-label">City</label>
-                        <div className="col-sm-9">
-                        <Form.Control type="text" onChange={(e)=>setCity(e.target.value)} value={City}/>
-                        </div>
-                      </Form.Group>
-                    </div>
 
-                  </div>
-                  {/* <p className="card-description"> Address </p> */}
-                  <div className="row">
-                    <div className="col-md-6">
-                      <Form.Group className="row">
-                        <label className="col-sm-3 col-form-label">Address</label>
-                        <div className="col-sm-9">
-                        <Form.Control type="text" onChange={(e)=>setAddress(e.target.value)} value={Address}/>
-                        </div>
-                      </Form.Group>
+            <div className="col-12 grid-margin">
+                <div className="card">
+                    <div className="card-body">
+                        <h4 className="card-title">Add Company Details</h4>
+                        <form className="form-sample" onSubmit={(e) => handleSubmit(e)}>
+                            {/* <p className="card-description"> Personal info </p> */}
+                            <div className="row">
+                                <div className="col-md-6">
+                                    <Form.Group className="row">
+                                        <label className="col-sm-3 col-form-label">Company Name</label>
+                                        <div className="col-sm-9">
+                                            <Form.Control type="text" onChange={(e) => setname(e.target.value)} value={name} />
+                                        </div>
+                                    </Form.Group>
+                                </div>
+                                <div className="col-md-6">
+                                    <Form.Group className="row">
+                                        <label className="col-sm-3 col-form-label">Website</label>
+                                        <div className="col-sm-9">
+                                            <Form.Control type="text" onChange={(e) => setWebsite(e.target.value)} value={Website} />
+                                        </div>
+                                    </Form.Group>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-md-6">
+                                    <Form.Group className="row">
+                                        <label className="col-sm-3 col-form-label">Email</label>
+                                        <div className="col-sm-9">
+                                            <Form.Control type="email" onChange={(e) => setEmail(e.target.value)} value={Email} />
+                                        </div>
+                                    </Form.Group>
+                                </div>
+                                <div className="col-md-6">
+                                    <Form.Group className="row">
+                                        <label className="col-sm-3 col-form-label">Country</label>
+                                        <div className="col-sm-9">
+                                            <select className="form-control" onChange={(e) => setCountry(e.target.value)} value={Country}>
+                                                {Countries.map((c, k) => {
+                                                    return <option key={k} value={c.name}>{c.name}</option>
+                                                })}
+                                                <option value="A">A</option>
+                                            </select>
+                                        </div>
+                                    </Form.Group>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-md-6">
+                                    <Form.Group className="row">
+                                        <label className="col-sm-3 col-form-label">State</label>
+                                        <div className="col-sm-9">
+                                            <select className="form-control" onChange={(e) => setState(e.target.value)} value={State}>
+                                                <option>Category1</option>
+                                                <option>Category2</option>
+                                                <option>Category3</option>
+                                                <option>Category4</option>
+                                            </select>
+                                        </div>
+                                    </Form.Group>
+                                </div>
+                                <div className="col-md-6">
+                                    <Form.Group className="row">
+                                        <label className="col-sm-3 col-form-label">City</label>
+                                        <div className="col-sm-9">
+                                            <Form.Control type="text" onChange={(e) => setCity(e.target.value)} value={City} />
+                                        </div>
+                                    </Form.Group>
+                                </div>
+
+                            </div>
+                            {/* <p className="card-description"> Address </p> */}
+                            <div className="row">
+                                <div className="col-md-6">
+                                    <Form.Group className="row">
+                                        <label className="col-sm-3 col-form-label">Address</label>
+                                        <div className="col-sm-9">
+                                            <Form.Control type="text" onChange={(e) => setAddress(e.target.value)} value={Address} />
+                                        </div>
+                                    </Form.Group>
+                                </div>
+                                <div className="col-md-6">
+                                    <Form.Group className="row">
+                                        <label className="col-sm-3 col-form-label">Pin Code</label>
+                                        <div className="col-sm-9">
+                                            <Form.Control type="text" onChange={(e) => setPincode(e.target.value)} value={Pincode} />
+                                        </div>
+                                    </Form.Group>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-md-6">
+                                    <Form.Group className="row">
+                                        <label className="col-sm-3 col-form-label">Number of employess</label>
+                                        <div className="col-sm-9">
+                                            <Form.Control type="text" onChange={(e) => setNOE(e.target.value)} value={NOE} />
+                                        </div>
+                                    </Form.Group>
+                                </div>
+                                <div className="col-md-6">
+                                    <Form.Group className="row">
+                                        <label className="col-sm-3 col-form-label">Number of Customers</label>
+                                        <div className="col-sm-9">
+                                            <Form.Control type="text" onChange={(e) => setNOC(e.target.value)} value={NOC} />
+                                        </div>
+                                    </Form.Group>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-md-6">
+                                    <Form.Group className="row">
+                                        <label className="col-sm-3 col-form-label">GST_IN</label>
+                                        <div className="col-sm-9">
+                                            <Form.Control type="text" onChange={(e) => setGST_IN(e.target.value)} value={GST_IN} />
+                                        </div>
+                                    </Form.Group>
+                                </div>
+                                <div className="col-md-6">
+                                    <Form.Group className="row">
+                                        <label className="col-sm-3 col-form-label">RC</label>
+                                        <div className="col-sm-9">
+                                            <Form.Control type="text" onChange={(e) => setRC(e.target.value)} value={RC} />
+                                        </div>
+                                    </Form.Group>
+                                </div>
+                                <div className="col-md-6">
+                                    <Form.Group className="row">
+                                        <label className="col-sm-3 col-form-label">HSC</label>
+                                        <div className="col-sm-9">
+                                            <Form.Control type="text" onChange={(e) => setHSC(e.target.value)} value={HSC} />
+                                        </div>
+                                    </Form.Group>
+                                </div>
+                                <div className="col-md-6">
+                                    <Form.Group className="row">
+                                        <label className="col-sm-3 col-form-label">Year of Establishment</label>
+                                        <div className="col-sm-9">
+                                            <DatePicker className="form-control w-100"
+                                                dateFormat="y"
+                                                dateFormatCalendar="y"
+                                                selected={YOE}
+                                                onChange={(e) => handleChange(e)}
+                                            />
+                                        </div>
+                                    </Form.Group>
+                                </div>
+                                <div className="col-md-6 m-auto">
+                                    <Form.Group>
+                                        <label>Company Logo</label>
+                                        <div className="custom-file">
+                                            <Form.Control type="file" className="form-control visibility-hidden" id="customFileLang" lang="en" onChange={(e) => setLogo(e.target.files[0])} />
+                                            <label className="custom-file-label" htmlFor="customFileLang">Upload image</label>
+                                        </div>
+                                    </Form.Group>
+                                </div>
+                            </div>
+                            <button type="submit" className="btn btn-primary mr-2">Submit</button>
+                            <button type="reset" className="btn btn-light">Reset</button>
+                        </form>
                     </div>
-                    <div className="col-md-6">
-                      <Form.Group className="row">
-                        <label className="col-sm-3 col-form-label">Pin Code</label>
-                        <div className="col-sm-9">
-                        <Form.Control type="text" onChange={(e)=>setPincode(e.target.value)} value={Pincode} />
-                        </div>
-                      </Form.Group>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <Form.Group className="row">
-                        <label className="col-sm-3 col-form-label">Number of employess</label>
-                        <div className="col-sm-9">
-                        <Form.Control type="text" onChange={(e)=>setNOE(e.target.value)} value={NOE}/>
-                        </div>
-                      </Form.Group>
-                    </div>
-                    <div className="col-md-6">
-                      <Form.Group className="row">
-                        <label className="col-sm-3 col-form-label">Number of Customers</label>
-                        <div className="col-sm-9">
-                        <Form.Control type="text" onChange={(e)=>setNOC(e.target.value)} value={NOC}/>
-                        </div>
-                      </Form.Group>
-                    </div>
-                  </div>
-                  <div className="row">
-                  <div className="col-md-6">
-                      <Form.Group className="row">
-                        <label className="col-sm-3 col-form-label">GST_IN</label>
-                        <div className="col-sm-9">
-                        <Form.Control type="text" onChange={(e)=>setGST_IN(e.target.value)} value={GST_IN}/>
-                        </div>
-                      </Form.Group>
-                    </div>
-                    <div className="col-md-6">
-                      <Form.Group className="row">
-                        <label className="col-sm-3 col-form-label">RC</label>
-                        <div className="col-sm-9">
-                        <Form.Control type="text" onChange={(e)=>setRC(e.target.value)} value={RC}/>
-                        </div>
-                      </Form.Group>
-                    </div>
-                    <div className="col-md-6">
-                      <Form.Group className="row">
-                        <label className="col-sm-3 col-form-label">HSC</label>
-                        <div className="col-sm-9">
-                        <Form.Control type="text"  onChange={(e)=>setHSC(e.target.value)} value={HSC}/>
-                        </div>
-                      </Form.Group>
-                    </div>
-                    <div className="col-md-6">
-                    <Form.Group className="row">
-                        <label className="col-sm-3 col-form-label">Year of Establishment</label>
-                        <div className="col-sm-9">
-                        <DatePicker className="form-control w-100"
-                            dateFormat="y"
-                            dateFormatCalendar="y"
-                          selected={YOE}
-                          onChange={(e)=> handleChange(e)}
-                        />
-                        </div>
-                      </Form.Group>
-                    </div>
-                    <div className="col-md-6 m-auto">
-                    <Form.Group>
-                    <label>Company Logo</label>
-                    <div className="custom-file">
-                      <Form.Control type="file" className="form-control visibility-hidden" id="customFileLang" lang="en" onChange={(e)=>setLogo(e.target.files[0])}  />
-                      <label className="custom-file-label" htmlFor="customFileLang">Upload image</label>
-                    </div>
-                  </Form.Group>
-                    </div>
-                  </div>
-                  <button type="submit" className="btn btn-primary mr-2">Submit</button>
-                  <button type="reset" className="btn btn-light">Reset</button>
-                </form>
-              </div>
+                </div>
             </div>
-          </div>
         </div>
     )
 }

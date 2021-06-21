@@ -131,8 +131,8 @@ class Sidebar extends Component {
             </div>
             <Collapse in={ this.state.softwaresOpen }>
               <ul className="nav flex-column sub-menu">
-                <li className="nav-item"> <Link className={ this.isPathActive('/basic-ui/buttons') ? 'nav-link active' : 'nav-link' } to="/vendors/basic-ui/buttons"><>Add New</></Link></li>
-                <li className="nav-item"> <Link className={ this.isPathActive('/basic-ui/dropdowns') ? 'nav-link active' : 'nav-link' } to="/basic-ui/dropdowns"><>Manage</></Link></li>
+                <li className="nav-item"> <Link className={ this.isPathActive('/vendor/add-software') ? 'nav-link active' : 'nav-link' } to="/vendor/add-software"><>Add New</></Link></li>
+                <li className="nav-item"> <Link className={ this.isPathActive('/vendor/software') ? 'nav-link active' : 'nav-link' } to="/vendor/software"><>Manage</></Link></li>
               </ul>
             </Collapse>
           </li>
@@ -144,7 +144,7 @@ class Sidebar extends Component {
             </div>
             <Collapse in={ this.state.basicUiMenuOpen }>
               <ul className="nav flex-column sub-menu">
-                <li className="nav-item"> <Link className={ this.isPathActive('/basic-ui/buttons') ? 'nav-link active' : 'nav-link' } to="/vendors/basic-ui/buttons"><>Add New</></Link></li>
+                <li className="nav-item"> <Link className={ this.isPathActive('/basic-ui/buttons') ? 'nav-link active' : 'nav-link' } to="/vendor/basic-ui/buttons"><>Add New</></Link></li>
                 <li className="nav-item"> <Link className={ this.isPathActive('/basic-ui/dropdowns') ? 'nav-link active' : 'nav-link' } to="/basic-ui/dropdowns"><>Manage</></Link></li>
               </ul>
             </Collapse>
@@ -158,7 +158,7 @@ class Sidebar extends Component {
             </div>
             <Collapse in={ this.state.basicUiMenuOpen }>
               <ul className="nav flex-column sub-menu">
-                <li className="nav-item"> <Link className={ this.isPathActive('/basic-ui/buttons') ? 'nav-link active' : 'nav-link' } to="/vendors/basic-ui/buttons"><>Buttons</></Link></li>
+                <li className="nav-item"> <Link className={ this.isPathActive('/basic-ui/buttons') ? 'nav-link active' : 'nav-link' } to="/vendor/basic-ui/buttons"><>Buttons</></Link></li>
                 <li className="nav-item"> <Link className={ this.isPathActive('/basic-ui/dropdowns') ? 'nav-link active' : 'nav-link' } to="/basic-ui/dropdowns"><>Dropdowns</></Link></li>
               </ul>
             </Collapse>

@@ -13,5 +13,8 @@ Route::middleware(['admin'])->prefix('appAdmin')->group(function () {
     Route::get('company/show/{id}', [App\Http\Controllers\Api\CompanyprofileController::class, 'show'])->name('show_one_company');
     Route::get('company/approve/{id}', [App\Http\Controllers\Api\CompanyprofileController::class, 'approve'])->name('approve');
     Route::post('appsetting/handleLogo',[App\Http\Controllers\Api\AppSettingController::class,'handleLogo'])->name('handle_appsetting_logo');
+    Route::post('add-new-category',[App\Http\Controllers\Api\SoftwarecategoryController::class,'store'])->name('store_software');
+    Route::delete('software-category/delete/{id}',[App\Http\Controllers\Api\SoftwarecategoryController::class,'destroy'])->name('delete_software_category');
+    Route::put('software-category/update/{id}' , [\App\Http\Controllers\Api\SoftwarecategoryController::class , 'update'])->name('update_software_category');
+
 });
- 

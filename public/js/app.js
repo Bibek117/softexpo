@@ -5480,7 +5480,10 @@ function GuestIndex() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.BrowserRouter, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
       fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        children: "loading..........."
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+          src: "/images/logo-sample.jpg",
+          alt: "loading..."
+        })
       }),
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Navigation, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
         path: "/home",
@@ -5536,7 +5539,10 @@ function VendorApp() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.BrowserRouter, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
       fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        children: "loading.."
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+          src: "/images/logo-sample.jpg",
+          alt: "loading..."
+        })
       }),
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Home, {})
     })
@@ -79603,7 +79609,7 @@ module.exports = warning;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_Admin_Pages_Home_js":1,"resources_js_Vendors_Pages_Home_js":1,"resources_js_components_Footer_js":1,"resources_js_components_Navigation_js":1,"resources_js_Pages_Home_js":1,"resources_js_Vendors_Login_js":1,"resources_js_Admin_Login_js":1,"resources_js_Admin_Pages_Notifications_Notifications_js":1,"resources_js_Admin_dashboard_Dashboard_js":1,"resources_js_Admin_Pages_Company_CompanyVerify_js":1,"resources_js_Vendors_Pages_Company_EditCompany_js":1,"resources_js_Vendors_dashboard_Dashboard_js":1,"resources_js_Vendors_basic-ui_Buttons_js":1,"resources_js_Vendors_basic-ui_Dropdowns_js":1,"resources_js_Vendors_form-elements_BasicElements_js":1,"resources_js_Vendors_tables_BasicTable_js":1,"resources_js_Vendors_icons_Mdi_js":1,"resources_js_Vendors_charts_ChartJs_js":1,"resources_js_Vendors_error-pages_Error404_js":1,"resources_js_Vendors_error-pages_Error500_js":1,"resources_js_Vendors_user-pages_Login_js":1,"resources_js_Vendors_user-pages_Register_js":1,"resources_js_Vendors_Pages_Company_index_js":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_Admin_Pages_Home_js":1,"resources_js_Vendors_Pages_Home_js":1,"resources_js_components_Footer_js":1,"resources_js_components_Navigation_js":1,"resources_js_Pages_Home_js":1,"resources_js_Vendors_Login_js":1,"resources_js_Admin_Login_js":1,"resources_js_Admin_Pages_Notifications_Notifications_js":1,"resources_js_Admin_dashboard_Dashboard_js":1,"resources_js_Admin_Pages_Company_CompanyVerify_js":1,"resources_js_Admin_Pages_DataEntry_Software_js":1,"resources_js_Vendors_Pages_Company_EditCompany_js":1,"resources_js_Vendors_dashboard_Dashboard_js":1,"resources_js_Vendors_basic-ui_Buttons_js":1,"resources_js_Vendors_basic-ui_Dropdowns_js":1,"resources_js_Vendors_form-elements_BasicElements_js":1,"resources_js_Vendors_tables_BasicTable_js":1,"resources_js_Vendors_icons_Mdi_js":1,"resources_js_Vendors_charts_ChartJs_js":1,"resources_js_Vendors_error-pages_Error404_js":1,"resources_js_Vendors_error-pages_Error500_js":1,"resources_js_Vendors_user-pages_Login_js":1,"resources_js_Vendors_user-pages_Register_js":1,"resources_js_Vendors_Pages_Company_index_js":1,"resources_js_Vendors_Pages_Software_AddSoftware_js":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

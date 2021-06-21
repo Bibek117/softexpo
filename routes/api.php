@@ -23,10 +23,9 @@ Route::group(['as' => 'api.'], function () {
   //rem
   //----------------Auth sudeep
 
-
-
     // vendor routes
-    Route::middleware(['vendor'])->prefix('vendor')->group(function () {
+Route::middleware(['vendor'])->prefix('vendor')->group(function () {
+
     Route::post('/logout',[App\Http\Controllers\Vendors\LoginController::class, 'logout']);
     Route::get('company', [App\Http\Controllers\Api\CompanyprofileController::class, 'index'])->name('show_all_company');
     // id required and show individual
@@ -42,6 +41,25 @@ Route::group(['as' => 'api.'], function () {
 
 
     //-------------------------------------company profiles
+
+
+    // software------------------------------------------------------------Bibek
+
+    //show all
+    Route::get('software', [App\Http\Controllers\Api\SoftwareController::class, 'index'])->name('show_all_software');
+    // id required and show individual
+    Route::get('software/show/{id}', [App\Http\Controllers\Api\SoftwareController::class, 'show'])->name('show_one_software');
+    //add new software
+    Route::post('software/create', [App\Http\Controllers\Api\SoftwareController::class, 'create'])->name('new_software');
+    //update existing software and id required
+    Route::put('software/update/{id}', [App\Http\Controllers\Api\SoftwareController::class, 'update'])->name('update_software');
+    //delete existing software and id required
+    Route::delete('software/delete/{id}', [App\Http\Controllers\Api\SoftwareController::class, 'destroy'])->name('delete_software');
+    Route::post('software/handle-logo',[App\Http\Controllers\Api\SoftwareController::class, 'handleLogo']);
+
+    //-------------------------------------------------------------software
+
+
   });
 
 
@@ -69,19 +87,7 @@ Route::group(['as' => 'api.'], function () {
   Route::put('menubar/update/{id}', [\App\Http\Controllers\Api\MenubarController::class, 'update'])->name('update_menubar');
 
 
-  // software------------------------------------------------------------Bibek
-  //show all
-  Route::get('software', [App\Http\Controllers\Api\SoftwareController::class, 'index'])->name('show_all_software');
-  // id required and show individual
-  Route::get('software/show/{id}', [App\Http\Controllers\Api\SoftwareController::class, 'show'])->name('show_one_software');
-  //add new software
-  Route::post('software/create', [App\Http\Controllers\Api\SoftwareController::class, 'create'])->name('new_software');
-  //update existing software and id required
-  Route::put('software/update/{id}', [App\Http\Controllers\Api\SoftwareController::class, 'update'])->name('update_software');
-  //delete existing software and id required
-  Route::delete('software/delete/{id}', [App\Http\Controllers\Api\SoftwareController::class, 'destroy'])->name('delete_software');
 
-  //-------------------------------------------------------------software
 
 
   //software_media-------------------------------------------------------Bibek
@@ -151,11 +157,9 @@ Route::group(['as' => 'api.'], function () {
 
   //softwarecategory----------------------------------------------------------------------------------------------sharmila
 
-    Route::get('software',[App\Http\Controllers\Api\SoftwarecategoryController::class,'index'])->name('software');
-    Route::post('software/store',[App\Http\Controllers\Api\SoftwarecategoryController::class,'store'])->name('store_software');
+
     Route::get('software/show/{id}',[App\Http\Controllers\Api\SoftwarecategoryController::class,'show'])->name('show_software');
-    Route::put('software/update/{id}' , [\App\Http\Controllers\Api\SoftwarecategoryController::class , 'update'])->name('update_software_category');
-    Route::delete('software/delete/{id}',[App\Http\Controllers\Api\SoftwarecategoryController::class,'destroy'])->name('delete_software_category');
+
 
 
     //Industry Type -----------------------------------------------------------------

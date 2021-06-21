@@ -15,6 +15,11 @@ function getCurrentVendorId(){
     return token;
 }
 
+function get_current_auth_id(){
+    const user = JSON.parse(localStorage.getItem('user'))
+    return user.id;
+}
+
 function getVendorProfile (){
     const role = localStorage.getItem('user_role');
     const user = JSON.parse(localStorage.getItem('user'))
@@ -23,4 +28,5 @@ function getVendorProfile (){
 
 
 
-export  {getCompanydetails,getCurrentVendorId, getVendorProfile}
+
+export  {getCompanydetails,getCurrentVendorId, getVendorProfile, get_current_auth_id}

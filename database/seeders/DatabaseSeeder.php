@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Database\Seeders\AdminTableSeeder;
+use Database\Seeders\AppSettingSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,7 +18,8 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         $this->call([
-            AdminTableSeeder::class,
+            // AdminTableSeeder::class,
+            AppSettingSeeder::class,
         ]);
     }
 }

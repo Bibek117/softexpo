@@ -8,7 +8,7 @@ import { BrowserRouter, Switch } from 'react-router-dom';
 function VendorApp() {
     return (
         <BrowserRouter>
-         <Suspense fallback={<div>loading..</div>}>
+         <Suspense fallback={<div><img src="/images/logo-sample.jpg" alt="loading..."/></div>}>
            <Home />
         </Suspense>
       </BrowserRouter>

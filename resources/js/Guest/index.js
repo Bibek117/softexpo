@@ -14,7 +14,7 @@ import Navbar from '../Vendors/shared/Navbar';
 function GuestIndex() {
     return (
        <BrowserRouter>
-       <Suspense fallback={<div>loading...........</div>}>
+       <Suspense fallback={<div><img src="/images/logo-sample.jpg" alt="loading..."/></div>}>
        <Navigation />
        <Route path="/home" component={Home} exact/>
        <PublicRoutes path="/home/vendorlogin" component={Login} exact/>

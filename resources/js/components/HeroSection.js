@@ -7,8 +7,8 @@ export default function HeroSection() {
             <div className="container">
                 <div className="row gy-4">
                     <div className="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-                        <h1>Bettter digital experience with Ninestars</h1>
-                        <h2>We are team of talented designers making websites with Bootstrap</h2>
+                        <h1>Bettter digital experience with SoftExpo</h1>
+                        <h2>We are team of talented designers making websites with MERN Stack</h2>
                         <div>
                             <a href="#about" className="btn-get-started scrollto">Get Started</a>
                         </div>

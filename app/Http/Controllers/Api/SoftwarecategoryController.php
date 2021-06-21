@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Traits\AuthTrait;
 use App\Models\Softwarecategories;
 use Illuminate\Http\Request;
 
 class SoftwarecategoryController extends Controller
 {
+    use AuthTrait;
     /**
      * Display a listing of the resource.
      *
@@ -37,8 +39,10 @@ class SoftwarecategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $data = Softwarecategories::create($request->all());
-        return response()->json(['message'=>'mobile service created successfully','data'=> $data ],201);
+        $data = $request->all();
+        $data["created_by"] = $this->get_current_user_passport("admin")->id;
+        $new_data = Softwarecategories::create($data);
+        return response()->json($new_data,201);
     }
 
     /**
@@ -74,7 +78,11 @@ class SoftwarecategoryController extends Controller
     public function update(Request $request, $id)
     {
         $result = Softwarecategories::find($id)->update($request->all());
-        return response()->json($result, 200);
+        if ($result) {
+            $data = Softwarecategories::all();
+            return response()->json($data, 200);
+        }
+        return response()->json(["msg"=>"Internal Server Error"], 500);
     }
 
     /**
@@ -87,6 +95,6 @@ class SoftwarecategoryController extends Controller
     {
         $result = Softwarecategories::find($id);
         $result->delete();
-        return response()->json(['message' =>'data is deleted'] , 200 );
+        return response()->json(['msg' =>'Item Deleted'] , 200 );
     }
 }

@@ -134,9 +134,9 @@ function HeroSection() {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
-            children: "Bettter digital experience with Ninestars"
+            children: "Bettter digital experience with SoftExpo"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
-            children: "We are team of talented designers making websites with Bootstrap"
+            children: "We are team of talented designers making websites with MERN Stack"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
               href: "#about",

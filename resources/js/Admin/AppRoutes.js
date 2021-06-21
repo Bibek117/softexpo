@@ -6,6 +6,7 @@ const Notifications = lazy(()=>import('./Pages/Notifications/Notifications'));
 import Spinner from './shared/Spinner';
 const Dashboard = lazy(() => import('./dashboard/Dashboard'));
 const CompanyVerify = lazy(()=>import('./Pages/Company/CompanyVerify'))
+const Software = lazy(()=>import('./Pages/DataEntry/Software'))
 
 class AppRoutes extends Component {
   render () {
@@ -16,6 +17,7 @@ class AppRoutes extends Component {
           <AdminRoutes exact path="/appAdmin/notifications" component={ Notifications } />
           <AdminRoutes exact path="/appAdmin/companies" component={ Companies } />
           <AdminRoutes path="/appAdmin/verify-companies/:company?" component={CompanyVerify} />
+          <AdminRoutes path="/appAdmin/data-entry-software-categories" component={Software} />
           <Redirect to="/appAdmin/dashboard" />
         </Switch>
       </Suspense>

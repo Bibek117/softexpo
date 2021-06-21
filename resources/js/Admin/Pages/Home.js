@@ -6,6 +6,7 @@ import Navbar from '../shared/Navbar';
 import Sidebar from '../shared/Sidebar';
 import SettingsPanel from '../shared/SettingsPanel';
 import Footer from '../shared/Footer';
+import { ToastContainer } from 'react-toastify';
 
 
 class VendorDashboard extends Component {
@@ -25,6 +26,17 @@ class VendorDashboard extends Component {
           { sidebarComponent }
           <div className="main-panel">
             <div className="content-wrapper">
+            <ToastContainer
+                position="top-left"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
               <AppRoutes/>
               { SettingsPanelComponent }
             </div>

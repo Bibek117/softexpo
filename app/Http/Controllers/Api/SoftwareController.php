@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SoftwareRequest;
+use App\Models\AppSetting;
 use Illuminate\Http\Request;
 use App\Models\Software;
+use Illuminate\Support\Facades\Config;
 
 class SoftwareController extends Controller
 {
@@ -39,7 +41,7 @@ class SoftwareController extends Controller
         $software->vendor_id = $request->input('vendor_id');
         $software->software_name = $request->input('software_name');
         $software->tagline = $request->input('tagline');
-        $software->software_logo = $request->input('software_logo');
+
         $software->category_id = $request->input('category_id');
         $data = $request->software_competitors;
         if(is_array($data) == 1){
@@ -51,8 +53,30 @@ class SoftwareController extends Controller
         $software->summary = $request->input('summary');
         $software->description = $request->input('description');
         $software->save();
-        return response()->json(['message'=>'New software successfully added','CreatedData'=>$software],201);
+        return response()->json(['msg'=>'Saved','data'=>$software],201);
     }
+
+    //logo upload
+    public function Handlelogo(Request $request){
+        // dd($request);
+        $request->validate([
+            'id'=>'required',
+            'file'=>'mimes:png,jpg|max:1024|required'
+        ]);
+        if(($request->hasFile('file')) && ($request->id != null)){
+            $file = $request->file;
+            $id = $request->id;
+            $data = Software::find($id);
+            $filename = $data->name."_".time().".png";
+            $file->storeAs('public/softwares/',$filename);
+            $data->software_logo = Config::get('app.url').'/storage/softwares/'.$filename;
+            $data->save();
+            return response()->json(['msg'=>'saved'],200);
+        }else{
+            return response()->json(['msg'=>'please input file and id'],500);
+        }
+    }
+
     /**
      * Display the specified resource.
      *
