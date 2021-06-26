@@ -23,5 +23,8 @@ class Software extends Model
         return $this->hasOne(Vendor::class, 'vendor_id', 'id');
     }
 
+    public function software_media(){
+        return $this->hasOne(SoftwareMedia::class,'id','software_id');
+    }
+
 }
-    

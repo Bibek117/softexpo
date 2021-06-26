@@ -8,23 +8,31 @@ use App\Models\AppSetting;
 use Illuminate\Http\Request;
 use App\Models\Software;
 use Illuminate\Support\Facades\Config;
-
+use App\Http\Controllers\Traits\AuthTrait;
 class SoftwareController extends Controller
 {
+    use AuthTrait;
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $datas = Software::all();
+
+    public function fetchAll(){
+        $vendorid = $this->get_current_user_passport("vendor")->id;
+        $datas = Software::where('vendor_id',$vendorid)->get();
         foreach($datas as $data){
            $value = $data->software_competitors;
            if(strpos($value, "+") !== false){
                $data->software_competitors = (explode("+",$value));
         }
+        return $datas;
     }
+    }
+
+    public function index()
+    {
+        $datas = $this->fetchAll();
         return response()->json($datas,200);
     }
 
@@ -130,8 +138,10 @@ class SoftwareController extends Controller
      */
     public function destroy($id)
     {
-        $software = Software::find($id);
-        $isdeleted = $software->delete();
-        return response()->json(['message'=>'Company profile deleted successfully','isdeleted' =>$isdeleted],200);
+        $software = Software::where('id',$id)->with('software_media')->delete();
+        if($software){
+            $datas = $this->fetchAll();
+            return response()->json(['msg'=>'Software item deleted','data'=>$datas],200);
+        }
     }
 }

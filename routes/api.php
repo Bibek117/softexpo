@@ -46,7 +46,7 @@ Route::middleware(['vendor'])->prefix('vendor')->group(function () {
     // software------------------------------------------------------------Bibek
 
     //show all
-    Route::get('software', [App\Http\Controllers\Api\SoftwareController::class, 'index'])->name('show_all_software');
+    Route::get('all-softwares', [App\Http\Controllers\Api\SoftwareController::class, 'index'])->name('show_all_software');
     // id required and show individual
     Route::get('software/show/{id}', [App\Http\Controllers\Api\SoftwareController::class, 'show'])->name('show_one_software');
     //add new software
