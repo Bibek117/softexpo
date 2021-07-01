@@ -13,6 +13,13 @@ Route::prefix('home')->group(function () {
     });
 });
 
+Route::prefix('softwares')->group(function () {
+    Route::get('/{path?}', function () {
+        return view('welcome');
+    });
+});
+
+
 
 
 Route::middleware(['vendor'])->prefix('vendor')->group(function () {

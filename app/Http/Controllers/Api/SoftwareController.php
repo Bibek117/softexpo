@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Models\Software;
 use Illuminate\Support\Facades\Config;
 use App\Http\Controllers\Traits\AuthTrait;
+use Carbon\Carbon;
+
 class SoftwareController extends Controller
 {
     use AuthTrait;
@@ -26,8 +28,9 @@ class SoftwareController extends Controller
            if(strpos($value, "+") !== false){
                $data->software_competitors = (explode("+",$value));
         }
-        return $datas;
+        $data->updated_at = Carbon::parse($data->updated_at)->isoFormat('MMMM Do YYYY');
     }
+    return $datas;
     }
 
     public function index()
@@ -88,12 +91,18 @@ class SoftwareController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $slug
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $software = Software::find($id);
+        $software = Software::where('slug',$slug)
+                    ->with('software_media')
+                    ->with('vendor.Company')
+                    ->with('category')
+                    ->with('specifications')
+                    ->with('pricing')
+                    ->first();
         $value = $software->software_competitors;
         if(strpos($value, "+") !== false){
             $software->software_competitors = (explode("+",$value));

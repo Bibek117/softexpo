@@ -12,6 +12,10 @@ class Softwarecategories extends Model
         'name',
         'created_by',
     ];
+
+    protected $hidden = [
+        'created_by'
+    ];
     // public function Softwarecategories(){
     //     return $this->belongsTo(Softwarecategories::class);
     // }

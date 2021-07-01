@@ -59,6 +59,20 @@ Route::middleware(['vendor'])->prefix('vendor')->group(function () {
 
     //-------------------------------------------------------------software
 
+    // Software Specification------------------------Sirjana
+  // show all data
+  Route::get('software_specification', [SoftwarespecificationsController::class, 'index']);
+  // software specification data create
+  Route::post('software_specification/store', [SoftwarespecificationsController::class, 'store']);
+  // show specific data of the software specification
+  Route::get('software_specification/show/{id}', [SoftwarespecificationsController::class, 'show']);
+  // update existing data of the software specification
+  Route::put('software_specification/update/{id}', [SoftwarespecificationsController::class, 'update']);
+  // delete specific data of the software specification
+  Route::delete('software_specification/delete/{id}', [SoftwarespecificationsController::class, 'destroy']);
+
+  // -------------- software specification
+
 
   });
 
@@ -103,19 +117,7 @@ Route::middleware(['vendor'])->prefix('vendor')->group(function () {
   Route::delete('softwaremedia/delete/{id}', [App\Http\Controllers\Api\SoftwaremediaController::class, 'destroy'])->name('deletesoftware_media');
   //------------------------------------------------------------software_media
 
-  // Software Specification------------------------Sirjana
-  // show all data
-  Route::get('software_specification', [SoftwarespecificationsController::class, 'index']);
-  // software specification data create
-  Route::post('software_specification/store', [SoftwarespecificationsController::class, 'store']);
-  // show specific data of the software specification
-  Route::get('software_specification/show/{id}', [SoftwarespecificationsController::class, 'show']);
-  // update existing data of the software specification
-  Route::put('software_specification/update/{id}', [SoftwarespecificationsController::class, 'update']);
-  // delete specific data of the software specification
-  Route::delete('software_specification/delete/{id}', [SoftwarespecificationsController::class, 'destroy']);
 
-  // -------------- software specification
 
   // Software pricing-----------------------------------------------
   // show all data

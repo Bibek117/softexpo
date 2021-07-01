@@ -1,6 +1,6 @@
 import React, { Component,Suspense, lazy } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import AdminRoutes from '../components/AdminRoutes';
+import { Switch, Redirect } from 'react-router-dom';
+import AdminRoutes from '../Guest/components/AdminRoutes';
 import Companies from './Pages/Company/Companies';
 const Notifications = lazy(()=>import('./Pages/Notifications/Notifications'));
 import Spinner from './shared/Spinner';

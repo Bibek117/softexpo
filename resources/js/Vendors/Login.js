@@ -1,9 +1,6 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import { useHistory } from 'react-router';
+import React, { useState } from 'react'
 import { ToastContainer,toast } from 'react-toastify';
-import { Loading } from '../components/Loading';
-
 import { RegisterUser } from '../Controllers/RegisterController';
 import { validator, redirectApp } from '../utils';
 export default function Login() {
@@ -15,7 +12,7 @@ export default function Login() {
     const [LoginEmail, setLoginEmail] = useState('');
     const [LoginPassword, setLoginPassword] = useState('');
     const [loading, setloading] = useState(false);
-    const history = useHistory();
+
 
 
     const formData = {
@@ -166,12 +163,12 @@ export default function Login() {
                                                 <input type="text" name="name" className="form-control" id="name" placeholder="Your Name" onChange={(e) => setRname(e.target.value)} required />
                                             </div>
                                             <div className="form-group col-md-8 mt-3 mt-md-0">
-                                                <label for="name">Your Email</label>
+                                                <label htmFor="name">Your Email</label>
                                                 <input type="email" className="form-control" name="email" id="email" placeholder="Your Email" onChange={(e) => setRemail(e.target.value)} required />
                                             </div>
 
                                             <div className="form-group col-md-8 mt-3">
-                                                <label for="name">Password</label>
+                                                <label htmlFor="name">Password</label>
                                                 <input type="password" className="form-control" name="password" id="password" placeholder="********" onChange={(e) => setRpassword(e.target.value)} required />
                                             </div>
                                         </div>

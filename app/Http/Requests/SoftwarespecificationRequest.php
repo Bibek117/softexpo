@@ -24,13 +24,13 @@ class SoftwarespecificationRequest extends FormRequest
     public function rules()
     {
         return [
-            'software_id' => 'required|integer', 
-            'offer_trial' => 'required', 
-            'is_lifetime_free' => 'required', 
+            'software_id' => 'required|integer',
+            'offer_trial' => 'required',
+            'is_lifetime_free' => 'required',
             'is_customizable' => 'required',
             'desktop_platform' => 'required',
-            'available_support' => 'required', 
-            'runs_on_mobile_browser' => 'required', 
+            'available_support' => 'required',
+            'runs_on_mobile_browser' => 'required',
             'payment_options' => 'required',
             'is_api_available' => 'required',
             'target_audience' => 'required',

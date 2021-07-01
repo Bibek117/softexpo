@@ -1,6 +1,6 @@
 import React, { Component,Suspense, lazy } from 'react';
 import { Switch, Redirect } from 'react-router-dom';
-import VendorRoutes from '../components/VendorRoutes';
+import VendorRoutes from '../Guest/components/VendorRoutes';
 import AddCompany from './Pages/Company/AddCompany';
 import EditSoftware from './Pages/Software/EditSoftware';
 import Softwares from './Pages/Software/Softwares';

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Softwarespecification extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'software_id',
         'offer_trial',

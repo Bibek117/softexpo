@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Str;
 
 class Software extends Model
 {
@@ -20,11 +21,39 @@ class Software extends Model
     ];
 
     public function vendor(){
-        return $this->hasOne(Vendor::class, 'vendor_id', 'id');
+        return $this->hasOne(Vendor::class, 'id', 'vendor_id');
     }
 
     public function software_media(){
         return $this->hasOne(SoftwareMedia::class,'id','software_id');
     }
+
+    public function category(){
+        return $this->hasOne(Softwarecategories::class,'id','category_id');
+    }
+
+    public function specifications(){
+        return $this->hasOne(Softwarespecification::class,'software_id','id');
+    }
+
+    public function pricing(){
+        return $this->hasOne(Softwarepricing::class,'software_id','id');
+    }
+
+    // protected $dateFormat = 'Y-M-d';
+
+    // public function getDateTimeAttribute($value)
+    // {
+    //     $value->format($this->desiredFormat);
+    // }
+
+
+    protected static function boot() {
+        parent::boot();
+        static::creating(function ($question) {
+            $question->slug = Str::slug($question->software_name);
+        });
+    }
+
 
 }

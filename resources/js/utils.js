@@ -18,7 +18,7 @@ function validator(object, rules){
                 continue;
 
             }
-            
+
         }
         var msg = "key not found ["+key+"] in object";
         console.log(msg);

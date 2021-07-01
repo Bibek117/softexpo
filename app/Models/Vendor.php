@@ -46,7 +46,7 @@ class Vendor extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function CompanyModel(){
-        return $this->belongsTo(Companyprofile::class,'vendor_id','id');
+    public function Company(){
+        return $this->hasOne(Companyprofile::class,'vendor_id','id');
     }
 }

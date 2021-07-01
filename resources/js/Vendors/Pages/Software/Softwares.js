@@ -111,6 +111,12 @@ function Softwares() {
                             filter={true}
                             headerName="Description"
                         ></AgGridColumn>
+                        <AgGridColumn
+                            field="created_at"
+                            sortable={true}
+                            filter={true}
+                            headerName="Added On"
+                        ></AgGridColumn>
                     </AgGridReact>
                 </div>
             </div>

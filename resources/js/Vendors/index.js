@@ -1,8 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom';
 const Home = lazy(()=> import('./Pages/Home'));
-import VendorRoutes from '../components/VendorRoutes'
-import { BrowserRouter, Switch } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 
 function VendorApp() {

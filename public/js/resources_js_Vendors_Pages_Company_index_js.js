@@ -55,7 +55,7 @@ function index() {
   };
 
   if (!CompanyDetails) {
-    history.push('/vendor/addCompany');
+    history.push('/vendor/add-company');
   } // console.log(CompanyDetails)
 
 

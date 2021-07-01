@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\AuthTrait;
+use App\Models\Software;
 use App\Models\Softwarecategories;
 use Illuminate\Http\Request;
 
@@ -19,6 +20,16 @@ class SoftwarecategoryController extends Controller
     {
         $data = Softwarecategories::all();
         return response()->json($data,200);
+    }
+
+    public function filter(Request $request){
+        $filters = $request->all();
+        $data =[];
+        foreach ($filters as $key => $value) {
+           $Localdata = Software::where($key,$value)->get();
+           $data[] = $Localdata;
+        }
+        return response()->json($data[0]);
     }
 
     /**
@@ -51,9 +62,9 @@ class SoftwarecategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $data = Softwarecategories::find($id);
+        $data = Softwarecategories::where('slug',$slug)->first();
         return response()->json($data,200);
     }
 

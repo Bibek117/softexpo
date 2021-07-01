@@ -17,12 +17,13 @@ class CreateSoftwareTable extends Migration
             $table->id();
             $table->integer('vendor_id');
             $table->string('software_name');
+            $table->string('slug');
             $table->string('tagline');
             $table->string('software_logo');
             $table->integer('category_id');
             $table->string('software_competitors');
             $table->string('summary');
-            $table->string('description');
+            $table->longText('description');
             $table->timestamps();
         });
     }

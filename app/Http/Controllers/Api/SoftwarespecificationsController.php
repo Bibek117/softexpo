@@ -81,7 +81,7 @@ class SoftwarespecificationsController extends Controller
         $data1 = $request->available_support;
         if (is_array($data1) > 0) {
             $stringData = implode(', ', $data1);
-            $request->available_support = $stringData;
+            $softspec->available_support = $stringData;
         } else {
             $softspec->available_support = $request->input('available_support');
         }
@@ -90,7 +90,7 @@ class SoftwarespecificationsController extends Controller
         $data2 = $request->payment_options;
         if (is_array($data2) > 0) {
             $stringData = implode(', ', $data2);
-            $request->payment_options = $stringData;
+            $softspec->payment_options = $stringData;
         } else {
             $softspec->payment_options = $request->input('payment_options');
         }
@@ -100,7 +100,7 @@ class SoftwarespecificationsController extends Controller
         $data3 = $request->target_audience;
         if (is_array($data3) > 0) {
             $stringData = implode(', ', $data3);
-            $request->target_audience = $stringData;
+            $softspec->target_audience = $stringData;
         } else {
             $softspec->target_audience = $request->input('target_audience');
         }
@@ -115,12 +115,14 @@ class SoftwarespecificationsController extends Controller
         } else {
             $softspec->language_available = $request->input('language_available');
         }
-        
+
         $softspec->integration = $request->input('integration');
+
+        // dd($softspec);
 
         $softspec->save();
 
-        return response()->json(['message' => 'softwarespecification is created', 'specification' => $softspec], 201);
+        return response()->json(['msg' => 'Saved'], 201);
     }
 
     /**

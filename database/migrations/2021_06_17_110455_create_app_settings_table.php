@@ -14,7 +14,7 @@ class CreateAppSettingsTable extends Migration
     public function up()
     {
         Schema::create('app_settings', function (Blueprint $table) {
-            $table->id();
+
             $table->string('appname')->nullable();
             $table->boolean('setup')->nullable();
             $table->string('address')->nullable();
