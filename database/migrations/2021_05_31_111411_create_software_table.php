@@ -19,7 +19,7 @@ class CreateSoftwareTable extends Migration
             $table->string('software_name');
             $table->string('slug');
             $table->string('tagline');
-            $table->string('software_logo');
+            $table->string('software_logo')->nullable();
             $table->integer('category_id');
             $table->string('software_competitors');
             $table->string('summary');

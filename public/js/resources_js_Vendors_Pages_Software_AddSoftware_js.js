@@ -210,8 +210,7 @@ function AddSoftware() {
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/software-categories").then(function (res) {
       setCategories(res.data);
-    });
-    setFormSlider(3);
+    }); // setFormSlider()
   }, []);
   var fileData = new FormData();
   fileData.append('file', Logo);

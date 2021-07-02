@@ -37,7 +37,7 @@ function AddSoftware() {
     const [VideoLink, setVideoLink] = useState('')
     const [BrochureLink, setBrochureLink] = useState('')
     const [Ebooks, setEbooks] = useState('')
-    const [Whitepapers, setWhitepapers] = useState('')
+    const [Whitepapers, setWhitepapers] = useState('') 
     const [PDF, setPDF] = useState('')
     const [Guide, setGuide] = useState('')
 
@@ -47,7 +47,7 @@ function AddSoftware() {
         axios.get("/api/software-categories").then((res) => {
             setCategories(res.data);
         });
-        setFormSlider(3)
+        // setFormSlider()
     }, []);
 
     const fileData = new FormData();

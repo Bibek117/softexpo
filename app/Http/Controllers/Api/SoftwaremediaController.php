@@ -90,9 +90,7 @@ class SoftwaremediaController extends Controller
        }
           $path_arrray = [];
        }
-       return response()->json(['$alldata',200]);
-
-    }
+     
        return response()->json([$alldata,200]);
     }
 
