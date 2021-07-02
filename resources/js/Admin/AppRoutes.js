@@ -1,6 +1,7 @@
 import React, { Component,Suspense, lazy } from 'react';
 import { Switch, Redirect } from 'react-router-dom';
 import AdminRoutes from '../Guest/components/AdminRoutes';
+import Menubar from './Pages/Appsetting/Menubar';
 import Companies from './Pages/Company/Companies';
 const Notifications = lazy(()=>import('./Pages/Notifications/Notifications'));
 import Spinner from './shared/Spinner';
@@ -18,6 +19,7 @@ class AppRoutes extends Component {
           <AdminRoutes exact path="/appAdmin/companies" component={ Companies } />
           <AdminRoutes path="/appAdmin/verify-companies/:company?" component={CompanyVerify} />
           <AdminRoutes path="/appAdmin/data-entry-software-categories" component={Software} />
+          <AdminRoutes path="/appAdmin/app-setting-menubar" component={Menubar} />
           <Redirect to="/appAdmin/dashboard" />
         </Switch>
       </Suspense>

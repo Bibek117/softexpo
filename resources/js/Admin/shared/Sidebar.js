@@ -121,7 +121,7 @@ class Sidebar extends Component {
             </div>
             <Collapse in={ this.state.basicUiMenuOpen }>
               <ul className="nav flex-column sub-menu">
-                <li className="nav-item"> <Link className={ this.isPathActive('/appAdmin/appSettings/menubar') ? 'nav-link active' : 'nav-link' } to="/appAdmin/appSettings"><>Menubar</></Link></li>
+                <li className="nav-item"> <Link className={ this.isPathActive('/appAdmin/app-setting-menubar') ? 'nav-link active' : 'nav-link' } to="/appAdmin/app-setting-menubar"><>Menubar</></Link></li>
                 <li className="nav-item"> <Link className={ this.isPathActive('/appAdmin/appSettings/') ? 'nav-link active' : 'nav-link' } to="/appAdmin/appSettings"><>Dropdowns</></Link></li>
               </ul>
             </Collapse>

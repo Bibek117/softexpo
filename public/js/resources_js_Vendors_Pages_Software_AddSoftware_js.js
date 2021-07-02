@@ -169,13 +169,49 @@ function AddSoftware() {
   var _useState47 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
       _useState48 = _slicedToArray(_useState47, 2),
       AvailableSupport = _useState48[0],
-      setAvailableSupport = _useState48[1]; // const []
+      setAvailableSupport = _useState48[1];
+
+  var _useState49 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+      _useState50 = _slicedToArray(_useState49, 2),
+      SS = _useState50[0],
+      setSS = _useState50[1];
+
+  var _useState51 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+      _useState52 = _slicedToArray(_useState51, 2),
+      VideoLink = _useState52[0],
+      setVideoLink = _useState52[1];
+
+  var _useState53 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+      _useState54 = _slicedToArray(_useState53, 2),
+      BrochureLink = _useState54[0],
+      setBrochureLink = _useState54[1];
+
+  var _useState55 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+      _useState56 = _slicedToArray(_useState55, 2),
+      Ebooks = _useState56[0],
+      setEbooks = _useState56[1];
+
+  var _useState57 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+      _useState58 = _slicedToArray(_useState57, 2),
+      Whitepapers = _useState58[0],
+      setWhitepapers = _useState58[1];
+
+  var _useState59 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+      _useState60 = _slicedToArray(_useState59, 2),
+      PDF = _useState60[0],
+      setPDF = _useState60[1];
+
+  var _useState61 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+      _useState62 = _slicedToArray(_useState61, 2),
+      Guide = _useState62[0],
+      setGuide = _useState62[1]; // const []
 
 
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/software-categories").then(function (res) {
       setCategories(res.data);
     });
+    setFormSlider(3);
   }, []);
   var fileData = new FormData();
   fileData.append('file', Logo);
@@ -280,7 +316,7 @@ function AddSoftware() {
             draggable: true,
             progress: undefined
           });
-          setFormSlider(2);
+          setFormSlider(3);
         }
       })["catch"](function (error) {
         if (error.response && error.response.status == 422) {
@@ -306,9 +342,35 @@ function AddSoftware() {
     }
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+  var HandleThirdSubmit = function HandleThirdSubmit(e) {
+    e.preventDefault();
+    var thirdFormData = new FormData();
+    thirdFormData.append('screenshots', SS);
+    thirdFormData.append('brochure', BrochureLink);
+    thirdFormData.append('ebooks', Ebooks);
+    thirdFormData.append('video_link', VideoLink);
+    thirdFormData.append('whitepapers', Whitepapers);
+    thirdFormData.append('pdf', PDF);
+    thirdFormData.append('guides', Guide);
+    thirdFormData.append('software_id', 22);
+    _axios__WEBPACK_IMPORTED_MODULE_2__.venodrAxios.post('/softwaremedia/create', thirdFormData).then(function (res) {
+      return alert(res);
+    });
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     className: "row",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_toastify__WEBPACK_IMPORTED_MODULE_6__.ToastContainer, {
+      position: "top-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      newestOnTop: false,
+      closeOnClick: true,
+      rtl: false,
+      pauseOnFocusLoss: true,
+      draggable: true,
+      pauseOnHover: true
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "col-12 grid-margin",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "card",
@@ -1236,10 +1298,177 @@ function AddSoftware() {
                 children: "Reset"
               })]
             })]
-          }) : null, FormSlider == 3 ? third : null, FormSlider == 4 ? fourth : null]
+          }) : null, FormSlider == 3 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("form", {
+            className: "form-sample",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+              className: "badge",
+              children: "3. Software Media"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              className: "row",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                className: "col-md-8",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Group, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                    children: "Screenshots *"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                    className: "custom-file",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Control, {
+                      type: "file",
+                      className: "form-control visibility-hidden",
+                      id: "ss",
+                      lang: "en",
+                      onChange: function onChange(e) {
+                        return setSS(e.target.files[0]);
+                      }
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                      className: "custom-file-label",
+                      htmlFor: "ss",
+                      children: "Upload image"
+                    })]
+                  })]
+                })
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+              className: "row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                className: "col-md-8",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Group, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                    children: "Video Link "
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("textarea", {
+                    className: "form-control"
+                  })]
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                className: "col-md-8",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Group, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                    children: "Brochure File "
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                    className: "custom-file",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Control, {
+                      type: "file",
+                      className: "form-control visibility-hidden",
+                      id: "brochureFile",
+                      lang: "en",
+                      onChange: function onChange(e) {
+                        return setBrochureLink(e.target.files[0]);
+                      }
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                      className: "custom-file-label",
+                      htmlFor: "brochureFile",
+                      children: "Upload Brochure"
+                    })]
+                  })]
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                className: "col-md-8",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Group, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                    children: "Ebooks "
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                    className: "custom-file",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Control, {
+                      type: "file",
+                      className: "form-control visibility-hidden",
+                      id: "ebookFile",
+                      lang: "en",
+                      onChange: function onChange(e) {
+                        return setEbooks(e.target.files[0]);
+                      }
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                      className: "custom-file-label",
+                      htmlFor: "ebookFile",
+                      children: "Upload Ebook"
+                    })]
+                  })]
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                className: "col-md-8",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Group, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                    children: "Whitepaper "
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                    className: "custom-file",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Control, {
+                      type: "file",
+                      className: "form-control visibility-hidden",
+                      id: "whitepaper",
+                      lang: "en",
+                      onChange: function onChange(e) {
+                        return setWhitepapers(e.target.files[0]);
+                      }
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                      className: "custom-file-label",
+                      htmlFor: "whitepaper",
+                      children: "Upload Whitepaper"
+                    })]
+                  })]
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                className: "col-md-8",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Group, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                    children: "PDF "
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                    className: "custom-file",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Control, {
+                      type: "file",
+                      className: "form-control visibility-hidden",
+                      id: "PDF",
+                      lang: "en",
+                      onChange: function onChange(e) {
+                        return setPDF(e.target.files[0]);
+                      }
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                      className: "custom-file-label",
+                      htmlFor: "PDF",
+                      children: "Upload PDF"
+                    })]
+                  })]
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                className: "col-md-8",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Group, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                    children: "Guides "
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                    className: "custom-file",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Control, {
+                      type: "file",
+                      className: "form-control visibility-hidden",
+                      id: "Guides",
+                      lang: "en",
+                      onChange: function onChange(e) {
+                        return setGuide(e.target.files[0]);
+                      }
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                      className: "custom-file-label",
+                      htmlFor: "Guides",
+                      children: "Upload Guides"
+                    })]
+                  })]
+                })
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+              className: "my-lg-4 p-1",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+                type: "submit",
+                className: "btn btn-primary mr-2",
+                onClick: function onClick(e) {
+                  return HandleThirdSubmit(e);
+                },
+                children: "Save & Next"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+                type: "reset",
+                className: "btn btn-light",
+                children: "Reset"
+              })]
+            })]
+          }) : null, FormSlider == 4 ? fourth : null]
         })
       })
-    })
+    })]
   });
 }
 

@@ -24,7 +24,7 @@ class SoftwaremediaController extends Controller
                     if(strpos($temp6,"+") !== false){
                         $array = (explode("+",$temp6));
                           foreach($array as $arr){
-                             $path_arrray[] = public_path('app/public/screenshots/'.$arr);   
+                             $path_arrray[] = public_path('app/public/screenshots/'.$arr);
                             }
                       $datas->screenshots = $path_arrray;
                   $path_arrray = [];
@@ -38,7 +38,7 @@ class SoftwaremediaController extends Controller
               if(strpos($temp7,"+") !== false){
                  $array = (explode("+",$temp7));
                    foreach($array as $arr){
-                     $path_arrray[] = public_path('app/public/ebooks/'.$arr);   
+                     $path_arrray[] = public_path('app/public/ebooks/'.$arr);
                       }
                   $datas->ebooks = $path_arrray;
                  $path_arrray = [];
@@ -52,7 +52,7 @@ class SoftwaremediaController extends Controller
              if(strpos($temp8,"+") !== false){
                 $array = (explode("+",$temp8));
                   foreach($array as $arr){
-                     $path_arrray[] = public_path('app/public/whitepapers/'.$arr);   
+                     $path_arrray[] = public_path('app/public/whitepapers/'.$arr);
                       }
                   $datas->whitepapers = $path_arrray;
                 $path_arrray = [];
@@ -65,12 +65,12 @@ class SoftwaremediaController extends Controller
         if(strpos($temp9,"+") !== false){
             $array = (explode("+",$temp9));
             foreach($array as $arr){
-                $path_arrray[] = public_path('app/public/pdf/'.$arr);   
+                $path_arrray[] = public_path('app/public/pdf/'.$arr);
             }
             $datas->pdf = $path_arrray;
             $path_arrray = [];
         }else{
-            $datas->pdf=  (storage_path('app/public/pdf/'.$temp9));     
+            $datas->pdf=  (storage_path('app/public/pdf/'.$temp9));
         }
 
        }
@@ -79,7 +79,7 @@ class SoftwaremediaController extends Controller
         if(strpos($temp10,"+") !== false){
             $array = (explode("+",$temp10));
             foreach($array as $arr){
-                $path_arrray[] = public_path('app/public/guides/'.$arr);   
+                $path_arrray[] = public_path('app/public/guides/'.$arr);
             }
             $datas->guides = $path_arrray;
         }else{
@@ -87,7 +87,7 @@ class SoftwaremediaController extends Controller
         }
        }
           $path_arrray = [];
-       } 
+       }
        return response()->json(['$alldata',200]);
     }
 
@@ -104,7 +104,7 @@ class SoftwaremediaController extends Controller
         $software_media->software_id = $request->input('software_id');
 
         //screenshots file upload
-        if($request->hasFile('screenshots')){ 
+        if($request->hasFile('screenshots')){
             $screenshots = $request->screenshots;
             if(is_array($screenshots) == 1){
                 $temp1 =[];
@@ -144,8 +144,8 @@ class SoftwaremediaController extends Controller
             $software_media->ebooks =$filename;
             }
           }
-    
-        
+
+
 
         //whitepapers
         if($request->whitepapers == null){
@@ -168,7 +168,7 @@ class SoftwaremediaController extends Controller
         }
 
         //pdf
-       
+
         if($request->pdf == null){
             $software_media->pdf = $request->input('pdf');
         }else{
@@ -224,7 +224,7 @@ class SoftwaremediaController extends Controller
         if(strpos($temp6,"+") !== false){
             $array = (explode("+",$temp6));
             foreach($array as $arr){
-                $path_arrray[] = public_path('app/public/screenshots/'.$arr);   
+                $path_arrray[] = public_path('app/public/screenshots/'.$arr);
             }
             $data->screenshots = $path_arrray;
             $path_arrray = [];
@@ -236,7 +236,7 @@ class SoftwaremediaController extends Controller
         if(strpos($temp7,"+") !== false){
             $array = (explode("+",$temp7));
             foreach($array as $arr){
-                $path_arrray[] = (storage_path('app/public/ebooks/'.$arr));   
+                $path_arrray[] = (storage_path('app/public/ebooks/'.$arr));
             }
             $data->ebooks = $path_arrray;
             $path_arrray = [];
@@ -249,13 +249,13 @@ class SoftwaremediaController extends Controller
         if(strpos($temp8,"+") !== false){
             $array = (explode("+",$temp8));
             foreach($array as $arr){
-                $path_arrray[] = public_path('app/public/whitepapers/'.$arr);   
+                $path_arrray[] = public_path('app/public/whitepapers/'.$arr);
             }
             $data->whitepapers = $path_arrray;
             $path_arrray = [];
         }else{
             $data->whitepapers =  (storage_path('app/public/whitepapers/'.$temp8));
-            
+
         }
        }
        $temp9 = $data->pdf;
@@ -263,12 +263,12 @@ class SoftwaremediaController extends Controller
         if(strpos($temp9,"+") !== false){
             $array = (explode("+",$temp9));
             foreach($array as $arr){
-                $path_arrray[] = public_path('app/public/pdf/'.$arr);   
+                $path_arrray[] = public_path('app/public/pdf/'.$arr);
             }
             $data->pdf = $path_arrray;
             $path_arrray = [];
         }else{
-            $data->pdf=  (storage_path('app/public/pdf/'.$temp9));     
+            $data->pdf=  (storage_path('app/public/pdf/'.$temp9));
         }
 
        }
@@ -277,7 +277,7 @@ class SoftwaremediaController extends Controller
         if(strpos($temp10,"+") !== false){
             $array = (explode("+",$temp10));
             foreach($array as $arr){
-                $path_arrray[] = public_path('app/public/guides/'.$arr);   
+                $path_arrray[] = public_path('app/public/guides/'.$arr);
             }
             $data->guides = $path_arrray;
             $path_arrray = [];
@@ -288,7 +288,7 @@ class SoftwaremediaController extends Controller
        return response()->json($data,200);
     }
 
-   
+
 
     /**
      * Update the specified resource in storage.
@@ -302,7 +302,7 @@ class SoftwaremediaController extends Controller
         $data = SoftwareMedia::find($id);
         $data->software_id = $request->input('software_id');
         if($request->hasFile('screenshots')){
-            $value = $data->screenshots; 
+            $value = $data->screenshots;
 
             //delete file
             if(strpos($value, "+") !== false){
@@ -330,16 +330,16 @@ class SoftwaremediaController extends Controller
             $screenshots->storeAs('public/screenshots/',$filename);
             $data->screenshots = $filename;
            }
-        } 
+        }
 
         $data->video_link = $request->input('video_link');
         $data->brochure_link =$request->input('brochure_link');
-         
+
 
         //ebooks
         if($request->hasFile('ebooks')){
             if($data->ebooks != null){
-                $value = $data->ebooks; 
+                $value = $data->ebooks;
                 if(strpos($value, "+") !== false){
                     $data->ebooks = (explode("+",$value));
                     foreach($data->ebooks as $ebook){
@@ -371,7 +371,7 @@ class SoftwaremediaController extends Controller
         //whitepapers
         if($request->hasFile('whitepapers')){
             if($data->whitepapers != null){
-                $value = $data->whitepapers; 
+                $value = $data->whitepapers;
                 if(strpos($value, "+") !== false){
                     $data->whitepapers = (explode("+",$value));
                     foreach($data->whitepapers as $whitepaper){
@@ -404,7 +404,7 @@ class SoftwaremediaController extends Controller
       //pdf
       if($request->hasFile('pdf')){
         if($data->pdf != null){
-            $value = $data->pdf; 
+            $value = $data->pdf;
             if(strpos($value, "+") !== false){
                 $data->pdf = (explode("+",$value));
                 foreach($data->pdf as $one){
@@ -414,7 +414,7 @@ class SoftwaremediaController extends Controller
              unlink(storage_path('app/public/pdf/'.$value));
             }
           }
-             
+
         if($request->pdf == null){
             $data->pdf = $request->input('pdf');
         }else{
@@ -434,10 +434,10 @@ class SoftwaremediaController extends Controller
            }
         }
     }
-      
+
     //guides
     if($data->guides != null){
-        $value = $data->guides; 
+        $value = $data->guides;
         if(strpos($value, "+") !== false){
             $data->guides = (explode("+",$value));
             foreach($data->guides as $guide){
@@ -468,7 +468,7 @@ class SoftwaremediaController extends Controller
     $data->save();
     return response()->json(['message'=>'Software media successfully updated','UpdatedData'=>$data],200);
 
-       
+
   }
 
     /**
@@ -479,10 +479,10 @@ class SoftwaremediaController extends Controller
      */
     public function destroy($id)
     {
-       
+
        $data = SoftwareMedia::find($id);
        $isDeleted =$data->delete();
-       $value = $data->screenshots; 
+       $value = $data->screenshots;
        if(strpos($value, "+") !== false){
            $data->screenshots = (explode("+",$value));
            foreach($data->screenshots as $one){
@@ -491,9 +491,9 @@ class SoftwaremediaController extends Controller
        }else{
         unlink(storage_path('app/public/screenshots/'.$value));
        }
-       
+
        if($data->ebooks != null){
-        $value = $data->ebooks; 
+        $value = $data->ebooks;
         if(strpos($value, "+") !== false){
             $data->ebooks = (explode("+",$value));
             foreach($data->ebooks as $ebook){
@@ -504,7 +504,7 @@ class SoftwaremediaController extends Controller
         }
        }
        if($data->whitepapers != null){
-        $value = $data->whitepapers; 
+        $value = $data->whitepapers;
         if(strpos($value, "+") !== false){
             $data->whitepapers = (explode("+",$value));
             foreach($data->whitepapers as $whitepaper){
@@ -515,7 +515,7 @@ class SoftwaremediaController extends Controller
         }
        }
        if($data->pdf != null){
-        $value = $data->pdf; 
+        $value = $data->pdf;
         if(strpos($value, "+") !== false){
             $data->pdf = (explode("+",$value));
             foreach($data->pdf as $one){
@@ -526,7 +526,7 @@ class SoftwaremediaController extends Controller
         }
        }
        if($data->guides != null){
-        $value = $data->guides; 
+        $value = $data->guides;
         if(strpos($value, "+") !== false){
             $data->guides = (explode("+",$value));
             foreach($data->guides as $guide){
@@ -540,6 +540,6 @@ class SoftwaremediaController extends Controller
            return response()->json(['message'=>'Deleted successfully','isdeleted'=>$isDeleted],200 );
        }else{
            return response()->json(['message'=>'Cannot delete something went wrong']);
-       }  
+       }
     }
 }

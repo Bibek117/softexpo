@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import { venodrAxios } from "../../../axios";
 import { validator } from "../../../utils";
 import {
@@ -33,6 +33,13 @@ function AddSoftware() {
     const [LA, setLA] = useState('')
     const [integration, setintegration] = useState('')
     const [AvailableSupport, setAvailableSupport] = useState([])
+    const [SS, setSS] = useState('')
+    const [VideoLink, setVideoLink] = useState('')
+    const [BrochureLink, setBrochureLink] = useState('')
+    const [Ebooks, setEbooks] = useState('')
+    const [Whitepapers, setWhitepapers] = useState('')
+    const [PDF, setPDF] = useState('')
+    const [Guide, setGuide] = useState('')
 
     // const []
 
@@ -40,7 +47,7 @@ function AddSoftware() {
         axios.get("/api/software-categories").then((res) => {
             setCategories(res.data);
         });
-
+        setFormSlider(3)
     }, []);
 
     const fileData = new FormData();
@@ -99,42 +106,42 @@ function AddSoftware() {
         });
     };
 
-    const HandleSecondSubmit = (e) =>{
+    const HandleSecondSubmit = (e) => {
         e.preventDefault()
 
         const data = {
-            software_id:SoftwareId,
-            offer_trial:OfferTrial,
-            is_lifetime_free:isLifeTimeFree,
-            is_customizable:isCustomizable,
-            desktop_platform:DesktopPlatform,
-            available_support:AvailableSupport,
-            runs_on_mobile_browser:Romb,
-            payment_options:PaymentOption,
-            is_api_available:IsAPIavailable,
-            target_audience:TargetAudience,
-            mobile_platform_options:MPO,
-            language_available:LA,
-            integration:integration
+            software_id: SoftwareId,
+            offer_trial: OfferTrial,
+            is_lifetime_free: isLifeTimeFree,
+            is_customizable: isCustomizable,
+            desktop_platform: DesktopPlatform,
+            available_support: AvailableSupport,
+            runs_on_mobile_browser: Romb,
+            payment_options: PaymentOption,
+            is_api_available: IsAPIavailable,
+            target_audience: TargetAudience,
+            mobile_platform_options: MPO,
+            language_available: LA,
+            integration: integration
         }
         console.log(data);
         const rules = {
-            software_id:"required",
-            offer_trial:"required",
-            is_lifetime_free:"required",
-            is_customizable:"required",
-            desktop_platform:"required",
-            available_support:"required",
-            runs_on_mobile_browser:"required",
-            payment_options:"required",
-            is_api_available:"required",
-            target_audience:"required",
-            mobile_platform_options:"required",
-            language_available:"required",
-            integration:"required"
+            software_id: "required",
+            offer_trial: "required",
+            is_lifetime_free: "required",
+            is_customizable: "required",
+            desktop_platform: "required",
+            available_support: "required",
+            runs_on_mobile_browser: "required",
+            payment_options: "required",
+            is_api_available: "required",
+            target_audience: "required",
+            mobile_platform_options: "required",
+            language_available: "required",
+            integration: "required"
         }
-        if(validator(data,rules)){
-            venodrAxios.post('/software_specification/store',data).then((res)=>{
+        if (validator(data, rules)) {
+            venodrAxios.post('/software_specification/store', data).then((res) => {
                 if (res.status == 201) {
                     toast.success('🦄' + res.data.msg, {
                         position: "top-left",
@@ -145,7 +152,7 @@ function AddSoftware() {
                         draggable: true,
                         progress: undefined,
                     });
-                    setFormSlider(2)
+                    setFormSlider(3)
                 }
             }).catch((error) => {
                 if (error.response && error.response.status == 422) {
@@ -170,8 +177,35 @@ function AddSoftware() {
         }
     }
 
+    const HandleThirdSubmit = (e) =>{
+        e.preventDefault()
+        const thirdFormData = new FormData()
+        thirdFormData.append('screenshots',SS)
+        thirdFormData.append('brochure',BrochureLink)
+        thirdFormData.append('ebooks',Ebooks)
+        thirdFormData.append('video_link',VideoLink)
+        thirdFormData.append('whitepapers',Whitepapers)
+        thirdFormData.append('pdf',PDF)
+        thirdFormData.append('guides',Guide)
+        thirdFormData.append('software_id',22)
+        venodrAxios.post('/softwaremedia/create',thirdFormData).then(res=>alert(res))
+
+
+    }
+
     return (
         <div className="row">
+            <ToastContainer
+                position="top-left"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <div className="col-12 grid-margin">
                 <div className="card">
                     <div className="card-body">
@@ -409,15 +443,15 @@ function AddSoftware() {
                                                 </label>
                                                 <div className="col-sm-12">
                                                     <div className="d-flex flex-wrap">
-                                                        <div className="form-check form-check-primary mr-3" onChange={(e)=>setOfferTrial(e.target.value)}>
+                                                        <div className="form-check form-check-primary mr-3" onChange={(e) => setOfferTrial(e.target.value)}>
                                                             <label className="form-check-label">
-                                                                <input type="radio" className="form-check-input" name="freet" value="1"  /> Yes
+                                                                <input type="radio" className="form-check-input" name="freet" value="1" /> Yes
                                                                 <i className="input-helper"></i>
                                                             </label>
                                                         </div>
                                                         <div className="form-check form-check-primary mr-3">
                                                             <label className="form-check-label">
-                                                                <input type="radio" className="form-check-input" name="freet" value="0"   /> No
+                                                                <input type="radio" className="form-check-input" name="freet" value="0" /> No
                                                                 <i className="input-helper"></i>
                                                             </label>
                                                         </div>
@@ -433,7 +467,7 @@ function AddSoftware() {
                                                     Is Customization possible?
                                                 </label>
                                                 <div className="col-sm-10">
-                                                    <div className="d-flex  flex-wrap" onChange={(e)=>setisCustomizable(e.target.value)}>
+                                                    <div className="d-flex  flex-wrap" onChange={(e) => setisCustomizable(e.target.value)}>
                                                         <div className="form-check form-check-primary mr-3">
                                                             <label className="form-check-label">
                                                                 <input type="radio" className="form-check-input" name="customization" value="1" /> Yes
@@ -442,7 +476,7 @@ function AddSoftware() {
                                                         </div>
                                                         <div className="form-check form-check-primary mr-3">
                                                             <label className="form-check-label">
-                                                                <input type="radio" className="form-check-input" name="customization" value="0"  /> No
+                                                                <input type="radio" className="form-check-input" name="customization" value="0" /> No
                                                                 <i className="input-helper"></i>
                                                             </label>
                                                         </div>
@@ -456,7 +490,7 @@ function AddSoftware() {
                                                     Does the software run on mobile browser? *
                                                 </label>
                                                 <div className="col-sm-12">
-                                                    <div className="d-flex flex-wrap" onChange={(e)=>setRomb(e.target.value)}>
+                                                    <div className="d-flex flex-wrap" onChange={(e) => setRomb(e.target.value)}>
                                                         <div className="form-check form-check-primary mr-3">
                                                             <label className="form-check-label">
                                                                 <input type="radio" className="form-check-input" name="mobile_supp_b" value="1" /> Yes
@@ -478,10 +512,10 @@ function AddSoftware() {
                                         <div className="col-md-6">
                                             <div className="row">
                                                 <label className="col-sm-12 col-form-label">
-                                                Does this software has a lifetime free plan? *
+                                                    Does this software has a lifetime free plan? *
                                                 </label>
                                                 <div className="col-sm-10">
-                                                    <div className="d-flex  flex-wrap" onChange={(e)=>setisLifeTimeFree(e.target.value)}>
+                                                    <div className="d-flex  flex-wrap" onChange={(e) => setisLifeTimeFree(e.target.value)}>
                                                         <div className="form-check form-check-primary mr-3">
                                                             <label className="form-check-label">
                                                                 <input type="radio" className="form-check-input" name="lifetime" value="1" /> Yes
@@ -501,10 +535,10 @@ function AddSoftware() {
                                         <div className="col-md-6">
                                             <div className="row">
                                                 <label className="col-sm-12 col-form-label">
-                                                Are APIs available for this software? *
+                                                    Are APIs available for this software? *
                                                 </label>
                                                 <div className="col-sm-12">
-                                                    <div className="d-flex flex-wrap" onChange={(e)=>setIsAPIavailable(e.target.value)}>
+                                                    <div className="d-flex flex-wrap" onChange={(e) => setIsAPIavailable(e.target.value)}>
                                                         <div className="form-check form-check-primary mr-3">
                                                             <label className="form-check-label">
                                                                 <input type="radio" className="form-check-input" name="is_Api" value="1" /> Yes
@@ -526,10 +560,10 @@ function AddSoftware() {
                                         <div className="col-md-6">
                                             <div className="row">
                                                 <label className="col-sm-12 col-form-label">
-                                                Payment Options *
+                                                    Payment Options *
                                                 </label>
                                                 <div className="col-sm-10">
-                                                    <div className="d-flex  flex-wrap" onChange={(e)=>setPaymentOption([...PaymentOption,e.target.value])}>
+                                                    <div className="d-flex  flex-wrap" onChange={(e) => setPaymentOption([...PaymentOption, e.target.value])}>
                                                         <div className="form-check form-check-primary mr-3">
                                                             <label className="form-check-label">
                                                                 <input type="checkbox" className="form-check-input" name="po" value="yearly" /> Yearly
@@ -561,10 +595,10 @@ function AddSoftware() {
                                         <div className="col-md-6">
                                             <div className="row">
                                                 <label className="col-sm-12 col-form-label">
-                                                Target Audience
+                                                    Target Audience
                                                 </label>
                                                 <div className="col-sm-12">
-                                                    <div className="d-flex flex-wrap" onChange={(e)=>setTargetAudience([...TargetAudience, e.target.value])}>
+                                                    <div className="d-flex flex-wrap" onChange={(e) => setTargetAudience([...TargetAudience, e.target.value])}>
                                                         <div className="form-check form-check-primary mr-3">
                                                             <label className="form-check-label">
                                                                 <input type="checkbox" className="form-check-input" name="po" value="Freelancers" /> Freelancers
@@ -604,10 +638,10 @@ function AddSoftware() {
                                         <div className="col-md-6">
                                             <div className="row">
                                                 <label className="col-sm-12 col-form-label">
-                                                Desktop Platforms Options *
+                                                    Desktop Platforms Options *
                                                 </label>
                                                 <div className="col-sm-10">
-                                                    <div className="d-flex  flex-wrap" onChange={(e)=>setDesktopPlatform([...DesktopPlatform,e.target.value])}>
+                                                    <div className="d-flex  flex-wrap" onChange={(e) => setDesktopPlatform([...DesktopPlatform, e.target.value])}>
                                                         <div className="form-check form-check-primary mr-3">
                                                             <label className="form-check-label">
                                                                 <input type="checkbox" className="form-check-input" name="platforms" value="Web App" /> Web App
@@ -636,7 +670,7 @@ function AddSoftware() {
                                                     Mobile Platforms Options
                                                 </label>
                                                 <div className="col-sm-12">
-                                                    <div className="d-flex flex-wrap" onChange={(e)=>setMPO(e.target.value)}>
+                                                    <div className="d-flex flex-wrap" onChange={(e) => setMPO(e.target.value)}>
                                                         <div className="form-check form-check-primary mr-3">
                                                             <label className="form-check-label">
                                                                 <input type="checkbox" className="form-check-input" name="mplatforms" value="IOS/App Store" /> IOS/App Store
@@ -658,10 +692,10 @@ function AddSoftware() {
                                         <div className="col-md-6">
                                             <div className="row">
                                                 <label className="col-sm-12 col-form-label">
-                                                Aviable Support*
+                                                    Aviable Support*
                                                 </label>
                                                 <div className="col-sm-10">
-                                                    <div className="d-flex  flex-wrap" onChange={(e)=>setAvailableSupport([...AvailableSupport,e.target.value])}>
+                                                    <div className="d-flex  flex-wrap" onChange={(e) => setAvailableSupport([...AvailableSupport, e.target.value])}>
                                                         <div className="form-check form-check-primary mr-3">
                                                             <label className="form-check-label">
                                                                 <input type="checkbox" className="form-check-input" name="platforms" value="Email" /> Email
@@ -700,10 +734,10 @@ function AddSoftware() {
                                         <div className="col-md-6">
                                             <div className="row">
                                                 <label className="col-sm-12 col-form-label">
-                                                Available languages *
+                                                    Available languages *
                                                 </label>
                                                 <div className="col-sm-12">
-                                                    <div className="d-flex flex-wrap" onChange={(e)=>setLA(e.target.value)}>
+                                                    <div className="d-flex flex-wrap" onChange={(e) => setLA(e.target.value)}>
                                                         <div className="form-check form-check-primary mr-3">
                                                             <label className="form-check-label">
                                                                 <input type="radio" className="form-check-input" name="lang" value="ENG Only" /> ENG only
@@ -722,38 +756,119 @@ function AddSoftware() {
                                         </div>
                                     </div>
                                     <div className="row">
-                                    <div className="col-md-12">
-                                        <div className="row">
-                                            <label className="col-sm-2 text-center col-form-label">
-                                                Integrations
-                                            </label>
-                                            <div className="col-sm-9">
-                                                <textarea
-                                                    className="form-control"
-                                                    rows="5"
-                                                    columns="2"
-                                                    onChange={(e)=>setintegration(e.target.value)}
-                                                />
+                                        <div className="col-md-12">
+                                            <div className="row">
+                                                <label className="col-sm-2 text-center col-form-label">
+                                                    Integrations
+                                                </label>
+                                                <div className="col-sm-9">
+                                                    <textarea
+                                                        className="form-control"
+                                                        rows="5"
+                                                        columns="2"
+                                                        onChange={(e) => setintegration(e.target.value)}
+                                                    />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            <div className="my-lg-4 p-1">
-                            <button
-                                    type="submit"
-                                    className="btn btn-primary mr-2"
-                                    onClick={(e) => HandleSecondSubmit(e)}
-                                >
-                                    Save &#38; Next
-                                </button>
-                                <button type="reset" className="btn btn-light">
-                                    Reset
-                                </button>
-                            </div>
+                                    <div className="my-lg-4 p-1">
+                                        <button
+                                            type="submit"
+                                            className="btn btn-primary mr-2"
+                                            onClick={(e) => HandleSecondSubmit(e)}
+                                        >
+                                            Save &#38; Next
+                                        </button>
+                                        <button type="reset" className="btn btn-light">
+                                            Reset
+                                        </button>
+                                    </div>
                                 </form> : null
                         }
                         {
-                            (FormSlider == 3) ? third : null
+                            (FormSlider == 3) ?
+                                <form className="form-sample">
+                                    <p className="badge">3. Software Media</p><br />
+                                    <div className="row">
+                                        <div className="col-md-8">
+                                            <Form.Group>
+                                                <label>Screenshots *</label>
+                                                <div className="custom-file">
+                                                    <Form.Control type="file" className="form-control visibility-hidden" id="ss" lang="en" onChange={(e) => setSS(e.target.files[0])}  />
+                                                    <label className="custom-file-label" htmlFor="ss">Upload image</label>
+                                                </div>
+                                            </Form.Group>
+                                        </div>
+
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-md-8">
+                                            <Form.Group>
+                                                <label>Video Link </label>
+                                                <textarea className="form-control"></textarea>
+                                            </Form.Group>
+                                        </div>
+                                        <div className="col-md-8">
+                                            <Form.Group>
+                                                <label>Brochure File </label>
+                                                <div className="custom-file">
+                                                    <Form.Control type="file" className="form-control visibility-hidden" id="brochureFile" lang="en" onChange={(e) => setBrochureLink(e.target.files[0])}  />
+                                                    <label className="custom-file-label" htmlFor="brochureFile">Upload Brochure</label>
+                                                </div>
+                                            </Form.Group>
+                                        </div>
+                                        <div className="col-md-8">
+                                            <Form.Group>
+                                                <label>Ebooks </label>
+                                                <div className="custom-file">
+                                                    <Form.Control type="file" className="form-control visibility-hidden" id="ebookFile" lang="en" onChange={(e) => setEbooks(e.target.files[0])}  />
+                                                    <label className="custom-file-label" htmlFor="ebookFile">Upload Ebook</label>
+                                                </div>
+                                            </Form.Group>
+                                        </div>
+                                        <div className="col-md-8">
+                                            <Form.Group>
+                                                <label>Whitepaper </label>
+                                                <div className="custom-file">
+                                                    <Form.Control type="file" className="form-control visibility-hidden" id="whitepaper" lang="en" onChange={(e) => setWhitepapers(e.target.files[0])}  />
+                                                    <label className="custom-file-label" htmlFor="whitepaper">Upload Whitepaper</label>
+                                                </div>
+                                            </Form.Group>
+                                        </div>
+                                        <div className="col-md-8">
+                                            <Form.Group>
+                                                <label>PDF </label>
+                                                <div className="custom-file">
+                                                    <Form.Control type="file" className="form-control visibility-hidden" id="PDF" lang="en" onChange={(e) => setPDF(e.target.files[0])}  />
+                                                    <label className="custom-file-label" htmlFor="PDF">Upload PDF</label>
+                                                </div>
+                                            </Form.Group>
+                                        </div>
+                                        <div className="col-md-8">
+                                            <Form.Group>
+                                                <label>Guides </label>
+                                                <div className="custom-file">
+                                                    <Form.Control type="file" className="form-control visibility-hidden" id="Guides" lang="en" onChange={(e) => setGuide(e.target.files[0])}  />
+                                                    <label className="custom-file-label" htmlFor="Guides">Upload Guides</label>
+                                                </div>
+                                            </Form.Group>
+                                        </div>
+
+                                    </div>
+                                    <div className="my-lg-4 p-1">
+                                        <button
+                                            type="submit"
+                                            className="btn btn-primary mr-2"
+                                            onClick={(e) => HandleThirdSubmit(e)}
+                                        >
+                                            Save &#38; Next
+                                        </button>
+                                        <button type="reset" className="btn btn-light">
+                                            Reset
+                                        </button>
+                                    </div>
+                                </form> : null
                         }
                         {
                             (FormSlider == 4) ? fourth : null

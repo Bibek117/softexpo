@@ -73,6 +73,9 @@ Route::middleware(['vendor'])->prefix('vendor')->group(function () {
 
   // -------------- software specification
 
+  //add new software_media
+  Route::post('softwaremedia/create', [App\Http\Controllers\Api\SoftwaremediaController::class, 'create'])->name('newsoftware_media');
+
 
   });
 
@@ -109,8 +112,7 @@ Route::middleware(['vendor'])->prefix('vendor')->group(function () {
   Route::get('softwaremedia', [App\Http\Controllers\Api\SoftwaremediaController::class, 'index'])->name('showallsoftware_media');
   // id required and show individual
   Route::get('softwaremedia/show/{id}', [App\Http\Controllers\Api\SoftwaremediaController::class, 'show'])->name('showonesoftware_media');
-  //add new software_media
-  Route::post('softwaremedia/create', [App\Http\Controllers\Api\SoftwaremediaController::class, 'create'])->name('newsoftware_media');
+
   //update existing software_media and id required
   Route::put('softwaremedia/update/{id}', [App\Http\Controllers\Api\SoftwaremediaController::class, 'update'])->name('updatesoftware_media');
   //delete existing software_nedia and id required
