@@ -25,7 +25,7 @@ class SoftwaremediaRequest extends FormRequest
     {
         return [
             'software_id'=>'integer|required', 
-            'screenshots'=>'required',
+            'screenshots'=>'required|mimes:png,jpg',
             'video_link'=>'nullable|url|string',
             'brochure_link'=>'nullable|url|string',
             'ebooks'=>'nullable',

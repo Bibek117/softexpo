@@ -16,13 +16,13 @@ class CreateSoftwareMediaTable extends Migration
         Schema::create('software_media', function (Blueprint $table) {
             $table->id();
             $table->integer('software_id');
-            $table->string('screenshots')->nullable(false);
+            $table->text('screenshots')->nullable(false);
             $table->string('video_link')->nullable();
             $table->string('brochure_link')->nullable();
-            $table->string('ebooks')->nullable();
-            $table->string('whitepapers')->nullable();
-            $table->string('pdf')->nullable();
-            $table->string('guides')->nullable();
+            $table->text('ebooks')->nullable();
+            $table->text('whitepapers')->nullable();
+            $table->text('pdf')->nullable();
+            $table->text('guides')->nullable();
             $table->timestamps();
         });
     }
