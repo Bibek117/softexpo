@@ -5,14 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Lead extends Model
+class Review extends Model
 {
     use HasFactory;
-
     protected $fillable = [
+        'user_id',
         'software_id',
-        'name',
-        'email',
-        'phone'
+        'text',
     ];
 }
