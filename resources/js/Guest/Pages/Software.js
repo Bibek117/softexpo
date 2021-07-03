@@ -7,12 +7,28 @@ function Software() {
     const { software } = useParams()
     const [Product, setProduct] = useState('');
     const [loading, setloading] = useState(true)
+    const [LeadName, setLeadName] = useState('')
+    const [LeadEmail, setLeadEmail] = useState('')
+    const [LeadPhone, setLeadPhone] = useState('')
+
     useEffect(() => {
         axios.get(`/api/softwares/show/${software}`).then((res) => {
             setProduct(res.data)
             setloading(false)
         })
     }, [software])
+
+    const HandleLead = (e) =>{
+        e.preventDefault();
+        let LeadData = {
+            'name':LeadName,
+            'email':LeadEmail,
+            'phone':LeadPhone,
+            'software_id':Product.id
+        }
+
+        console.log(LeadData)
+    }
     return (
         <>
             <section>
@@ -67,7 +83,8 @@ function Software() {
                                         <h4>Screenshots</h4>
                                     </div>
                                     <div className="card-body">
-                                        {Product.software_mdeia ? Product.software_mdeia.screenshots : "No Screenshots found"}
+                                        {Product.software_media ?
+                                        <img src={Product.software_media.screenshots} width="80%" /> : "No Screenshots found"}
                                     </div>
                                 </div>
                             </div>
@@ -160,16 +177,16 @@ function Software() {
                            <h6 className="card-header bg-primary">Have a Question?</h6>
                            <div className="card-body">
                                <div className="form-group">
-                               <input className="form-control w-100" placeholder="Name *" />
+                               <input className="form-control w-100" type="text" placeholder="Name *" onChange={(e)=>setLeadName(e.target.value)} />
                                </div>
                                <div className="form-group">
-                               <input className="form-control w-100" placeholder="Email *" />
+                               <input className="form-control w-100" type="email" placeholder="Email *" onChange={(e)=>setLeadEmail(e.target.value)} />
                                </div>
                                <div className="form-group">
-                               <input className="form-control w-100" placeholder="Phone *" />
+                               <input className="form-control w-100" type="tel" placeholder="Phone *" onChange={(e)=>setLeadPhone(e.target.value)} />
                                </div>
                                <div className="form-group">
-                               <input type="submit" className="btn btn-block btn-outline-danger" />
+                               <input type="submit" onClick={(e)=>HandleLead(e)} className="btn btn-block btn-outline-danger" />
                                </div>
 
                            </div>
@@ -188,10 +205,28 @@ function Software() {
                                </div>
                                 <hr/>
                                 <div className="d-flex align-item-centre">
-                                <img class="img-xs rounded-circle" src="/assets/images/faces/face8.jpg" alt="Profile" />
+                                <img className="img-xs rounded-circle" src="/assets/images/faces/face8.jpg" alt="Profile" />
                                 <h6 className="mx-3">Username</h6>
                                 </div>
                                 <p className="my-3 p-2">lorem lorem lorem lorem lorem lorem</p>
+                           </div>
+                       </div>
+                       </section>
+                       <section id="Medias"className="my-5 p-1">
+                       <div className="card">
+                           <h6 className="card-header bg-success">Medias</h6>
+                           <div className="card-body">
+                                    { Product.software_media ?
+
+                                    (Product.software_media.ebooks) ?
+                                    <a href={Product.software_media.ebooks} download>Ebook</a>
+                                    :null
+                                    (Product.software_media.video_link) ?
+                                    <iframe src={Product.software_media.video_link} download>Ebook</iframe>
+                                    :null
+
+                                    :null }
+
                            </div>
                        </div>
                        </section>

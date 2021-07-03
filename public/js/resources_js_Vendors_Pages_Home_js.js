@@ -52928,6 +52928,26 @@ function AddCompany() {
           if (res) {
             history.push('/vendor/company');
           }
+        })["catch"](function (error) {
+          if (error.response && error.response.status == 422) {
+            var errors = error.response.data.errors;
+
+            for (var key in errors) {
+              if (Object.hasOwnProperty.call(errors, key)) {
+                var element = errors[key][0];
+                console.log(element);
+                react_toastify__WEBPACK_IMPORTED_MODULE_7__.toast.error('🦄' + element, {
+                  position: "top-left",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined
+                });
+              }
+            }
+          }
         });
       }
     })["catch"](function (error) {

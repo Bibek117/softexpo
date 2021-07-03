@@ -37,7 +37,7 @@ function AddSoftware() {
     const [VideoLink, setVideoLink] = useState('')
     const [BrochureLink, setBrochureLink] = useState('')
     const [Ebooks, setEbooks] = useState('')
-    const [Whitepapers, setWhitepapers] = useState('') 
+    const [Whitepapers, setWhitepapers] = useState('')
     const [PDF, setPDF] = useState('')
     const [Guide, setGuide] = useState('')
 
@@ -187,7 +187,7 @@ function AddSoftware() {
         thirdFormData.append('whitepapers',Whitepapers)
         thirdFormData.append('pdf',PDF)
         thirdFormData.append('guides',Guide)
-        thirdFormData.append('software_id',22)
+        thirdFormData.append('software_id',SoftwareId)
         venodrAxios.post('/softwaremedia/create',thirdFormData).then(res=>alert(res))
 
 

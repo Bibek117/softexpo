@@ -91,6 +91,25 @@ function AddCompany() {
                     if (res) {
                         history.push('/vendor/company')
                     }
+                }).catch((error) => {
+                    if (error.response && error.response.status == 422) {
+                        const errors = error.response.data.errors;
+                        for (const key in errors) {
+                            if (Object.hasOwnProperty.call(errors, key)) {
+                                const element = errors[key][0];
+                                console.log(element);
+                                toast.error('🦄' + element, {
+                                    position: "top-left",
+                                    autoClose: 5000,
+                                    hideProgressBar: false,
+                                    closeOnClick: true,
+                                    pauseOnHover: true,
+                                    draggable: true,
+                                    progress: undefined,
+                                });
+                            }
+                        }
+                    }
                 })
             }
         }).catch((error) => {

@@ -25,7 +25,7 @@ class Software extends Model
     }
 
     public function software_media(){
-        return $this->hasOne(SoftwareMedia::class,'id','software_id');
+        return $this->hasOne(SoftwareMedia::class,'software_id','id');
     }
 
     public function category(){

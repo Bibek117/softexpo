@@ -51,12 +51,39 @@ function Software() {
       loading = _useState4[0],
       setloading = _useState4[1];
 
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+      _useState6 = _slicedToArray(_useState5, 2),
+      LeadName = _useState6[0],
+      setLeadName = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+      _useState8 = _slicedToArray(_useState7, 2),
+      LeadEmail = _useState8[0],
+      setLeadEmail = _useState8[1];
+
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+      _useState10 = _slicedToArray(_useState9, 2),
+      LeadPhone = _useState10[0],
+      setLeadPhone = _useState10[1];
+
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/softwares/show/".concat(software)).then(function (res) {
       setProduct(res.data);
       setloading(false);
     });
   }, [software]);
+
+  var HandleLead = function HandleLead(e) {
+    e.preventDefault();
+    var LeadData = {
+      'name': LeadName,
+      'email': LeadEmail,
+      'phone': LeadPhone,
+      'software_id': Product.id
+    };
+    console.log(LeadData);
+  };
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("section", {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -162,7 +189,10 @@ function Software() {
                   })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                   className: "card-body",
-                  children: Product.software_mdeia ? Product.software_mdeia.screenshots : "No Screenshots found"
+                  children: Product.software_media ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                    src: Product.software_media.screenshots,
+                    width: "80%"
+                  }) : "No Screenshots found"
                 })]
               })
             })
@@ -318,24 +348,39 @@ function Software() {
                   className: "form-group",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
                     className: "form-control w-100",
-                    placeholder: "Name *"
+                    type: "text",
+                    placeholder: "Name *",
+                    onChange: function onChange(e) {
+                      return setLeadName(e.target.value);
+                    }
                   })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                   className: "form-group",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
                     className: "form-control w-100",
-                    placeholder: "Email *"
+                    type: "email",
+                    placeholder: "Email *",
+                    onChange: function onChange(e) {
+                      return setLeadEmail(e.target.value);
+                    }
                   })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                   className: "form-group",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
                     className: "form-control w-100",
-                    placeholder: "Phone *"
+                    type: "tel",
+                    placeholder: "Phone *",
+                    onChange: function onChange(e) {
+                      return setLeadPhone(e.target.value);
+                    }
                   })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                   className: "form-group",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
                     type: "submit",
+                    onClick: function onClick(e) {
+                      return HandleLead(e);
+                    },
                     className: "btn btn-block btn-outline-danger"
                   })
                 })]
@@ -366,7 +411,7 @@ function Software() {
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                   className: "d-flex align-item-centre",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-                    "class": "img-xs rounded-circle",
+                    className: "img-xs rounded-circle",
                     src: "/assets/images/faces/face8.jpg",
                     alt: "Profile"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h6", {
@@ -377,6 +422,27 @@ function Software() {
                   className: "my-3 p-2",
                   children: "lorem lorem lorem lorem lorem lorem"
                 })]
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("section", {
+            id: "Medias",
+            className: "my-5 p-1",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "card",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h6", {
+                className: "card-header bg-success",
+                children: "Medias"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "card-body",
+                children: Product.software_media ? Product.software_media.ebooks ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+                  href: Product.software_media.ebooks,
+                  download: true,
+                  children: "Ebook"
+                }) : null(Product.software_media.video_link) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("iframe", {
+                  src: Product.software_media.video_link,
+                  download: true,
+                  children: "Ebook"
+                }) : null : null
               })]
             })
           })]

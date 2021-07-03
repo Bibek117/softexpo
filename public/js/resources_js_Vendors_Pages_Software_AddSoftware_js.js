@@ -351,7 +351,7 @@ function AddSoftware() {
     thirdFormData.append('whitepapers', Whitepapers);
     thirdFormData.append('pdf', PDF);
     thirdFormData.append('guides', Guide);
-    thirdFormData.append('software_id', 22);
+    thirdFormData.append('software_id', SoftwareId);
     _axios__WEBPACK_IMPORTED_MODULE_2__.venodrAxios.post('/softwaremedia/create', thirdFormData).then(function (res) {
       return alert(res);
     });
