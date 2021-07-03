@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
+import { toast, ToastContainer } from 'react-toastify';
 import { Loading } from '../components/Loading';
 
 function Software() {
@@ -18,19 +19,47 @@ function Software() {
         })
     }, [software])
 
-    const HandleLead = (e) =>{
+    const HandleLead = (e) => {
         e.preventDefault();
         let LeadData = {
-            'name':LeadName,
-            'email':LeadEmail,
-            'phone':LeadPhone,
-            'software_id':Product.id
+            'name': LeadName,
+            'email': LeadEmail,
+            'phone': LeadPhone,
+            'software_id': Product.id
         }
 
-        console.log(LeadData)
+        axios.post('/api/leads/store',LeadData).then((res)=>{
+            if (res.status==201) {
+                toast.info('🦄' + " SAVED", {
+                    position: "top-left",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+                setLeadEmail('')
+                setLeadName('')
+                setLeadPhone('')
+
+            }
+        })
+        // console.log(LeadData)
     }
     return (
         <>
+        <ToastContainer
+                position="top-left"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <section>
                 <div className="container">
                     <Loading loading={loading} />
@@ -84,7 +113,7 @@ function Software() {
                                     </div>
                                     <div className="card-body">
                                         {Product.software_media ?
-                                        <img src={Product.software_media.screenshots} width="80%" /> : "No Screenshots found"}
+                                            <img src={Product.software_media.screenshots} width="80%" /> : "No Screenshots found"}
                                     </div>
                                 </div>
                             </div>
@@ -99,11 +128,11 @@ function Software() {
                                         {Product.specifications ? <>
                                             <div className="col-md-6">
                                                 <p>Payment: {Product.specifications.payment_options}</p>
-                                                <p>APIs Availability: {(Product.specifications.is_api_available==1)? "Yes":"No"}</p>
-                                                <p>Customizable: {(Product.specifications.is_customizable==1)? "Yes":"No"}</p>
-                                                <p>Lifetime Free: {(Product.specifications.is_lifetime_free==1)? "Yes":"No"}</p>
-                                                <p>Offer Trials: {(Product.specifications.offer_trial==1)? "Yes":"No"}</p>
-                                                <p>Runs on Mobile Browsers: {(Product.specifications.runs_on_mobile_browser==1)? "Yes":"No"}</p>
+                                                <p>APIs Availability: {(Product.specifications.is_api_available == 1) ? "Yes" : "No"}</p>
+                                                <p>Customizable: {(Product.specifications.is_customizable == 1) ? "Yes" : "No"}</p>
+                                                <p>Lifetime Free: {(Product.specifications.is_lifetime_free == 1) ? "Yes" : "No"}</p>
+                                                <p>Offer Trials: {(Product.specifications.offer_trial == 1) ? "Yes" : "No"}</p>
+                                                <p>Runs on Mobile Browsers: {(Product.specifications.runs_on_mobile_browser == 1) ? "Yes" : "No"}</p>
                                                 <h6 className="badge badge-danger">Available Support</h6>
                                                 <p>{Product.specifications.available_support}</p>
                                             </div>
@@ -136,23 +165,23 @@ function Software() {
                                         <h4>Company Details</h4>
                                     </div>
                                     <div className="card-body">
-                                        { Product.vendor && ( Product.vendor.company) ?
-                                        <ul>
-                                        <li className="d-flex ">
-                                            <span className="font-weight-bolder mx-1">Company Name:</span>
-                                            <p>{Product.vendor.company.name}</p>
-                                        </li>
-                                        <li className="d-flex">
-                                        <span className="font-weight-bolder mx-1">Full Address:</span>
-                                        <p>{Product.vendor.company.address+","+Product.vendor.company.city+","+Product.vendor.company.country+"-"+Product.vendor.company.pincode}</p>
-                                    </li>
-                                    <li className="d-flex">
-                                    <span className="font-weight-bolder mx-1">Website: </span>
-                                    <p>
-                                        <a href={Product.vendor.company.website} className="btn btn-info" target="_blank">Visit Website</a>
-                                    </p>
-                                </li></ul>
-                                        : "No Company Details found"}
+                                        {Product.vendor && (Product.vendor.company) ?
+                                            <ul>
+                                                <li className="d-flex ">
+                                                    <span className="font-weight-bolder mx-1">Company Name:</span>
+                                                    <p>{Product.vendor.company.name}</p>
+                                                </li>
+                                                <li className="d-flex">
+                                                    <span className="font-weight-bolder mx-1">Full Address:</span>
+                                                    <p>{Product.vendor.company.address + "," + Product.vendor.company.city + "," + Product.vendor.company.country + "-" + Product.vendor.company.pincode}</p>
+                                                </li>
+                                                <li className="d-flex">
+                                                    <span className="font-weight-bolder mx-1">Website: </span>
+                                                    <p>
+                                                        <a href={Product.vendor.company.website} className="btn btn-info" target="_blank">Visit Website</a>
+                                                    </p>
+                                                </li></ul>
+                                            : "No Company Details found"}
                                     </div>
                                 </div>
                             </div>
@@ -172,64 +201,65 @@ function Software() {
 
                     </div>
                     <div className="col-lg-4">
-                        <section id="leads"className="my-4 p-1">
-                       <div className="card">
-                           <h6 className="card-header bg-primary">Have a Question?</h6>
-                           <div className="card-body">
-                               <div className="form-group">
-                               <input className="form-control w-100" type="text" placeholder="Name *" onChange={(e)=>setLeadName(e.target.value)} />
-                               </div>
-                               <div className="form-group">
-                               <input className="form-control w-100" type="email" placeholder="Email *" onChange={(e)=>setLeadEmail(e.target.value)} />
-                               </div>
-                               <div className="form-group">
-                               <input className="form-control w-100" type="tel" placeholder="Phone *" onChange={(e)=>setLeadPhone(e.target.value)} />
-                               </div>
-                               <div className="form-group">
-                               <input type="submit" onClick={(e)=>HandleLead(e)} className="btn btn-block btn-outline-danger" />
-                               </div>
-
-                           </div>
-                       </div>
-                       </section>
-                       <section id="Reviews"className="my-5 p-1">
-                       <div className="card">
-                           <h6 className="card-header bg-success">Reviews</h6>
-                           <div className="card-body">
-                               <div className="form-group">
-                               <textarea className="form-control w-100" placeholder="Your Reviews"></textarea>
-                               </div>
-
-                               <div className="form-group">
-                               <input type="submit" className="btn btn-block btn-outline-success" />
-                               </div>
-                                <hr/>
-                                <div className="d-flex align-item-centre">
-                                <img className="img-xs rounded-circle" src="/assets/images/faces/face8.jpg" alt="Profile" />
-                                <h6 className="mx-3">Username</h6>
+                        <section id="leads" className="my-4 p-1">
+                            <div className="card">
+                                <h6 className="card-header bg-primary">Have a Question?</h6>
+                                <div className="card-body">
+                                    <form onSubmit={(e)=> HandleLead(e)}>
+                                    <div className="form-group">
+                                        <input className="form-control w-100" type="text" value={LeadName} placeholder="Name *" onChange={(e) => setLeadName(e.target.value)} />
+                                    </div>
+                                    <div className="form-group">
+                                        <input className="form-control w-100" type="email" value={LeadEmail} placeholder="Email *" onChange={(e) => setLeadEmail(e.target.value)} />
+                                    </div>
+                                    <div className="form-group">
+                                        <input className="form-control w-100" type="tel" placeholder="Phone *" value={LeadPhone} onChange={(e) => setLeadPhone(e.target.value)} />
+                                    </div>
+                                    <div className="form-group">
+                                        <input type="submit" className="btn btn-block btn-outline-danger" />
+                                    </div>
+                                    </form>
                                 </div>
-                                <p className="my-3 p-2">lorem lorem lorem lorem lorem lorem</p>
-                           </div>
-                       </div>
-                       </section>
-                       <section id="Medias"className="my-5 p-1">
-                       <div className="card">
-                           <h6 className="card-header bg-success">Medias</h6>
-                           <div className="card-body">
-                                    { Product.software_media ?
+                            </div>
+                        </section>
+                        <section id="Reviews" className="my-5 p-1">
+                            <div className="card">
+                                <h6 className="card-header bg-success">Reviews</h6>
+                                <div className="card-body">
+                                    <div className="form-group">
+                                        <textarea className="form-control w-100" placeholder="Your Reviews"></textarea>
+                                    </div>
 
-                                    (Product.software_media.ebooks) ?
-                                    <a href={Product.software_media.ebooks} download>Ebook</a>
-                                    :null
-                                    (Product.software_media.video_link) ?
-                                    <iframe src={Product.software_media.video_link} download>Ebook</iframe>
-                                    :null
+                                    <div className="form-group">
+                                        <input type="submit" className="btn btn-block btn-outline-success" />
+                                    </div>
+                                    <hr />
+                                    <div className="d-flex align-item-centre">
+                                        <img className="img-xs rounded-circle" src="/assets/images/faces/face8.jpg" alt="Profile" />
+                                        <h6 className="mx-3">Username</h6>
+                                    </div>
+                                    <p className="my-3 p-2">lorem lorem lorem lorem lorem lorem</p>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="Medias" className="my-5 p-1">
+                            <div className="card">
+                                <h6 className="card-header bg-success">Medias</h6>
+                                <div className="card-body">
+                                    {Product.software_media ?
 
-                                    :null }
+                                        (Product.software_media.ebooks) ?
+                                            <a href={Product.software_media.ebooks} download>Ebook</a>
+                                            : null
+                                                (Product.software_media.video_link) ?
+                                                <iframe src={Product.software_media.video_link} download>Ebook</iframe>
+                                                : null
 
-                           </div>
-                       </div>
-                       </section>
+                                        : null}
+
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>

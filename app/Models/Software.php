@@ -40,6 +40,10 @@ class Software extends Model
         return $this->hasOne(Softwarepricing::class,'software_id','id');
     }
 
+    public function leads(){
+        return $this->hasOne(Lead::class,'software_id','id');
+    }
+
     // protected $dateFormat = 'Y-M-d';
 
     // public function getDateTimeAttribute($value)

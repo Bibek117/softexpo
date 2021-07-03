@@ -6,9 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\LeadRequest;
 use Illuminate\Http\Request;
 use App\Models\lead;
+use App\Http\Controllers\Traits\AuthTrait;
+use App\Models\Software;
 
 class LeadController extends Controller
 {
+    use AuthTrait;
     /**
      * Display a listing of the resource.
      *
@@ -16,13 +19,21 @@ class LeadController extends Controller
      */
     public function index()
     {
-        $data_all = Lead::all();
+        $vendorId = $this->get_current_user_passport("vendor")->id;
+        $data_all = Software::where('vendor_id',$vendorId)->with('leads')->get();
+        $data = [];
         if(count($data_all) > 0){
-             return response()->json($data_all,200);
+            foreach ($data_all as $key) {
+                if($key->leads){
+                    $data = $key->leads;
+                }
+            }
+             return response()->json($data,200);
         }else{
             return response()->json(['message'=>'Empty'],200);
         }
     }
+
 
 
     /**
@@ -55,7 +66,7 @@ class LeadController extends Controller
         return response()->json($data, 200);
     }
 
-    
+
 
     /**
      * Update the specified resource in storage.
@@ -91,7 +102,8 @@ class LeadController extends Controller
         $data = Lead::find($id);
         $isDeleted = $data->delete();
         if($isDeleted){
-            return response()->json(['message'=>'Deleted successfully','IsDeleted'=>$isDeleted],200);
+            $data_all = Lead::with('software')->get();
+            return response()->json(['message'=>'Deleted successfully','data'=>$data_all],200);
         }else{
             return response()->json(['message'=>'Something went wrong'],200);
         }

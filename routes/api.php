@@ -76,6 +76,10 @@ Route::middleware(['vendor'])->prefix('vendor')->group(function () {
   //add new software_media
   Route::post('softwaremedia/create', [App\Http\Controllers\Api\SoftwaremediaController::class, 'create'])->name('newsoftware_media');
 
+  Route::get('leads',[App\Http\Controllers\Api\LeadController::class,'index'])->name('show_all_leads');
+
+  Route::delete('leads/delete/{id}',[App\Http\Controllers\Api\LeadController::class,'destroy'])->name('delete_lead');
+
 
   });
 
@@ -241,11 +245,8 @@ Route::delete('companytype/delete/{id}',[App\Http\Controllers\Admin\CompanyTypeC
 
 
 //leads
-Route::get('lead',[App\Http\Controllers\Api\LeadController::class,'index'])->name('show_all_leads');
 Route::get('lead/show/{id}',[App\Http\Controllers\Api\LeadController::class,'show'])->name('show_one_lead');
-Route::post('lead/store',[App\Http\Controllers\Api\LeadController::class,'store'])->name('new_lead');
 Route::put('lead/update/{id}',[App\Http\Controllers\Api\LeadController::class,'update'])->name('update_lead');
-Route::delete('lead/delete/{id}',[App\Http\Controllers\Api\LeadController::class,'destroy'])->name('delete_lead');
 
 //reviews
 Route::get('review',[App\Http\Controllers\Api\ReviewController::class,'index'])->name('show_all_reviews');
@@ -253,4 +254,5 @@ Route::get('review/show/{id}',[App\Http\Controllers\Api\ReviewController::class,
 Route::post('review/store',[App\Http\Controllers\Api\ReviewController::class,'store'])->name('new_review');
 Route::put('review/update/{id}',[App\Http\Controllers\Api\ReviewController::class,'update'])->name('update_review');
 Route::delete('review/delete/{id}',[App\Http\Controllers\Api\ReviewController::class,'destroy'])->name('delete_review');
+
 });

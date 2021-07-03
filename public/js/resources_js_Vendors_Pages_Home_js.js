@@ -52489,13 +52489,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Guest/components/VendorRoutes */ "./resources/js/Guest/components/VendorRoutes.js");
 /* harmony import */ var _Pages_Company_AddCompany__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Pages/Company/AddCompany */ "./resources/js/Vendors/Pages/Company/AddCompany.js");
-/* harmony import */ var _Pages_Software_EditSoftware__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Pages/Software/EditSoftware */ "./resources/js/Vendors/Pages/Software/EditSoftware.js");
-/* harmony import */ var _Pages_Software_Softwares__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Pages/Software/Softwares */ "./resources/js/Vendors/Pages/Software/Softwares.js");
-/* harmony import */ var _shared_Spinner__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./shared/Spinner */ "./resources/js/Vendors/shared/Spinner.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Pages_Leads_Index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Pages/Leads/Index */ "./resources/js/Vendors/Pages/Leads/Index.js");
+/* harmony import */ var _Pages_Software_EditSoftware__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Pages/Software/EditSoftware */ "./resources/js/Vendors/Pages/Software/EditSoftware.js");
+/* harmony import */ var _Pages_Software_Softwares__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Pages/Software/Softwares */ "./resources/js/Vendors/Pages/Software/Softwares.js");
+/* harmony import */ var _shared_Spinner__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./shared/Spinner */ "./resources/js/Vendors/shared/Spinner.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -52521,6 +52522,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
+ // import index from './Pages/Leads';
 
 
 
@@ -52584,62 +52587,65 @@ var AppRoutes = /*#__PURE__*/function (_Component) {
   _createClass(AppRoutes, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
-        fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_shared_Spinner__WEBPACK_IMPORTED_MODULE_5__.default, {}),
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Switch, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
+        fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_shared_Spinner__WEBPACK_IMPORTED_MODULE_6__.default, {}),
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Switch, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             exact: true,
             path: "/vendor/dashboard",
             component: Dashboard
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             path: "/vendor/basic-ui/buttons",
             component: Buttons
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             path: "/basic-ui/dropdowns",
             component: Dropdowns
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             path: "/vendor/form-Elements",
             component: BasicElements
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             path: "/vendor/tables/basic-table",
             component: BasicTable
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             path: "/vendor/icons/mdi",
             component: Mdi
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             path: "/vendor/charts/chart-js",
             component: ChartJs
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             path: "/vendor/user-pages/login-1",
             component: Login
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             path: "/vendor/user-pages/register-1",
             component: Register1
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             path: "/vendor/error-pages/error-404",
             component: Error404
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             path: "/vendor/error-pages/error-500",
             component: Error500
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             path: "/vendor/company",
             component: Company
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             path: "/vendor/add-company",
             component: _Pages_Company_AddCompany__WEBPACK_IMPORTED_MODULE_2__.default
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             path: "/vendor/edit-company",
             component: EditCompany
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             path: "/vendor/add-software",
             component: AddSoftware
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             path: "/vendor/edit-software",
-            component: _Pages_Software_EditSoftware__WEBPACK_IMPORTED_MODULE_3__.default
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+            component: _Pages_Software_EditSoftware__WEBPACK_IMPORTED_MODULE_4__.default
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
             path: "/vendor/software",
-            component: _Pages_Software_Softwares__WEBPACK_IMPORTED_MODULE_4__.default
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Redirect, {
+            component: _Pages_Software_Softwares__WEBPACK_IMPORTED_MODULE_5__.default
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Guest_components_VendorRoutes__WEBPACK_IMPORTED_MODULE_1__.default, {
+            path: "/vendor/leads",
+            component: _Pages_Leads_Index__WEBPACK_IMPORTED_MODULE_3__.default
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Redirect, {
             to: "/vendor/dashboard"
           })]
         })
@@ -53481,6 +53487,202 @@ var VendorDashboard = /*#__PURE__*/function (_Component) {
 
 /***/ }),
 
+/***/ "./resources/js/Vendors/Pages/Leads/Index.js":
+/*!***************************************************!*\
+  !*** ./resources/js/Vendors/Pages/Leads/Index.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var ag_grid_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ag-grid-react */ "./node_modules/ag-grid-react/main.js");
+/* harmony import */ var _axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../axios */ "./resources/js/axios.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]); if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+function Index() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      Leads = _useState2[0],
+      setLeads = _useState2[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    _axios__WEBPACK_IMPORTED_MODULE_2__.venodrAxios.get('/leads').then(function (res) {
+      console.log(res);
+      setLeads(res.data);
+    });
+  }, []);
+  var gridRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var gridOptions = {
+    pagination: true,
+    rowSelection: "single",
+    // // EVENTS
+    // // Add event handlers
+    // onRowClicked: event => console.log('A row was clicked'),
+    // onColumnResized: event => console.log('A column was resized'),
+    // onGridReady: event => console.log('The grid is now ready'),
+    // // CALLBACKS
+    isScrollLag: function isScrollLag() {
+      return false;
+    }
+  };
+
+  var deleteItem = function deleteItem() {
+    var selectedNodes = gridRef.current.api.getSelectedNodes();
+    var selectedData = selectedNodes.map(function (node) {
+      return node.data;
+    });
+
+    if (selectedData.length == 0) {
+      alert("Select item first");
+    } else {
+      selectedData.map(function (data) {
+        _axios__WEBPACK_IMPORTED_MODULE_2__.venodrAxios.delete("/leads/delete/".concat(data.id)).then(function (res) {
+          if (res.status == 200) {
+            react_toastify__WEBPACK_IMPORTED_MODULE_4__.toast.success('🦄' + res.data.message, {
+              position: "top-left",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined
+            });
+            setLeads(res.data.data);
+          }
+        });
+      });
+    }
+  };
+
+  var Call = function Call() {
+    var selectedNodes = gridRef.current.api.getSelectedNodes();
+    var selectedData = selectedNodes.map(function (node) {
+      return node.data;
+    });
+
+    if (selectedData.length == 0) {
+      return alert("Select item first");
+    } else if (selectedData.length > 1) {
+      return alert("can't call multiple recipent at once");
+    } else {
+      return location.href = "tel:" + selectedData.phone;
+    }
+  };
+
+  var Mail = function Mail() {
+    var selectedNodes = gridRef.current.api.getSelectedNodes();
+    var selectedData = selectedNodes.map(function (node) {
+      return node.data;
+    });
+
+    if (selectedData.length == 0) {
+      return alert("Select item first");
+    } else if (selectedData.length > 1) {
+      return alert("can't send multiple mail at once");
+    } else {
+      return location.href = "mailto:" + selectedData.email;
+    }
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    className: "row",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "col-12 grid-margin",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "ag-theme-alpine",
+        style: {
+          height: 600
+        },
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
+          className: "btn btn-danger my-2 mx-2",
+          onClick: deleteItem,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+            className: "mdi mdi-delete-forever"
+          }), " Delete"]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
+          className: "btn btn-success my-2 mx-2",
+          onClick: Call,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+            className: "mdi mdi-call-made"
+          }), " Call"]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
+          className: "btn btn-danger my-2",
+          onClick: Mail,
+          children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+            className: "mdi mdi-contact-mail"
+          }), " Mail"]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(ag_grid_react__WEBPACK_IMPORTED_MODULE_1__.AgGridReact, {
+          gridOptions: gridOptions,
+          ref: gridRef,
+          rowData: Leads,
+          rowSelection: "multiple",
+          pagination: true,
+          animateRows: true,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(ag_grid_react__WEBPACK_IMPORTED_MODULE_1__.AgGridColumn, {
+            field: "id",
+            initialHide: true
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(ag_grid_react__WEBPACK_IMPORTED_MODULE_1__.AgGridColumn, {
+            checkboxSelection: true,
+            field: "software.software_name",
+            sortable: true,
+            filter: true,
+            headerName: "Software Name",
+            resizable: true
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(ag_grid_react__WEBPACK_IMPORTED_MODULE_1__.AgGridColumn, {
+            field: "name",
+            sortable: true,
+            filter: true,
+            headerName: "Name",
+            resizable: true
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(ag_grid_react__WEBPACK_IMPORTED_MODULE_1__.AgGridColumn, {
+            field: "email",
+            sortable: true,
+            filter: true,
+            headerName: "Email"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(ag_grid_react__WEBPACK_IMPORTED_MODULE_1__.AgGridColumn, {
+            field: "phone",
+            sortable: true,
+            filter: true,
+            headerName: "Phone"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(ag_grid_react__WEBPACK_IMPORTED_MODULE_1__.AgGridColumn, {
+            field: "created_at",
+            sortable: true,
+            filter: true,
+            headerName: "Added On"
+          })]
+        })]
+      })
+    })
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Index);
+
+/***/ }),
+
 /***/ "./resources/js/Vendors/Pages/Software/EditSoftware.js":
 /*!*************************************************************!*\
   !*** ./resources/js/Vendors/Pages/Software/EditSoftware.js ***!
@@ -53558,14 +53760,12 @@ function Softwares() {
       setSoftware(res.data);
     });
   }, []);
-  var gridRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-
-  var onButtonClick = function onButtonClick(e) {
-    var selectedDataStringPresentation = selectedData.map(function (node) {
-      return "".concat(node.software_name, " ").concat(node.id);
-    }).join(", ");
-    alert("Selected nodes: ".concat(selectedDataStringPresentation));
-  };
+  var gridRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null); // const onButtonClick = (e) => {
+  //     const selectedDataStringPresentation = selectedData
+  //         .map((node) => `${node.software_name} ${node.id}`)
+  //         .join(", ");
+  //     alert(`Selected nodes: ${selectedDataStringPresentation}`);
+  // };
 
   var gridOptions = {
     pagination: true,
@@ -53834,88 +54034,12 @@ function Navbar() {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
           className: "mdi mdi-menu"
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("ul", {
         className: "navbar-nav navbar-nav-left header-links align-self-center",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
           className: "nav-item font-weight-semibold d-none  d-md-flex",
           children: "Help : +050 2992 709"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
-          className: "nav-item dropdown language-dropdown",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default, {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Toggle, {
-              className: "nav-link count-indicator p-0 toggle-arrow-hide bg-transparent",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                className: "d-inline-flex mr-0 mr-md-3",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                  className: "flag-icon-holder",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-                    className: "flag-icon flag-icon-us"
-                  })
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                className: "profile-text font-weight-medium d-none d-md-block",
-                children: "English"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Menu, {
-              className: "navbar-dropdown preview-list",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Item, {
-                className: "dropdown-item  d-flex align-items-center",
-                href: "!#",
-                onClick: function onClick(evt) {
-                  return evt.preventDefault();
-                },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                  className: "flag-icon-holder",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-                    className: "flag-icon flag-icon-us"
-                  })
-                }), "English"]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                className: "dropdown-divider"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Item, {
-                className: "dropdown-item preview-item d-flex align-items-center",
-                href: "!#",
-                onClick: function onClick(evt) {
-                  return evt.preventDefault();
-                },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                  className: "flag-icon-holder",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-                    className: "flag-icon flag-icon-fr"
-                  })
-                }), "French"]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                className: "dropdown-divider"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Item, {
-                className: "dropdown-item preview-item d-flex align-items-center",
-                href: "!#",
-                onClick: function onClick(evt) {
-                  return evt.preventDefault();
-                },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                  className: "flag-icon-holder",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-                    className: "flag-icon flag-icon-ae"
-                  })
-                }), "Arabic"]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                className: "dropdown-divider"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Item, {
-                className: "dropdown-item preview-item d-flex align-items-center",
-                href: "!#",
-                onClick: function onClick(evt) {
-                  return evt.preventDefault();
-                },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                  className: "flag-icon-holder",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-                    className: "flag-icon flag-icon-ru"
-                  })
-                }), "Russian"]
-              })]
-            })]
-          })
-        })]
+        })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("form", {
         className: "ml-auto search-form d-none d-md-block",
         action: "#",
@@ -53927,243 +54051,9 @@ function Navbar() {
             placeholder: "Search Here"
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("ul", {
         className: "navbar-nav navbar-nav-right",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
-          className: "nav-item  nav-profile border-0 pl-4",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default, {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Toggle, {
-              className: "nav-link count-indicator p-0 toggle-arrow-hide bg-transparent",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-                className: "mdi mdi-bell-outline"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                className: "count bg-success",
-                children: "4"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Menu, {
-              className: "navbar-dropdown preview-list",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Item, {
-                className: "dropdown-item py-3 d-flex align-items-center",
-                href: "!#",
-                onClick: function onClick(evt) {
-                  return evt.preventDefault();
-                },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
-                  className: "mb-0 font-weight-medium float-left",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_i18next__WEBPACK_IMPORTED_MODULE_6__.Trans, {
-                    children: "You have"
-                  }), " 4 ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_i18next__WEBPACK_IMPORTED_MODULE_6__.Trans, {
-                    children: "new notifications"
-                  }), " "]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                  className: "badge badge-pill badge-primary float-right",
-                  children: "View all"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                className: "dropdown-divider"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Item, {
-                className: "dropdown-item preview-item d-flex align-items-center",
-                href: "!#",
-                onClick: function onClick(evt) {
-                  return evt.preventDefault();
-                },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                  className: "preview-thumbnail",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-                    className: "mdi mdi-alert m-auto text-primary"
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                  className: "preview-item-content py-2",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h6", {
-                    className: "preview-subject font-weight-normal text-dark mb-1",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_i18next__WEBPACK_IMPORTED_MODULE_6__.Trans, {
-                      children: "Application Error"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
-                    className: "font-weight-light small-text mb-0",
-                    children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_i18next__WEBPACK_IMPORTED_MODULE_6__.Trans, {
-                      children: "Just now"
-                    }), " "]
-                  })]
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                className: "dropdown-divider"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Item, {
-                className: "dropdown-item preview-item d-flex align-items-center",
-                href: "!#",
-                onClick: function onClick(evt) {
-                  return evt.preventDefault();
-                },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                  className: "preview-thumbnail",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-                    className: "mdi mdi-settings m-auto text-primary"
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                  className: "preview-item-content py-2",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h6", {
-                    className: "preview-subject font-weight-normal text-dark mb-1",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_i18next__WEBPACK_IMPORTED_MODULE_6__.Trans, {
-                      children: "Settings"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
-                    className: "font-weight-light small-text mb-0",
-                    children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_i18next__WEBPACK_IMPORTED_MODULE_6__.Trans, {
-                      children: "Private message"
-                    }), " "]
-                  })]
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                className: "dropdown-divider"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Item, {
-                className: "dropdown-item preview-item d-flex align-items-center",
-                href: "!#",
-                onClick: function onClick(evt) {
-                  return evt.preventDefault();
-                },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                  className: "preview-thumbnail",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-                    className: "mdi mdi-airballoon m-auto text-primary"
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                  className: "preview-item-content py-2",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h6", {
-                    className: "preview-subject font-weight-normal text-dark mb-1",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_i18next__WEBPACK_IMPORTED_MODULE_6__.Trans, {
-                      children: "New user registration"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
-                    className: "font-weight-light small-text mb-0",
-                    children: [" 2 ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_i18next__WEBPACK_IMPORTED_MODULE_6__.Trans, {
-                      children: "days ago"
-                    }), " "]
-                  })]
-                })]
-              })]
-            })]
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
-          className: "nav-item  nav-profile border-0",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default, {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Toggle, {
-              className: "nav-link count-indicator p-0 toggle-arrow-hide bg-transparent",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-                className: "mdi mdi-email-outline"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                className: "count",
-                children: "7"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Menu, {
-              className: "navbar-dropdown preview-list",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Item, {
-                className: "dropdown-item  d-flex align-items-center",
-                href: "!#",
-                onClick: function onClick(evt) {
-                  return evt.preventDefault();
-                },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
-                  className: "mb-0 font-weight-medium float-left",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_i18next__WEBPACK_IMPORTED_MODULE_6__.Trans, {
-                    children: "You have"
-                  }), " 7 ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_i18next__WEBPACK_IMPORTED_MODULE_6__.Trans, {
-                    children: "unread mails"
-                  }), " "]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                  className: "badge badge-pill badge-primary",
-                  children: "View all"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                className: "dropdown-divider"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Item, {
-                className: "dropdown-item preview-item d-flex align-items-center",
-                href: "!#",
-                onClick: function onClick(evt) {
-                  return evt.preventDefault();
-                },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                  className: "preview-thumbnail",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-                    src: "/assets/images/faces/face10.jpg",
-                    alt: "profile",
-                    className: "img-sm profile-pic"
-                  }), " "]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                  className: "preview-item-content flex-grow py-2",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
-                    className: "preview-subject ellipsis font-weight-medium text-dark",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_i18next__WEBPACK_IMPORTED_MODULE_6__.Trans, {
-                      children: "Marian Garner"
-                    }), " "]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
-                    className: "font-weight-light small-text",
-                    children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_i18next__WEBPACK_IMPORTED_MODULE_6__.Trans, {
-                      children: "The meeting is cancelled"
-                    }), " "]
-                  })]
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                className: "dropdown-divider"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Item, {
-                className: "dropdown-item preview-item d-flex align-items-center",
-                href: "!#",
-                onClick: function onClick(evt) {
-                  return evt.preventDefault();
-                },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                  className: "preview-thumbnail",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-                    src: "/assets/images/faces/face12.jpg",
-                    alt: "profile",
-                    className: "img-sm profile-pic"
-                  }), " "]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                  className: "preview-item-content flex-grow py-2",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
-                    className: "preview-subject ellipsis font-weight-medium text-dark",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_i18next__WEBPACK_IMPORTED_MODULE_6__.Trans, {
-                      children: "David Grey"
-                    }), " "]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
-                    className: "font-weight-light small-text",
-                    children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_i18next__WEBPACK_IMPORTED_MODULE_6__.Trans, {
-                      children: "The meeting is cancelled"
-                    })]
-                  })]
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                className: "dropdown-divider"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Item, {
-                className: "dropdown-item preview-item d-flex align-items-center",
-                href: "!#",
-                onClick: function onClick(evt) {
-                  return evt.preventDefault();
-                },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                  className: "preview-thumbnail",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-                    src: "/assets/images/faces/face1.jpg",
-                    alt: "profile",
-                    className: "img-sm profile-pic"
-                  }), " "]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                  className: "preview-item-content flex-grow py-2",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
-                    className: "preview-subject ellipsis font-weight-medium text-dark",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_i18next__WEBPACK_IMPORTED_MODULE_6__.Trans, {
-                      children: "Travis Jenkins"
-                    }), " "]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
-                    className: "font-weight-light small-text",
-                    children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_i18next__WEBPACK_IMPORTED_MODULE_6__.Trans, {
-                      children: "The meeting is cancelled"
-                    }), " "]
-                  })]
-                })]
-              })]
-            })]
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
           className: "nav-item  nav-profile border-0",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default, {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Toggle, {
@@ -54173,58 +54063,9 @@ function Navbar() {
                 src: "/assets/images/faces/face8.jpg",
                 alt: "Profile"
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Menu, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Menu, {
               className: "preview-list navbar-dropdown pb-3",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Item, {
-                className: "dropdown-item p-0 preview-item d-flex align-items-center border-bottom",
-                href: "!#",
-                onClick: function onClick(evt) {
-                  return evt.preventDefault();
-                },
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                  className: "d-flex",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                    className: "py-3 px-4 d-flex align-items-center justify-content-center",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-                      className: "mdi mdi-bookmark-plus-outline mr-0"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                    className: "py-3 px-4 d-flex align-items-center justify-content-center border-left border-right",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-                      className: "mdi mdi-account-outline mr-0"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                    className: "py-3 px-4 d-flex align-items-center justify-content-center",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-                      className: "mdi mdi-alarm-check mr-0"
-                    })
-                  })]
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Item, {
-                className: "dropdown-item preview-item d-flex align-items-center border-0 mt-2",
-                onClick: function onClick(evt) {
-                  return evt.preventDefault();
-                },
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_i18next__WEBPACK_IMPORTED_MODULE_6__.Trans, {
-                  children: "Manage Accounts"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Item, {
-                className: "dropdown-item preview-item d-flex align-items-center border-0",
-                onClick: function onClick(evt) {
-                  return evt.preventDefault();
-                },
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_i18next__WEBPACK_IMPORTED_MODULE_6__.Trans, {
-                  children: "Change Password"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Item, {
-                className: "dropdown-item preview-item d-flex align-items-center border-0",
-                onClick: function onClick(evt) {
-                  return evt.preventDefault();
-                },
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_i18next__WEBPACK_IMPORTED_MODULE_6__.Trans, {
-                  children: "Check Inbox"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Item, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Item, {
                 className: "dropdown-item preview-item d-flex align-items-center border-0",
                 onClick: function onClick(evt) {
                   return Signout(evt);
@@ -54232,10 +54073,10 @@ function Navbar() {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_i18next__WEBPACK_IMPORTED_MODULE_6__.Trans, {
                   children: "Sign Out"
                 })
-              })]
+              })
             })]
           })
-        })]
+        })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
         className: "navbar-toggler navbar-toggler-right d-lg-none align-self-center",
         type: "button",
@@ -55112,6 +54953,20 @@ var Sidebar = /*#__PURE__*/function (_Component) {
               })]
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+            className: this.isPathActive('/vendor/leads') ? 'nav-item active' : 'nav-item',
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+              className: "nav-link",
+              to: "/vendor/leads",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+                className: "mdi mdi-television menu-icon"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                className: "menu-title",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+                  children: "Leads"
+                })
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
             className: this.isPathActive('/vendor/company') ? 'nav-item active' : 'nav-item',
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
               className: "nav-link",
@@ -55168,322 +55023,6 @@ var Sidebar = /*#__PURE__*/function (_Component) {
                 })]
               })
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-            className: this.isPathActive('/basic-ui') ? 'nav-item active' : 'nav-item',
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: this.state.basicUiMenuOpen ? 'nav-link menu-expanded' : 'nav-link',
-              onClick: function onClick() {
-                return _this4.toggleMenuState('basicUiMenuOpen');
-              },
-              "data-toggle": "collapse",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                className: "mdi mdi-crosshairs-gps menu-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "menu-title",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-                  children: "Services"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                className: "menu-arrow"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default, {
-              "in": this.state.basicUiMenuOpen,
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
-                className: "nav flex-column sub-menu",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-                  className: "nav-item",
-                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-                    className: this.isPathActive('/basic-ui/buttons') ? 'nav-link active' : 'nav-link',
-                    to: "/vendor/basic-ui/buttons",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-                      children: "Add New"
-                    })
-                  })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-                  className: "nav-item",
-                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-                    className: this.isPathActive('/basic-ui/dropdowns') ? 'nav-link active' : 'nav-link',
-                    to: "/basic-ui/dropdowns",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-                      children: "Manage"
-                    })
-                  })]
-                })]
-              })
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-            className: this.isPathActive('/basic-ui') ? 'nav-item active' : 'nav-item',
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: this.state.basicUiMenuOpen ? 'nav-link menu-expanded' : 'nav-link',
-              onClick: function onClick() {
-                return _this4.toggleMenuState('basicUiMenuOpen');
-              },
-              "data-toggle": "collapse",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                className: "mdi mdi-crosshairs-gps menu-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "menu-title",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-                  children: "Basic UI Elements"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                className: "menu-arrow"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default, {
-              "in": this.state.basicUiMenuOpen,
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
-                className: "nav flex-column sub-menu",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-                  className: "nav-item",
-                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-                    className: this.isPathActive('/basic-ui/buttons') ? 'nav-link active' : 'nav-link',
-                    to: "/vendor/basic-ui/buttons",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-                      children: "Buttons"
-                    })
-                  })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-                  className: "nav-item",
-                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-                    className: this.isPathActive('/basic-ui/dropdowns') ? 'nav-link active' : 'nav-link',
-                    to: "/basic-ui/dropdowns",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-                      children: "Dropdowns"
-                    })
-                  })]
-                })]
-              })
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-            className: this.isPathActive('/form-elements') ? 'nav-item active' : 'nav-item',
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: this.state.formElementsMenuOpen ? 'nav-link menu-expanded' : 'nav-link',
-              onClick: function onClick() {
-                return _this4.toggleMenuState('formElementsMenuOpen');
-              },
-              "data-toggle": "collapse",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                className: "mdi mdi-format-list-bulleted menu-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "menu-title",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-                  children: "Form Elements"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                className: "menu-arrow"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default, {
-              "in": this.state.formElementsMenuOpen,
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
-                className: "nav flex-column sub-menu",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-                  className: "nav-item",
-                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-                    className: this.isPathActive('vendor/form-elements/basic-elements') ? 'nav-link active' : 'nav-link',
-                    to: "/vendor/form-Elements",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-                      children: "Basic Elements"
-                    })
-                  })]
-                })
-              })
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-            className: this.isPathActive('/tables') ? 'nav-item active' : 'nav-item',
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: this.state.tablesMenuOpen ? 'nav-link menu-expanded' : 'nav-link',
-              onClick: function onClick() {
-                return _this4.toggleMenuState('tablesMenuOpen');
-              },
-              "data-toggle": "collapse",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                className: "mdi mdi-table-large menu-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "menu-title",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-                  children: "Tables"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                className: "menu-arrow"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default, {
-              "in": this.state.tablesMenuOpen,
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
-                className: "nav flex-column sub-menu",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-                  className: "nav-item",
-                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-                    className: this.isPathActive('/vendor/tables/basic-table') ? 'nav-link active' : 'nav-link',
-                    to: "/vendor/tables/basic-table",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-                      children: "Basic Table"
-                    })
-                  })]
-                })
-              })
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-            className: this.isPathActive('/vendor/icons') ? 'nav-item active' : 'nav-item',
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: this.state.iconsMenuOpen ? 'nav-link menu-expanded' : 'nav-link',
-              onClick: function onClick() {
-                return _this4.toggleMenuState('iconsMenuOpen');
-              },
-              "data-toggle": "collapse",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                className: "mdi mdi-account-box-outline menu-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "menu-title",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-                  children: "Icons"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                className: "menu-arrow"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default, {
-              "in": this.state.iconsMenuOpen,
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
-                className: "nav flex-column sub-menu",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-                  className: "nav-item",
-                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-                    className: this.isPathActive('/vendor/icons/mdi') ? 'nav-link active' : 'nav-link',
-                    to: "/vendor/icons/mdi",
-                    children: "Material"
-                  })]
-                })
-              })
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-            className: this.isPathActive('/vendor/charts') ? 'nav-item active' : 'nav-item',
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: this.state.chartsMenuOpen ? 'nav-link menu-expanded' : 'nav-link',
-              onClick: function onClick() {
-                return _this4.toggleMenuState('chartsMenuOpen');
-              },
-              "data-toggle": "collapse",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                className: "mdi mdi-chart-line menu-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "menu-title",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-                  children: "Charts"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                className: "menu-arrow"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default, {
-              "in": this.state.chartsMenuOpen,
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
-                className: "nav flex-column sub-menu",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-                  className: "nav-item",
-                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-                    className: this.isPathActive('/charts/chart-js') ? 'nav-link active' : 'nav-link',
-                    to: "vendor/charts/chart-js",
-                    children: "Chart Js"
-                  })]
-                })
-              })
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-            className: this.isPathActive('/user-pages') ? 'nav-item active' : 'nav-item',
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: this.state.userPagesMenuOpen ? 'nav-link menu-expanded' : 'nav-link',
-              onClick: function onClick() {
-                return _this4.toggleMenuState('userPagesMenuOpen');
-              },
-              "data-toggle": "collapse",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                className: "mdi mdi-lock-outline menu-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "menu-title",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-                  children: "User Pages"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                className: "menu-arrow"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default, {
-              "in": this.state.userPagesMenuOpen,
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
-                className: "nav flex-column sub-menu",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-                  className: "nav-item",
-                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-                    className: this.isPathActive('/user-pages/login-1') ? 'nav-link active' : 'nav-link',
-                    to: "/vendor/user-pages/login-1",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-                      children: "Login"
-                    })
-                  })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-                  className: "nav-item",
-                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-                    className: this.isPathActive('/user-pages/register-1') ? 'nav-link active' : 'nav-link',
-                    to: "/vendor/user-pages/register-1",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-                      children: "Register"
-                    })
-                  })]
-                })]
-              })
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-            className: this.isPathActive('/error-pages') ? 'nav-item active' : 'nav-item',
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: this.state.errorPagesMenuOpen ? 'nav-link menu-expanded' : 'nav-link',
-              onClick: function onClick() {
-                return _this4.toggleMenuState('errorPagesMenuOpen');
-              },
-              "data-toggle": "collapse",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                className: "mdi mdi-information-outline menu-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "menu-title",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-                  children: "Error Pages"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                className: "menu-arrow"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default, {
-              "in": this.state.errorPagesMenuOpen,
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
-                className: "nav flex-column sub-menu",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-                  className: "nav-item",
-                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-                    className: this.isPathActive('/error-pages/error-404') ? 'nav-link active' : 'nav-link',
-                    to: "/vendor/error-pages/error-404",
-                    children: "404"
-                  })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-                  className: "nav-item",
-                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-                    className: this.isPathActive('/error-pages/error-500') ? 'nav-link active' : 'nav-link',
-                    to: "/vendor/error-pages/error-500",
-                    children: "500"
-                  })]
-                })]
-              })
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-            className: "nav-item",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
-              className: "nav-link",
-              href: "http://www.bootstrapdash.com/demo/star-admin-free/react/documentation/documentation.html",
-              rel: "noopener noreferrer",
-              target: "_blank",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-                className: "mdi mdi-file-outline menu-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "menu-title",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-                  children: "Documentation"
-                })
-              })]
-            })
           })]
         })]
       });

@@ -16,5 +16,8 @@ Route::middleware(['admin'])->prefix('appAdmin')->group(function () {
     Route::post('add-new-category',[App\Http\Controllers\Api\SoftwarecategoryController::class,'store'])->name('store_software');
     Route::delete('software-category/delete/{id}',[App\Http\Controllers\Api\SoftwarecategoryController::class,'destroy'])->name('delete_software_category');
     Route::put('software-category/update/{id}' , [\App\Http\Controllers\Api\SoftwarecategoryController::class , 'update'])->name('update_software_category');
+    Route::get('/all-leads',[App\Http\Controllers\Admin\DashboardController::class, 'allLeads']);
+    Route::get('/all-softwares',[App\Http\Controllers\Admin\DashboardController::class, 'allSoftwares']);
+    Route::get('/all-categories',[App\Http\Controllers\Admin\DashboardController::class, 'allCats']);
 
 });

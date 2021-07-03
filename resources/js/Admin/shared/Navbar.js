@@ -33,11 +33,21 @@ function Navbar(){
           setNotifications(res.data)
       })
   }, [])
+  useEffect(() => {
+    Notifications.map(notification=>{
+        console.log(notification);
+        if(notification){
+
+            return MarkAllAsRead(notification.id)
+        }
+    })
+
+  }, [Notifications])
 
   const MarkAllAsRead = ( id ) =>{
-      if(id){
-        AdminAxios.get(`/notification/done/${id}`);
-      }
+
+        return AdminAxios.get(`/notification/done/${id}`);
+
   }
 
 
@@ -81,7 +91,7 @@ function Navbar(){
                 </Dropdown.Menu>
               </Dropdown>
             </li>
-            <li className="nav-item  nav-profile border-0">
+            {/* <li className="nav-item  nav-profile border-0">
               <Dropdown>
                 <Dropdown.Toggle className="nav-link count-indicator p-0 toggle-arrow-hide bg-transparent">
                   <i className="mdi mdi-email-outline"></i>
@@ -121,7 +131,7 @@ function Navbar(){
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
-            </li>
+            </li> */}
 
 
             <li className="nav-item  nav-profile border-0">

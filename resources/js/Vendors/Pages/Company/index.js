@@ -31,10 +31,10 @@ function index() {
                 <div className="card-body">
                     <div className="align-content-baseline align-items-sm-baseline d-flex justify-content-between w-100">
                   <h3 className="card-title flex-fill">Company Details</h3>
-                  <Link className="btn btn-outline-success mx-lg-2 mx-sm-1" to={`/vendor/editCompany/`}>
+                  {/* <Link className="btn btn-outline-success mx-lg-2 mx-sm-1" to={`/vendor/editCompany/`}>
                       <span className="mdi mdi-pencil-box"></span> Edit
                   </Link>
-                  <button className="btn btn-danger mx-lg-2 mx-sm-1">Delete</button>
+                  <button className="btn btn-danger mx-lg-2 mx-sm-1">Delete</button> */}
                   </div>
                   <div className="row">
                     <div className="col-md-6">

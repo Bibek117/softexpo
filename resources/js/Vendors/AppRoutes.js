@@ -2,6 +2,8 @@ import React, { Component,Suspense, lazy } from 'react';
 import { Switch, Redirect } from 'react-router-dom';
 import VendorRoutes from '../Guest/components/VendorRoutes';
 import AddCompany from './Pages/Company/AddCompany';
+import Index from './Pages/Leads/Index';
+// import index from './Pages/Leads';
 import EditSoftware from './Pages/Software/EditSoftware';
 import Softwares from './Pages/Software/Softwares';
 const EditCompany = lazy(()=> import('./Pages/Company/EditCompany'));
@@ -53,6 +55,7 @@ class AppRoutes extends Component {
           <VendorRoutes path="/vendor/add-software" component={ AddSoftware } />
           <VendorRoutes path="/vendor/edit-software" component={ EditSoftware } />
           <VendorRoutes path="/vendor/software" component={ Softwares } />
+          <VendorRoutes path="/vendor/leads" component={ Index } />
 
           <Redirect to="/vendor/dashboard" />
         </Switch>

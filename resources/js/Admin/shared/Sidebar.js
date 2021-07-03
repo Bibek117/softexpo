@@ -59,52 +59,6 @@ class Sidebar extends Component {
           <a className="sidebar-brand brand-logo-mini pt-3" href="#"><img src="/assets/images/logo-mini.svg" alt="logo" /></a>
         </div>
         <ul className="nav">
-          <li className="nav-item nav-profile not-navigation-link">
-            <div className="nav-link">
-              <Dropdown>
-                <Dropdown.Toggle className="nav-link user-switch-dropdown-toggler p-0 toggle-arrow-hide bg-parent border-0 w-100">
-                  <div className="d-flex justify-content-between align-items-start">
-                    <div className="profile-image">
-                    <img className="img-xs rounded-circle" src="/assets/images/faces/face8.jpg"alt="profile" />
-                      <div className="dot-indicator bg-success"></div>
-                    </div>
-                    <div className="text-wrapper">
-                      <p className="profile-name">Allen Moreno</p>
-                      <p className="designation">Premium user</p>
-                    </div>
-
-                  </div>
-                </Dropdown.Toggle>
-                <Dropdown.Menu className="preview-list navbar-dropdown">
-                  <Dropdown.Item className="dropdown-item p-0 preview-item d-flex align-items-center" href="!#" onClick={evt =>evt.preventDefault()}>
-                    <div className="d-flex">
-                      <div className="py-3 px-4 d-flex align-items-center justify-content-center">
-                        <i className="mdi mdi-bookmark-plus-outline mr-0"></i>
-                      </div>
-                      <div className="py-3 px-4 d-flex align-items-center justify-content-center border-left border-right">
-                        <i className="mdi mdi-account-outline mr-0"></i>
-                      </div>
-                      <div className="py-3 px-4 d-flex align-items-center justify-content-center">
-                        <i className="mdi mdi-alarm-check mr-0"></i>
-                      </div>
-                    </div>
-                  </Dropdown.Item>
-                  <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center text-small" onClick={evt =>evt.preventDefault()}>
-                    <>Manage Accounts</>
-                  </Dropdown.Item>
-                  <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center text-small" onClick={evt =>evt.preventDefault()}>
-                    <>Change Password</>
-                  </Dropdown.Item>
-                  <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center text-small" onClick={evt =>evt.preventDefault()}>
-                    <>Check Inbox</>
-                  </Dropdown.Item>
-                  <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center text-small" onClick={evt =>evt.preventDefault()}>
-                    <>Sign Out</>
-                  </Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-            </div>
-          </li>
 
           <li className={ this.isPathActive('/appAdmin/dashboard') ? 'nav-item active' : 'nav-item' }>
             <Link className="nav-link" to="/appAdmin/dashboard">
@@ -113,7 +67,7 @@ class Sidebar extends Component {
             </Link>
           </li>
 
-          <li className={ this.isPathActive('/appAdmin/appSettings') ? 'nav-item active' : 'nav-item' }>
+          {/* <li className={ this.isPathActive('/appAdmin/appSettings') ? 'nav-item active' : 'nav-item' }>
             <div className={ this.state.basicUiMenuOpen ? 'nav-link menu-expanded' : 'nav-link' } onClick={ () => this.toggleMenuState('basicUiMenuOpen') } data-toggle="collapse">
               <i className="mdi mdi-crosshairs-gps menu-icon"></i>
               <span className="menu-title"><>App Settings</></span>
@@ -125,22 +79,22 @@ class Sidebar extends Component {
                 <li className="nav-item"> <Link className={ this.isPathActive('/appAdmin/appSettings/') ? 'nav-link active' : 'nav-link' } to="/appAdmin/appSettings"><>Dropdowns</></Link></li>
               </ul>
             </Collapse>
-          </li>
-          <li className={ this.isPathActive('/basic-ui') ? 'nav-item active' : 'nav-item' }>
+          </li> */}
+          {/* <li className={ this.isPathActive('/basic-ui') ? 'nav-item active' : 'nav-item' }>
 
             <Link className="nav-link" to="/appAdmin/users">
               <i className="mdi mdi-crosshairs-gps menu-icon"></i>
               <span className="menu-title"><>Users</></span>
 
               </Link>
-          </li>
-          <li className={ this.isPathActive('/basic-ui') ? 'nav-item active' : 'nav-item' }>
+          </li> */}
+          <li className={ this.isPathActive('/appAdmin/companies') ? 'nav-item active' : 'nav-item' }>
             <Link className="nav-link" to="/appAdmin/companies">
               <i className="mdi mdi-crosshairs-gps menu-icon"></i>
               <span className="menu-title"><>Company Managment</></span>
               </Link>
           </li>
-          <li className={ this.isPathActive('/basic-ui') ? 'nav-item active' : 'nav-item' }>
+          {/* <li className={ this.isPathActive('/basic-ui') ? 'nav-item active' : 'nav-item' }>
             <Link className="nav-link" to="/appAdmin/users">
               <i className="mdi mdi-crosshairs-gps menu-icon"></i>
               <span className="menu-title"><>Softwares Managment</></span>
@@ -151,7 +105,7 @@ class Sidebar extends Component {
               <i className="mdi mdi-crosshairs-gps menu-icon"></i>
               <span className="menu-title"><>Services Managment</></span>
               </Link>
-          </li>
+          </li> */}
           <li className={ this.isPathActive('/appAdmin/data-entry') ? 'nav-item active' : 'nav-item' }>
             <div className={ this.state.dataEntryOpen ? 'nav-link menu-expanded' : 'nav-link' } onClick={ () => this.toggleMenuState('dataEntryOpen') } data-toggle="collapse">
               <i className="mdi mdi-crosshairs-gps menu-icon"></i>
@@ -161,7 +115,7 @@ class Sidebar extends Component {
             <Collapse in={ this.state.dataEntryOpen }>
               <ul className="nav flex-column sub-menu">
                 <li className="nav-item"> <Link className={ this.isPathActive('/appAdmin/data-entry-software-categories') ? 'nav-link active' : 'nav-link' } to="/appAdmin/data-entry-software-categories"><>Software Categories</></Link></li>
-                <li className="nav-item"> <Link className={ this.isPathActive('/appAdmin/appSettings/') ? 'nav-link active' : 'nav-link' } to="/appAdmin/appSettings"><>Dropdowns</></Link></li>
+                {/* <li className="nav-item"> <Link className={ this.isPathActive('/appAdmin/appSettings/') ? 'nav-link active' : 'nav-link' } to="/appAdmin/appSettings"><>Dropdowns</></Link></li> */}
               </ul>
             </Collapse>
           </li>

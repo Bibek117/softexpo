@@ -24,7 +24,7 @@ class LeadRequest extends FormRequest
     public function rules()
     {
         return [
-            'software_id'=>'required|string',
+            'software_id'=>'required|integer',
             'name'=>'required|string',
             'email'=>'required|string|email|max:255',
             'phone'=>'required|string'

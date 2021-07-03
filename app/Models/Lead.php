@@ -15,4 +15,10 @@ class Lead extends Model
         'email',
         'phone'
     ];
+
+    public function software(){
+        return $this->hasOne(Software::class,'id','software_id');
+    }
+
+
 }

@@ -34,8 +34,8 @@ function Navbar(){
           </button>
           <ul className="navbar-nav navbar-nav-left header-links align-self-center">
             <li className="nav-item font-weight-semibold d-none  d-md-flex">Help : +050 2992 709</li>
-            <li className="nav-item dropdown language-dropdown">
-            <Dropdown>
+            {/* <li className="nav-item dropdown language-dropdown"> */}
+            {/* <Dropdown>
                 <Dropdown.Toggle className="nav-link count-indicator p-0 toggle-arrow-hide bg-transparent">
                   <div className="d-inline-flex mr-0 mr-md-3">
                     <div className="flag-icon-holder">
@@ -70,7 +70,7 @@ function Navbar(){
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
-            </li>
+            </li> */}
           </ul>
           <form className="ml-auto search-form d-none d-md-block" action="#">
             <div className="form-group">
@@ -78,7 +78,7 @@ function Navbar(){
             </div>
           </form>
           <ul className="navbar-nav navbar-nav-right">
-          <li className="nav-item  nav-profile border-0 pl-4">
+          {/* <li className="nav-item  nav-profile border-0 pl-4">
               <Dropdown>
                 <Dropdown.Toggle className="nav-link count-indicator p-0 toggle-arrow-hide bg-transparent">
                   <i className="mdi mdi-bell-outline"></i>
@@ -163,7 +163,7 @@ function Navbar(){
                 </Dropdown.Menu>
               </Dropdown>
             </li>
-
+ */}
 
             <li className="nav-item  nav-profile border-0">
               <Dropdown>
@@ -171,7 +171,7 @@ function Navbar(){
                   <img className="img-xs rounded-circle" src="/assets/images/faces/face8.jpg" alt="Profile" />
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="preview-list navbar-dropdown pb-3">
-                  <Dropdown.Item className="dropdown-item p-0 preview-item d-flex align-items-center border-bottom" href="!#" onClick={evt =>evt.preventDefault()}>
+                  {/* <Dropdown.Item className="dropdown-item p-0 preview-item d-flex align-items-center border-bottom" href="!#" onClick={evt =>evt.preventDefault()}>
                     <div className="d-flex">
                       <div className="py-3 px-4 d-flex align-items-center justify-content-center">
                         <i className="mdi mdi-bookmark-plus-outline mr-0"></i>
@@ -183,8 +183,8 @@ function Navbar(){
                         <i className="mdi mdi-alarm-check mr-0"></i>
                       </div>
                     </div>
-                  </Dropdown.Item>
-                  <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center border-0 mt-2" onClick={evt =>evt.preventDefault()}>
+                  </Dropdown.Item> */}
+                  {/* <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center border-0 mt-2" onClick={evt =>evt.preventDefault()}>
                     <Trans>Manage Accounts</Trans>
                   </Dropdown.Item>
                   <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center border-0" onClick={evt =>evt.preventDefault()}>
@@ -192,7 +192,7 @@ function Navbar(){
                   </Dropdown.Item>
                   <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center border-0" onClick={evt =>evt.preventDefault()}>
                     <Trans>Check Inbox</Trans>
-                  </Dropdown.Item>
+                  </Dropdown.Item> */}
                   <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center border-0" onClick={evt =>Signout(evt)}>
                     <Trans>Sign Out</Trans>
                   </Dropdown.Item>

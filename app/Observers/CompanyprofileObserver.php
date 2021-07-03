@@ -19,7 +19,7 @@ class CompanyprofileObserver
         CompanyVerify::create($statusData);
         $adminNotification = [
             "type"=>"0",
-            "notification"=>"A vendor added a new company :<b>$companyprofile->name</b>",
+            "notification"=>"A vendor added a new company : $companyprofile->name",
             "callback"=>"/appAdmin/verify-companies/$companyprofile->id",
             "status"=>0
         ];

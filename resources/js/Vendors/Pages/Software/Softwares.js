@@ -15,12 +15,12 @@ function Softwares() {
     const gridRef = useRef(null);
 
 
-    const onButtonClick = (e) => {
-        const selectedDataStringPresentation = selectedData
-            .map((node) => `${node.software_name} ${node.id}`)
-            .join(", ");
-        alert(`Selected nodes: ${selectedDataStringPresentation}`);
-    };
+    // const onButtonClick = (e) => {
+    //     const selectedDataStringPresentation = selectedData
+    //         .map((node) => `${node.software_name} ${node.id}`)
+    //         .join(", ");
+    //     alert(`Selected nodes: ${selectedDataStringPresentation}`);
+    // };
 
     const gridOptions = {
         pagination: true,
