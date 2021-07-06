@@ -44,7 +44,7 @@ function Dashboard() {
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     _axios__WEBPACK_IMPORTED_MODULE_1__.venodrAxios.get('/leads').then(function (res) {
-      return setLeadsCount(res.data);
+      return setLeadsCount(res.data.length);
     });
     _axios__WEBPACK_IMPORTED_MODULE_1__.venodrAxios.get('/all-softwares').then(function (res) {
       return setSoftwareCount(res.data.length);
