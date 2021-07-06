@@ -1,14 +1,13 @@
 import React, { Component, useEffect, useState } from 'react';
 import { Dropdown } from 'react-bootstrap';
 import { Trans } from 'react-i18next';
-import { getCurrentData, isUserLogedIn } from '../../Controllers/AuthController';
+import { getCurrentData, isUserLogedIn, logoutJS } from '../../Controllers/AuthController';
 
 function Navbar(){
     const [Profile, setProfile] = useState({})
     useEffect(() => {
         if(isUserLogedIn()){
             const data = getCurrentData()
-
             setProfile(JSON.parse(data.user))
         }
     }, [])
@@ -16,6 +15,11 @@ function Navbar(){
     const toggleOffcanvas = ()=> {
         document.querySelector('.sidebar-offcanvas').classList.toggle('active');
         // toggleRightSidebar();
+      }
+
+      const Signout = (e) =>{
+          e.preventDefault()
+            logoutJS().then(()=>location.reload())
       }
     return (
       <nav className="navbar col-lg-12 left-0 col-12 p-lg-0 fixed-top d-flex flex-row">
@@ -37,7 +41,7 @@ function Navbar(){
           <li className="nav-item  nav-profile border-0 pl-4">
           <a className="align-self-center nav-link" href="/vendor/dashboard">For Vendors</a>
             </li>
-            { Profile ?
+            { Profile.profile_pic ?
             <li className="nav-item  nav-profile border-0">
               <Dropdown>
                 <Dropdown.Toggle className="nav-link count-indicator bg-transparent">

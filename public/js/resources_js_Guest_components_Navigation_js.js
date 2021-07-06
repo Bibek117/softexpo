@@ -3380,6 +3380,13 @@ function Navbar() {
     document.querySelector('.sidebar-offcanvas').classList.toggle('active'); // toggleRightSidebar();
   };
 
+  var Signout = function Signout(e) {
+    e.preventDefault();
+    (0,_Controllers_AuthController__WEBPACK_IMPORTED_MODULE_1__.logoutJS)().then(function () {
+      return location.reload();
+    });
+  };
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("nav", {
     className: "navbar col-lg-12 left-0 col-12 p-lg-0 fixed-top d-flex flex-row",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -3426,7 +3433,7 @@ function Navbar() {
             href: "/vendor/dashboard",
             children: "For Vendors"
           })
-        }), Profile ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+        }), Profile.profile_pic ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
           className: "nav-item  nav-profile border-0",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.default, {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.default.Toggle, {
