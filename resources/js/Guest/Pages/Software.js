@@ -246,7 +246,7 @@ function Software() {
                             <div className="card">
                                 <h6 className="card-header bg-success">Medias</h6>
                                 <div className="card-body">
-                                    {Product.software_media &&
+                                    {Product.software_media ?
 
                                         (Product.software_media.ebooks) ?
                                             <a href={Product.software_media.ebooks} download>Ebook</a>
@@ -255,7 +255,7 @@ function Software() {
                                                 (Product.software_media.video_link) ?
                                                 <iframe src={Product.software_media.video_link} download>Ebook</iframe>
                                                 : null
-
+                                            : null
                                     }
 
                                 </div>
