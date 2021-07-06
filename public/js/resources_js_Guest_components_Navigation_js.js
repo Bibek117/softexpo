@@ -3429,7 +3429,7 @@ function Navbar() {
           className: "form-group",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
             type: "search",
-            name: "query",
+            name: "query-text",
             className: "form-control",
             placeholder: "Search Here",
             onChange: function onChange(e) {

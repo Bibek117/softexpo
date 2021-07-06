@@ -41,7 +41,7 @@ function Navbar(){
            </ul>
           <form className="ml-auto search-form d-none d-md-block" action="/home/search">
             <div className="form-group">
-              <input type="search" name="query" className="form-control" placeholder="Search Here" onChange={e=>setQuery(e.target.value)}/>
+              <input type="search" name="query-text" className="form-control" placeholder="Search Here" onChange={e=>setQuery(e.target.value)}/>
               <input type="submit" className="d-none" />
             </div>
           </form>

@@ -6,7 +6,7 @@ import { Loading } from '../components/Loading';
 function Search() {
     const [Result, setResult] = useState([]);
     const [loading, setloading] = useState(true)
-    let query = (new URLSearchParams(window.location.search)).get("query")
+    let query = (new URLSearchParams(window.location.search)).get("query-text")
     useEffect(() => {
         axios.post('/api/search',{query: query}).then((res)=>{
             setResult(res.data.data)

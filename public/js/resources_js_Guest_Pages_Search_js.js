@@ -47,7 +47,7 @@ function Search() {
       loading = _useState4[0],
       setloading = _useState4[1];
 
-  var query = new URLSearchParams(window.location.search).get("query");
+  var query = new URLSearchParams(window.location.search).get("query-text");
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/search', {
       query: query
