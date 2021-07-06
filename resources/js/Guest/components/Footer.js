@@ -63,10 +63,10 @@ export default function Footer() {
 
 <div className="container py-4">
   <div className="copyright">
-    &copy; Copyright <strong><span>Ninestars</span></strong>. All Rights Reserved
+    &copy; Copyright <strong><span> SoftExpo </span></strong>. All Rights Reserved
   </div>
   <div className="credits">
-    Designed by <a href="https://codewithsudeep.com/">CodewithSudeep</a>
+    Designed by <a href="#">Bibek Yadav</a>
   </div>
 </div>
 </footer>

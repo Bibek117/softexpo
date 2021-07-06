@@ -121,14 +121,14 @@ function Footer() {
           className: "copyright",
           children: ["\xA9 Copyright ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-              children: "Ninestars"
+              children: " SoftExpo "
             })
           }), ". All Rights Reserved"]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "credits",
           children: ["Designed by ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-            href: "https://codewithsudeep.com/",
-            children: "CodewithSudeep"
+            href: "#",
+            children: "Bibek Yadav"
           })]
         })]
       })]
