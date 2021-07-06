@@ -1,10 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Footer() {
     return (
    <div>
 <footer id="footer">
-<div className="footer-newsletter">
+{/* <div className="footer-newsletter">
   <div className="container">
     <div className="row justify-content-center">
       <div className="col-lg-6">
@@ -17,7 +18,7 @@ export default function Footer() {
       </div>
     </div>
   </div>
-</div>
+</div> */}
 
 <div className="footer-top">
   <div className="container">
@@ -37,6 +38,9 @@ export default function Footer() {
           <li><i className="bx bx-chevron-right"></i> <a href="#">Home</a></li>
           <li><i className="bx bx-chevron-right"></i> <a href="#">Explore</a></li>
           <li><i className="bx bx-chevron-right"></i> <a href="#">For Vendors</a></li>
+          <li>
+          <i className="bx bx-chevron-right"></i> <Link to="/home/guestlogin">For Users</Link>
+          </li>
         </ul>
       </div>
 

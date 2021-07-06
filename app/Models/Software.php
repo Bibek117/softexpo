@@ -44,6 +44,10 @@ class Software extends Model
         return $this->hasOne(Lead::class,'software_id','id');
     }
 
+    public function reviews(){
+        return $this->hasMany(Review::class,'software_id','id');
+    }
+
     // protected $dateFormat = 'Y-M-d';
 
     // public function getDateTimeAttribute($value)

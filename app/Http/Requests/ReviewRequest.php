@@ -24,8 +24,8 @@ class ReviewRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id'=>'required|string',
-            'software_id'=>'required|string',
+            'user_id'=>'required',
+            'software_id'=>'required',
             'text'=>'required',
         ];
     }

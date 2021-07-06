@@ -102,6 +102,7 @@ class SoftwareController extends Controller
                     ->with('category')
                     ->with('specifications')
                     ->with('pricing')
+                    ->with('reviews.user')
                     ->first();
         $value = $software->software_competitors;
         if(strpos($value, "+") !== false){

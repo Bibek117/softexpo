@@ -52336,7 +52336,10 @@ exports.ChangeDetectionStrategyType = __webpack_require__(/*! ./lib/changeDetect
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "isVendorLogin": () => (/* binding */ isVendorLogin),
-/* harmony export */   "logoutJS": () => (/* binding */ logoutJS)
+/* harmony export */   "logoutJS": () => (/* binding */ logoutJS),
+/* harmony export */   "isUserLogedIn": () => (/* binding */ isUserLogedIn),
+/* harmony export */   "getCurrentData": () => (/* binding */ getCurrentData),
+/* harmony export */   "getUseriD": () => (/* binding */ getUseriD)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
@@ -52417,6 +52420,25 @@ function _logoutJS() {
     }, _callee);
   }));
   return _logoutJS.apply(this, arguments);
+}
+
+function isUserLogedIn() {
+  var data = getCurrentData();
+
+  if (data.role == "enduser") {
+    return true;
+  }
+
+  return false;
+}
+
+function getUseriD() {
+  var data = getCurrentData();
+
+  if (data.role == "enduser") {
+    var id = JSON.parse(data.user).id;
+    return id;
+  }
 }
 
 

@@ -251,7 +251,6 @@ Route::put('lead/update/{id}',[App\Http\Controllers\Api\LeadController::class,'u
 //reviews
 Route::get('review',[App\Http\Controllers\Api\ReviewController::class,'index'])->name('show_all_reviews');
 Route::get('review/show/{id}',[App\Http\Controllers\Api\ReviewController::class,'show'])->name('show_one_review');
-Route::post('review/store',[App\Http\Controllers\Api\ReviewController::class,'store'])->name('new_review');
 Route::put('review/update/{id}',[App\Http\Controllers\Api\ReviewController::class,'update'])->name('update_review');
 Route::delete('review/delete/{id}',[App\Http\Controllers\Api\ReviewController::class,'destroy'])->name('delete_review');
 

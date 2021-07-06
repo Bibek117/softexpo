@@ -13,4 +13,9 @@ class Review extends Model
         'software_id',
         'text',
     ];
+
+
+    public function user(){
+        return $this->hasOne(User::class,'id','user_id');
+    }
 }

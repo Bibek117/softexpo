@@ -1,7 +1,9 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
+import { Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
+import { getUseriD, isUserLogedIn } from '../../Controllers/AuthController';
 import { Loading } from '../components/Loading';
 
 function Software() {
@@ -11,12 +13,19 @@ function Software() {
     const [LeadName, setLeadName] = useState('')
     const [LeadEmail, setLeadEmail] = useState('')
     const [LeadPhone, setLeadPhone] = useState('')
+    const [USerID, setUSerID] = useState('')
+    const [ReviewText, setReviewText] = useState('')
+    const [Reviews, setReviews] = useState([])
 
     useEffect(() => {
         axios.get(`/api/softwares/show/${software}`).then((res) => {
             setProduct(res.data)
             setloading(false)
+            setReviews(res.data.reviews)
         })
+
+        const userid = getUseriD()
+        setUSerID(userid)
     }, [software])
 
     const HandleLead = (e) => {
@@ -46,6 +55,31 @@ function Software() {
             }
         })
         // console.log(LeadData)
+    }
+
+    const HandleReview = (e) =>{
+        e.preventDefault()
+        let data = {
+            software_id: Product.id,
+            user_id:USerID,
+            text:ReviewText
+        }
+        axios.post('/api/review/store',data).then(res=>{
+            if (res.status==201) {
+                toast.info('🦄' + " Review submitted", {
+                    position: "top-left",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+
+            }
+        }).finally(()=>{
+            return setReviewText('')
+        })
     }
     return (
         <>
@@ -226,19 +260,28 @@ function Software() {
                             <div className="card">
                                 <h6 className="card-header bg-success">Reviews</h6>
                                 <div className="card-body">
+                                    { isUserLogedIn() ? <>
                                     <div className="form-group">
-                                        <textarea className="form-control w-100" placeholder="Your Reviews"></textarea>
+                                        <textarea className="form-control w-100" placeholder="Your Reviews" onChange={e=>setReviewText(e.target.value)}></textarea>
                                     </div>
 
                                     <div className="form-group">
-                                        <input type="submit" className="btn btn-block btn-outline-success" />
-                                    </div>
-                                    <hr />
+                                        <input type="submit" className="btn btn-block btn-outline-success" onClick={e=>HandleReview(e)} />
+                                    </div></>:<>
+                                    <p>Login to write reviews</p>
+                                    <Link to={`/home/guestlogin?ref=/software/${software}`} className="btn btn-outline-success">Login</Link>
+                                    </>}
+                                    { Reviews.map(R=>{
+                                        return <>
+                                         <hr />
                                     <div className="d-flex align-item-centre">
                                         <img className="img-xs rounded-circle" src="/assets/images/faces/face8.jpg" alt="Profile" />
-                                        <h6 className="mx-3">Username</h6>
+                                        <h6 className="mx-3">{R.user.name}</h6>
                                     </div>
-                                    <p className="my-3 p-2">lorem lorem lorem lorem lorem lorem</p>
+                                    <p className="my-3 p-2">{R.text}</p>
+                                        </>
+                                    })}
+
                                 </div>
                             </div>
                         </section>

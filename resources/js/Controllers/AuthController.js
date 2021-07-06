@@ -48,5 +48,22 @@ async function logoutJS(){
     localStorage.removeItem('slot');
 }
 
-export { isVendorLogin,logoutJS }
+
+function isUserLogedIn(){
+    var data = getCurrentData()
+    if (data.role=="enduser") {
+        return true;
+    }
+    return false;
+}
+
+function getUseriD(){
+    var data = getCurrentData()
+    if (data.role=="enduser") {
+        const id = JSON.parse(data.user).id;
+        return id;
+    }
+}
+
+export { isVendorLogin,logoutJS, isUserLogedIn, getCurrentData, getUseriD }
 
