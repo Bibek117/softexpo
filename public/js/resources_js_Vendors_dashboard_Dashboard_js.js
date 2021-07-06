@@ -132,7 +132,7 @@ function Dashboard() {
                 className: "d-xl-flex align-items-center",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
                   className: "font-weight-semibold mb-0",
-                  children: LeadsCount
+                  children: LeadsCount || "0"
                 })
               })]
             })]
