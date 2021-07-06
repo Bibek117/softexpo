@@ -55,6 +55,9 @@ class LoginController extends Controller
         $_SESSION["admin_loggedin"] = true;
         $_SESSION["admin_token"] = $user->accessToken;
         $_SESSION["admin_user"] = $user;
+        if($user->user_role==1){
+            $this->guard = "superadmin";
+        }
         return response()->json([
             'token'    => $user->accessToken,
             'user'     => $user,

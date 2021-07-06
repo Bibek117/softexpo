@@ -29,7 +29,15 @@ function LoginAdmin({data}) {
 
 const isAdminLogin = () =>{
     const data = getCurrentData();
-    if (data.role=="admin" || data.role=="super_admin") {
+    if (data.role=="admin" || data.role=="superadmin") {
+        return true;
+    }
+    return false;
+}
+
+const isSuperAdmin = () =>{
+    const data = getCurrentData();
+    if (data.role=="superadmin") {
         return true;
     }
     return false;
@@ -46,4 +54,4 @@ function getCurrentData(){
     return data;
 }
 
-export { LoginAdmin, isAdminLogin }
+export { LoginAdmin, isAdminLogin, isSuperAdmin }

@@ -32,6 +32,7 @@ function Navbar(){
       AdminAxios.get('/getUnreadNotifications').then((res)=>{
           setNotifications(res.data)
       })
+     
   }, [])
   useEffect(() => {
     Notifications.map(notification=>{

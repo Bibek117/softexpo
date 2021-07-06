@@ -1957,7 +1957,8 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "LoginAdmin": () => (/* binding */ LoginAdmin),
-/* harmony export */   "isAdminLogin": () => (/* binding */ isAdminLogin)
+/* harmony export */   "isAdminLogin": () => (/* binding */ isAdminLogin),
+/* harmony export */   "isSuperAdmin": () => (/* binding */ isSuperAdmin)
 /* harmony export */ });
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
@@ -1995,7 +1996,17 @@ function LoginAdmin(_ref) {
 var isAdminLogin = function isAdminLogin() {
   var data = getCurrentData();
 
-  if (data.role == "admin" || data.role == "super_admin") {
+  if (data.role == "admin" || data.role == "superadmin") {
+    return true;
+  }
+
+  return false;
+};
+
+var isSuperAdmin = function isSuperAdmin() {
+  var data = getCurrentData();
+
+  if (data.role == "superadmin") {
     return true;
   }
 

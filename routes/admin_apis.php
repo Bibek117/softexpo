@@ -19,5 +19,10 @@ Route::middleware(['admin'])->prefix('appAdmin')->group(function () {
     Route::get('/all-leads',[App\Http\Controllers\Admin\DashboardController::class, 'allLeads']);
     Route::get('/all-softwares',[App\Http\Controllers\Admin\DashboardController::class, 'allSoftwares']);
     Route::get('/all-categories',[App\Http\Controllers\Admin\DashboardController::class, 'allCats']);
+    Route::get('/all-admins',[App\Http\Controllers\Admin\AdminController::class, 'allAdmins']);
+    Route::post('/add-admins',[App\Http\Controllers\Admin\AdminController::class, 'store']);
+    Route::put('/deactivate/{id}',[App\Http\Controllers\Admin\AdminController::class, 'deactivate']);
+    Route::delete('/delete/{id}',[App\Http\Controllers\Admin\AdminController::class, 'delete']);
+
 
 });

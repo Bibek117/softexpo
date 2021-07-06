@@ -21,6 +21,7 @@ class VendorTableSeeder extends Seeder
             'name' => "CodewithSudeep",
             'email' => 'codewithsudeep@gmail.com',
             'password' => Hash::make('password'),
+            'status' => 1
 
         ]);
     }

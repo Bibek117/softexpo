@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Collapse } from 'react-bootstrap';
 import { Dropdown } from 'react-bootstrap';
+import { isSuperAdmin } from '../Controllers/LoginController';
 // import {  } from 'react-i18next';
 
 class Sidebar extends Component {
@@ -35,7 +36,7 @@ class Sidebar extends Component {
     const dropdownPaths = [
       {path:'/apps', state: 'appsMenuOpen'},
       {path:'/data-entry', state: 'dataEntryOpen'},
-      {path:'/basic-ui', state: 'basicUiMenuOpen'},
+      {path:'/admins', state: 'basicUiMenuOpen'},
       {path:'/form-elements', state: 'formElementsMenuOpen'},
       {path:'/tables', state: 'tablesMenuOpen'},
       {path:'/icons', state: 'iconsMenuOpen'},
@@ -80,14 +81,14 @@ class Sidebar extends Component {
               </ul>
             </Collapse>
           </li> */}
-          {/* <li className={ this.isPathActive('/basic-ui') ? 'nav-item active' : 'nav-item' }>
-
-            <Link className="nav-link" to="/appAdmin/users">
+          { isSuperAdmin ?
+          <li className={ this.isPathActive('/appAdmin/admins') ? 'nav-item active' : 'nav-item' }>
+            <Link className="nav-link" to="/appAdmin/admins">
               <i className="mdi mdi-crosshairs-gps menu-icon"></i>
-              <span className="menu-title"><>Users</></span>
+              <span className="menu-title"><>Admins</></span>
 
               </Link>
-          </li> */}
+          </li> : null }
           <li className={ this.isPathActive('/appAdmin/companies') ? 'nav-item active' : 'nav-item' }>
             <Link className="nav-link" to="/appAdmin/companies">
               <i className="mdi mdi-crosshairs-gps menu-icon"></i>

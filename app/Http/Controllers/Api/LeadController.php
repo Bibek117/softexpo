@@ -30,7 +30,7 @@ class LeadController extends Controller
             }
              return response()->json($data,200);
         }else{
-            return response()->json(['message'=>'Empty'],200);
+            return response()->json($data,200);
         }
     }
 

@@ -21,7 +21,8 @@ class AdminTableSeeder extends Seeder
             'name' => "Super Admin",
             'email' => 'superadmin@gmail.com',
             'password' => Hash::make('password'),
-            'user_role' => 0,
+            'user_role' => 1,
+            'status' => 1,
         ]);
     }
 }
