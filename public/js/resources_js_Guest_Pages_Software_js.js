@@ -464,17 +464,17 @@ function Software() {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h6", {
                 className: "card-header bg-success",
                 children: "Medias"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                 className: "card-body",
-                children: Product.software_media ? Product.software_media.ebooks ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+                children: [Product.software_media && Product.software_media.ebooks ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
                   href: Product.software_media.ebooks,
                   download: true,
                   children: "Ebook"
-                }) : null(Product.software_media.video_link) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("iframe", {
+                }) : null, Product.software_media && Product.software_media.video_link ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("iframe", {
                   src: Product.software_media.video_link,
                   download: true,
                   children: "Ebook"
-                }) : null : null
+                }) : null]
               })]
             })
           })]
