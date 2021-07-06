@@ -3369,6 +3369,11 @@ function Navbar() {
       Profile = _useState2[0],
       setProfile = _useState2[1];
 
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+      _useState4 = _slicedToArray(_useState3, 2),
+      Query = _useState4[0],
+      setQuery = _useState4[1];
+
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if ((0,_Controllers_AuthController__WEBPACK_IMPORTED_MODULE_1__.isUserLogedIn)()) {
       var data = (0,_Controllers_AuthController__WEBPACK_IMPORTED_MODULE_1__.getCurrentData)();
@@ -3385,6 +3390,10 @@ function Navbar() {
     (0,_Controllers_AuthController__WEBPACK_IMPORTED_MODULE_1__.logoutJS)().then(function () {
       return location.reload();
     });
+  };
+
+  var HandleSubmit = function HandleSubmit(e) {
+    e.preventDefault();
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("nav", {
@@ -3415,14 +3424,21 @@ function Navbar() {
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("form", {
         className: "ml-auto search-form d-none d-md-block",
-        action: "#",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        action: "/home/search",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "form-group",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
             type: "search",
+            name: "query",
             className: "form-control",
-            placeholder: "Search Here"
-          })
+            placeholder: "Search Here",
+            onChange: function onChange(e) {
+              return setQuery(e.target.value);
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "submit",
+            className: "d-none"
+          })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
         className: "navbar-nav navbar-nav-right",

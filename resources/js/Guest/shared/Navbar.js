@@ -74,7 +74,7 @@ function Navbar(){
           </ul>
           <form className="ml-auto search-form d-none d-md-block" action="#">
             <div className="form-group">
-              <input type="search" className="form-control" placeholder="Search Here" />
+              {/* <input type="search" className="form-control" placeholder="Search Here" /> */}
             </div>
           </form>
           <ul className="navbar-nav navbar-nav-right">

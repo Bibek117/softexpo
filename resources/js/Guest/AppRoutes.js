@@ -4,6 +4,7 @@ import AdminLogin from '../Admin/Login';
 import Login from '../Vendors/Login';
 import PublicRoutes from './components/PublicRoutes';
 import GuestLogin from './Login';
+const Search = lazy(()=>import('./Pages/Search'))
 const Home = lazy(()=>import('./Pages/Home'))
 const Software = lazy(()=>import('./Pages/Software'))
 import Spinner from './shared/Spinner';
@@ -22,6 +23,7 @@ class AppRoutes extends Component {
           <PublicRoutes path="/home/vendorlogin" component={Login} />
           <PublicRoutes path="/home/adminlogin" component={AdminLogin} />
           <PublicRoutes path="/home/guestlogin" component={GuestLogin} />
+          <PublicRoutes path="/home/search" component={Search} />
           <Redirect to="/home" />
         </Switch>
       </Suspense>

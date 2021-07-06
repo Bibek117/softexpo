@@ -5,6 +5,8 @@ import { getCurrentData, isUserLogedIn, logoutJS } from '../../Controllers/AuthC
 
 function Navbar(){
     const [Profile, setProfile] = useState({})
+    const [Query, setQuery] = useState('');
+
     useEffect(() => {
         if(isUserLogedIn()){
             const data = getCurrentData()
@@ -21,6 +23,11 @@ function Navbar(){
           e.preventDefault()
             logoutJS().then(()=>location.reload())
       }
+
+    const HandleSubmit = e =>{
+        e.preventDefault()
+
+    }
     return (
       <nav className="navbar col-lg-12 left-0 col-12 p-lg-0 fixed-top d-flex flex-row">
         <div className="navbar-menu-wrapper w-100 d-flex align-items-center justify-content-between">
@@ -32,9 +39,10 @@ function Navbar(){
                 </a>
             </li>
            </ul>
-          <form className="ml-auto search-form d-none d-md-block" action="#">
+          <form className="ml-auto search-form d-none d-md-block" action="/home/search">
             <div className="form-group">
-              <input type="search" className="form-control" placeholder="Search Here" />
+              <input type="search" name="query" className="form-control" placeholder="Search Here" onChange={e=>setQuery(e.target.value)}/>
+              <input type="submit" className="d-none" />
             </div>
           </form>
           <ul className="navbar-nav navbar-nav-right">
