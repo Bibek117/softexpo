@@ -44,7 +44,7 @@ function Dashboard() {
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     _axios__WEBPACK_IMPORTED_MODULE_1__.venodrAxios.get('/leads').then(function (res) {
-      return setLeadsCount(res.data.length);
+      return setLeadsCount(res.data);
     });
     _axios__WEBPACK_IMPORTED_MODULE_1__.venodrAxios.get('/all-softwares').then(function (res) {
       return setSoftwareCount(res.data.length);
@@ -132,7 +132,7 @@ function Dashboard() {
                 className: "d-xl-flex align-items-center",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
                   className: "font-weight-semibold mb-0",
-                  children: LeadsCount || "0"
+                  children: LeadsCount
                 })
               })]
             })]

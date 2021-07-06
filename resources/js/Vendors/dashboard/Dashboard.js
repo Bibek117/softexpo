@@ -8,7 +8,7 @@ function Dashboard(){
     const [SoftwareCount, setSoftwareCount] = useState('')
 
     useEffect(() => {
-        venodrAxios.get('/leads').then(res=>setLeadsCount(res.data.length))
+        venodrAxios.get('/leads').then(res=>setLeadsCount(res.data))
         venodrAxios.get('/all-softwares').then(res=>setSoftwareCount(res.data.length))
     }, [])
 
@@ -41,7 +41,7 @@ function Dashboard(){
                     <div className="wrapper">
                       <h5 className="mb-0">Total Leads</h5>
                       <div className="d-xl-flex align-items-center">
-                        <h2 className="font-weight-semibold mb-0">{LeadsCount || "0"}</h2>
+                        <h2 className="font-weight-semibold mb-0">{LeadsCount}</h2>
                       </div>
                     </div>
                   </div>

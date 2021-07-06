@@ -25,7 +25,7 @@ class LeadController extends Controller
         if(count($data_all) > 0){
             foreach ($data_all as $key) {
                 if($key->leads){
-                    $data = $key->leads;
+                    $data[] = $key->leads;
                 }
             }
              return response()->json($data,200);
