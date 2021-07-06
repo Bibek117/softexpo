@@ -286,7 +286,7 @@ function About() {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           className: "col-lg-5 d-flex align-items-center justify-content-center about-img",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-            src: "assets/img/about-img.svg",
+            src: "/images/second.png",
             className: "img-fluid",
             alt: "",
             "data-aos": "zoom-in"
@@ -308,7 +308,7 @@ function About() {
                 children: "Want to be a Vendor?"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
                 to: "/vendor/dashboard",
-                className: "btn bth-lg btn-danger mt-3",
+                className: "btn py-3 btn-danger mt-3",
                 children: "BE A VENDOR"
               })]
             })
